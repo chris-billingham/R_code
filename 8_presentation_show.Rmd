@@ -1,0 +1,72 @@
+---
+title: "My Show 2017"
+author: "Tony Duan"
+date: "August 6, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Data Pipeline
+1. Package
+2. Data import
+3. Data EDA & visualization
+4. Data Cleaning
+5. Data Modeling
+6. Model Vaildation
+7. Model scoring
+8. Data output &presentation
+
+
+
+## 1.Package
+
+## 2. Data import
+1. import from xlsx
+2. import from csv
+3. import from SAS data
+3. import from Database
+
+## data test
+```{r,comment=""}
+head(mtcars)
+```
+```{r,comment="",echo=TRUE,eval=FALSE}
+tail(mtcars)
+```
+## data test2
+```{r,comment="",echo=TRUE}
+library(ggplot2)
+ggplot(mtcars, aes(x = mpg, y = disp)) +geom_point()
+```
+
+## hello
+### first sub heading
+#### second sub heading
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
