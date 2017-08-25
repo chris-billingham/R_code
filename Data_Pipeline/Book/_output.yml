@@ -1,6 +1,10 @@
 bookdown::gitbook:
   css: style.css
   config:
+    sharing:
+      facebook: yes
+      weibo: yes
+      twitter: yes
     toc:
       before: |
         <li><a href="./">Data Pipeline</a></li>
