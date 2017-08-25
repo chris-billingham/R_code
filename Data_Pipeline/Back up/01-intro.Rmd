@@ -1,0 +1,48 @@
+# Introduction {#intro}
+
+## History of analytic software
+**R** is an implementation of the **S** programming language and created by *Ross Ihaka* and *Robert Gentleman*. at the University of Auckland, New Zealand.R is named partly after the first names of the first two R authors and partly as a play on the name of S. The project was conceived in **1992**, with an initial version released in 1995 and a stable beta version in 2000.
+
+**Python** is created by *Guido van Rossum* in **1991**.Python 3.0 was released on **2008**
+
+**S** is a statistical programming language developed primarily by *John Chambers* at Bell Laboratories in **1975**
+
+Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. Chamberlin* and *Raymond F. Boyce* in **1970**
+
+The development of **SAS** began in **1966** at North Carolina State University by *Anthony Barr* and his student *James Goodnight*(current CEO of SAS)
+
+**C** was originally developed by *Dennis Ritchie* between **1969** and **1973** at Bell Labs
+
+## Install R
+
+R is a **free software** environment for statistical computing and graphics.Download R at CRAN:[www.r-project.org](https://www.r-project.org/)
+
+**CRAN** stand for The Comprehensive R Archive Network. It is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.
+
+**CRAN** is maintained by the efforts of volunteers (the “CRAN team”).That is a group of talent who contribute their time and expertise to make better **Package**
+
+## Install RStudio
+
+RStudio is an **integrated development environment (IDE)** for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.
+
+Download R Studio:[www.rstudio.com](https://www.rstudio.com/)
+
+## Software navigation
+
+### R
+
+### Rstudio
+
+## Version and location
+
+Check R version run:
+```{r}
+version
+```
+
+update R version run:
+```{r eval=FALSE}
+install.packages("installr")
+library(installr)
+updateR()
+```
