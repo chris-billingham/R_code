@@ -2,23 +2,25 @@
 
 ASDFASDFA
 
+## Mapping
 
-##presentation
+
+## R Presentation
 
 
-### R markdown
+## R markdown
 
 word
 
 
 
-### R notebook
+## R notebook
 
-### R bookdown
+## R bookdown
 
-### R mindmap
+## R mindmap
 
-### Shiny App
+## Shiny App
 
-unlink("C:/Users/User/Desktop/Mission/R/R_code/data/test001.txt")
+
 

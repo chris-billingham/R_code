@@ -1,3 +1,9 @@
 # Data Cleaning
 
-We have finished a nice book.
+## Work throught the data like a Ninja
+
+Can you jump,can you nae nae,can you reverse can you filp,split and merge back ,group by and then devide.
+
+Data come in differenct shapes and sizes.
+
+Data cleaning seems to be a dirty job at first ,but its truely the art of data.

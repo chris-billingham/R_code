@@ -22,10 +22,13 @@
 #install.packages("googleVis")
 
 #install.packages("jsonlite")
+
+#install.packages("zip")
 library(jsonlite)
 #install.packages("httpuv")
 library(httpuv)
 #install.packages("httr")
+install.packages("fun")
 library(httr)
 library(base64enc)
 library(twitteR)
@@ -35,9 +38,27 @@ library(RCurl)
 library(xlsx)
 library(readxl)
 library(dplyr)
+library(fun)
 #options(httr_oauth_cache=T)
 
 library(googleVis)
+library(zip)
+
+shell("notepad") 
+
+system("./Notepad++ wx_gzh.js")
+
+getwd()
+
+unzip("./A_B.zip","./test_file")
+
+zip("A_B.zip", c("A.txt", "B.txt"))
+unzip("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/A_B.zip")
+setwd('C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book')
+
+unzip("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/A_B.zip","C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/tt",overwrite=TRUE)
+
+
 
 
 excel_sheets("C:/Users/User/Desktop/Mission/R/data/xlsx001.xlsx")
@@ -196,22 +217,6 @@ download.file(url_xls,"local_latitude.xls")
 # Import the local .xls file with readxl: excel_readxl
 excel_readxl= read_excel("local_latitude.xls")
 
-###########################   APIs & JSON   ##################################
-
-# Load the  package
-library(jsonlite)
-
-# wine_json is a JSON
-wine_json <- '{"name":"Chateau Migraine", "year":1997, "alcohol_pct":12.4, "color":"red", "awarded":false}'
-
-# Convert wine_json into a list: wine
-wine=fromJSON(wine_json)
-
-# Print structure of wine
-str(wine)
-wine
-
-
 #############################  read SAS #######################
 #install.packages("haven")
 library(haven)
@@ -230,6 +235,131 @@ data001_v2=read_sas("C:/Users/tduan/Desktop/data_account002.sas7bdat")
 
 
 ########################   API  &  Json ###########################
+#   Json
+# Load the  package
+library(jsonlite)
+
+# wine_json is a JSON
+wine_json <- '{"name":"Chateau Migraine", "year":1997, "alcohol_pct":12.4, "color":"red", "awarded":false}'
+
+# Convert wine_json into a list: wine
+wine=fromJSON(wine_json)
+
+# Print structure of wine
+str(wine)
+wine
+
+##################### Star War API   #################
+
+
+library(httr)
+library(jsonlite)
+
+# https://swapi.co/
+# Goal: Get the data for the planet Alderaan
+# verb (method) = GET
+# URL (endpoint) = http://swapi.co/api/planets/
+# parameter = search
+
+alderaan <- GET("http://swapi.co/api/planets/?search=alderaan")
+
+
+alderaan$status_code
+alderaan$headers$`content-type`
+names(alderaan)
+
+# Get the content of the response
+text_content <- content(alderaan, as = "text", encoding = "UTF-8")
+text_content
+
+# Parse with httr
+parsed_content <- content(alderaan, as = "parsed")
+names(parsed_content)
+parsed_content$count
+str(parsed_content$results)
+parsed_content$results[[1]]$name
+parsed_content$results[[1]]$terrain
+
+# Parse with jsonlite
+json_content <- text_content %>% fromJSON
+json_content
+planetary_data <- json_content$results
+names(planetary_data)
+planetary_data$name
+planetary_data$terrain
+
+# -------------------------------
+
+# Helper function
+json_parse <- function(req) {
+  text <- content(req, as = "text", encoding = "UTF-8")
+  if (identical(text, "")) warn("No output to parse.")
+  fromJSON(text)
+}
+
+# List results
+planets <- GET("http://swapi.co/api/planets") %>% stop_for_status()
+json_planets <- json_parse(planets)
+
+# The response includes metadata as well as results
+names(json_planets)
+json_planets$count
+length(json_planets$results$name)
+json_planets$`next`
+
+swapi_planets <- json_planets$results
+swapi_planets$name
+
+# Get the next page of results based on the content of the `next` field
+next_page <- GET(json_planets$`next`) %>% stop_for_status()
+
+# Use a function to parse the results
+parsed_next_page <- json_parse(next_page)
+parsed_next_page$results$name
+
+# If the API results come back paged like this, you can write a loop to follow the next URL 
+# until the there are no more pages, and rbind all the data into a single dataframe.
+
+# Grab data on all of the Star Wars planets
+planets <- GET("http://swapi.co/api/planets") %>% 
+  stop_for_status() %>% 
+  json_parse
+swapi_planets <- planets$results
+
+next_page <- planets$`next`
+while(!is.null(next_page)) {
+  more_planets <- GET(next_page) %>% 
+    stop_for_status() %>% 
+    json_parse
+  swapi_planets <- rbind(swapi_planets, more_planets$results)
+  next_page <- more_planets$`next`
+}
+
+length(swapi_planets$name)
+swapi_planets$name
+
+# In real life, you'd also want to handle any errors, headers, proxy, rate limits, etc. as needed.
+help(package=httr)
+
+
+
+
+##################### Douban movie  API   #################
+library(RCurl)
+library(XML)
+library(RJSONIO)
+movieScoreapi <- function(x) {
+  api <- "https://api.douban.com/v2/movie/search?q={"
+  url <- paste(api, x, "}", sep = "")
+  res <- getURL(url)
+  reslist <- fromJSON(res)
+  name <- reslist$subjects[[1]]$title
+  score <- reslist$subjects[[1]]$rating$average
+  return(list(name = name, score = score))
+}
+movieScoreapi("僵尸世界大战")
+
+
 
 ##############  twitter API   ################
 # https://apps.twitter.com/app/14115179/keys
@@ -258,7 +388,7 @@ github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
 # Use API
 gtoken <- config(token = github_token)
 
-######################    account jcflyingco    ################3
+#account jcflyingco    ########
 req <- GET("https://api.github.com/users/jcflyingco/repos", gtoken)
 # Take action on http error
 stop_for_status(req)
@@ -270,7 +400,7 @@ gitDF = jsonlite::fromJSON(jsonlite::toJSON(json1))
 glimpse(gitDF)
 
 
-######################    account jcflyingco v2   ################3
+##  account jcflyingco v2   ###
 json_data=fromJSON("https://api.github.com/users/jcflyingco/repos")
 glimpse(json_data)
 ######################    account hadley    ################3

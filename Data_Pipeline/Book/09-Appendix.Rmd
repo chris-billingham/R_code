@@ -1,0 +1,27 @@
+# Appendix
+
+
+## The Giants
+"If I have seen further, it is by standing on the shoulders of giants" by Isaac Newton.
+
+Hadley Wickham
+
+Joe Cheng
+
+Yihui Xie 谢益辉
+
+
+## The Talk
+
+All Things R and RStudio
+Q&A with J.J. Allaire, Hadley Wickham & Joe Cheng
+Moderator: Joseph Rickert
+
+https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/
+
+
+## The Walk
+
+follow the master,work with the master and become the master 
+
+
