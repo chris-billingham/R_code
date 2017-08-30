@@ -1,0 +1,72 @@
+---
+title: "AB_Testing"
+author: "Tony D"
+date: "2017/8/26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+R Markdown
+by Google and Udacity
+https://classroom.udacity.com/courses/ud257
+
+# 1: Overview of A/B Testing
+## 3. Intro to A/B Testing  
+## 5. Quiz: More A/B Testing Possibilities
+## 6. Other Techniques
+## 7. History of A/B Testing
+## 8. Overview of Business Example
+## 9. Metric Choice
+## 10. Estimating Click-Through-Probability
+## 11. Quiz: Repeating the Experiment
+## 12. Which Distribution?
+## 13. Quiz: Binomial Distribution
+## 14. Confidence Intervals 
+## 15. Quiz: Calculating a Confidence Interval
+## 16. Establishing Statistical Significance
+## 17. Quiz: Null and Alternative Hypothesis
+## 18. Comparing Two Samples
+## 19. Pooled Standard Error
+## 20. Practical, or Substantive, Significance
+## 21. Size vs. Power Trade-Off
+## 22. How Page Views Affect Sensitivity
+## 23. Quiz: Calculating Number of Pages Views Needed
+http://www.evanmiller.org/ab-testing/sample-size.html
+## 24. Quiz: How Does Number of Page Views Vary?
+## 25. Quiz: Calculating Results
+## 26. Quiz: Confidence Interval Case Breakdown
+## 27. Making Decisions about Uncertain Data
+## 28. Conclusion
+## 29. Quiz: Survey Says!
+
+
+# 2: Policy and Ethics for Experiments
+
+## 1. Introduction
+## 2. Tuskegee and Milgram Experiments
+## 3. Facebook Experiment
+## 4. First Principle: Risk
+## 5. Quiz: Assessing Risk
+## 6. Next Two Principles
+## 7. Fourth Principle: Data Sensitivity
+## 8. Quiz: Assessing Data Sensitivity
+## 9. Questions and Consent
+## 10. Summary of Principles
+## 11. Quiz: Which Tests Need Further Review?
+## 12. Internal Process
+## 13. Quiz: Provided Information
+## 14. Quiz: Internal Training
+## 15. Conclusion
+
+
+
+
+# 3: Choosing and Characterizing Metrics
+# 4: Designing an Experiment
+# 5: Analyzing Results
+# 6: Final Project
+
+

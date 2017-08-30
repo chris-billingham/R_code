@@ -4,6 +4,8 @@
 #install.packages('ggvis')
 #install.packages('knitr')
 #devtools::install_github("hrbrmstr/xmlview")
+
+library(RCurl)
 library(rvest)
 library(stringr)
 library(plyr)
@@ -41,25 +43,64 @@ library(xmlview)
 getwd()
 setwd('C:/Users/tduan/Desktop/Mission/R/R_code/web crawler')
 
+setwd('C:/Users/User/Desktop/Mission/R/R_code/web crawler')
 
 
-#Create JS 
+Account_url='http://mp.weixin.qq.com/profile?src=3&timestamp=1503844892&ver=1&signature=qu-LwAecFNHrhTh3IK64RvupYOW1SV*O6iTDgQPv5PhZuMefPhRZ5Sj1GORmZqnPFulmv4WAciFmik-Kwr04Gw=='
 
-#var webPage = require('webpage');
-#var page = webPage.create();
+#Create JS method 1
+connection="wx_gzh.js"
+js_doc_full="var webPage = require('webpage');
+var page = webPage.create();
 
-#var fs = require('fs');
-#var path = 'techstars.html'
+var fs = require('fs');
+var path = 'techstars.html'
 
-#page.open('https://mp.weixin.qq.com/profile?src=3&timestamp=1503743147&ver=1&signature=qu-LwAecFNHrhTh3IK64RvupYOW1SV*O6iTDgQPv5PhZuMefPhRZ5Sj1GORmZqnPucW0b5AXUgOI*u1eNz704w==', function (status) {
-#  var content = page.content;
-#  fs.write(path,content,'w')
-#  phantom.exit();
-#});
+page.open('https://mp.weixin.qq.com/profile?src=3&timestamp=1503743147&ver=1&signature=qu-LwAecFNHrhTh3IK64RvupYOW1SV*O6iTDgQPv5PhZuMefPhRZ5Sj1GORmZqnPucW0b5AXUgOI*u1eNz704w==', function (status) {
+  var content = page.content;
+  fs.write(path,content,'w')
+  phantom.exit();
+});"
+
+writeLines(sprintf(js_doc_full)
+           ,con=connection)
 
 
+#Create JS method 2
+js_doc_1="var webPage = require('webpage');
+var page = webPage.create();
+
+var fs = require('fs');
+var path = 'techstars.html'
+
+page.open('"
+
+js_doc_2="', function (status) {
+  var content = page.content;
+  fs.write(path,content,'w')
+  phantom.exit();
+});"
+
+
+sink("wx_gzh.js")
+cat(js_doc_1,Account_url,js_doc_2, sep='')
+sink()
+###########################################################
+
+thepage = readLines('http://mp.weixin.qq.com/profile?src=3&timestamp=1503844892&ver=1&signature=qu-LwAecFNHrhTh3IK64RvupYOW1SV*O6iTDgQPv5PhZuMefPhRZ5Sj1GORmZqnPFulmv4WAciFmik-Kwr04Gw==')
+
+
+sink("thepage.html")
+cat(thepage)
+sink()
+txt <- getURL('http://mp.weixin.qq.com/profile?src=3&timestamp=1503844892&ver=1&signature=qu-LwAecFNHrhTh3IK64RvupYOW1SV*O6iTDgQPv5PhZuMefPhRZ5Sj1GORmZqnPFulmv4WAciFmik-Kwr04Gw==')
+
+sink("txt.txt")
+cat(txt)
+sink()
+account_html=read_html("thepage.html")
 #get html 
-system("./phantomjs wx2.js")
+system("./phantomjs wx_gzh.js")
 
 #read html
 account_html=read_html("techstars.html")

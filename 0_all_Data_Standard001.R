@@ -44,6 +44,21 @@ head(test001)
 test001=as.tbl(test001)
 test001
 
+getwd()
+cat("file A\n", file = "A")
+cat("file B\n", file = "B")
+cat("file C\n", file = "C")
+file.append("A", rep("B", 10))
+
+file.show("A")
+
+unlink("C")
+file.remove("A", "B")
+
+
+
+
+
 ########    3 Data EDA        ##########
 train001
 head(train001)

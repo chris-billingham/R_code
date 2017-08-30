@@ -1,5 +1,64 @@
 # Data import
 
+## interactive with Operation System[OS]
+get current working loaction:
+```{r}
+getwd()
+```
+
+Set current working loaction:
+```{r eval=FALSE}
+setwd("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book")
+```
+
+
+show location files:
+```{r}
+dir(getwd())
+```
+
+create file A B C:
+```{r eval=FALSE}
+cat("file A\n", file = "A")
+cat("file B\n", file = "B")
+cat("file C\n", file = "C")
+file.append("A", rep("B", 10))
+
+file.show("A")
+```
+
+delete a file with unlink or file.remove():
+```{r eval=FALSE}
+unlink("C")
+file.remove("A", "B")
+```
+
+check a file existence:
+```{r}
+dir.exists('test_file')
+```
+
+create a file :
+```{r}
+dir.create('test_file')
+```
+
+Download Files:
+```{r eval=FALSE}
+download.file()
+```
+
+untar a file:
+```{r eval=FALSE}
+untar()
+```
+
+check file info:
+```{r }
+library(dplyr)
+dir(getwd())%>%file.info()
+```
+
 
 ##Excel
 
@@ -25,3 +84,4 @@ dplyr
 
 SAS
 
+## Web Crawler

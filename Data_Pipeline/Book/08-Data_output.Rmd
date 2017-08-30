@@ -4,3 +4,21 @@ ASDFASDFA
 
 
 ##presentation
+
+
+### R markdown
+
+word
+
+
+
+### R notebook
+
+### R bookdown
+
+### R mindmap
+
+### Shiny App
+
+unlink("C:/Users/User/Desktop/Mission/R/R_code/data/test001.txt")
+
