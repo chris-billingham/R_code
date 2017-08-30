@@ -105,8 +105,23 @@ shutdown(wait=10)
 ```
 
 
+## Play music
+```{r eval=FALSE}
+library(tuneR)
+File1<- readMP3("Becoming_A_Legend.mp3")
+play(File1)
+```
 
-##Excel
+# image
+```{r eval=FALSE}
+library(png)
+img<-readPNG("R_logo.png")
+```
+
+
+## CSV
+
+## Excel
 
 asdfasdf
 
@@ -116,7 +131,7 @@ XLConnect
 
 
 
-##Database 
+## Database 
 
 RJDBC
 

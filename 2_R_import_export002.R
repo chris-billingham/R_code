@@ -50,13 +50,34 @@ system("./Notepad++ wx_gzh.js")
 
 getwd()
 
-unzip("./A_B.zip","./test_file")
 
-zip("A_B.zip", c("A.txt", "B.txt"))
-unzip("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/A_B.zip")
-setwd('C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book')
 
-unzip("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/A_B.zip","C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book/tt",overwrite=TRUE)
+########  audio
+install.packages('audio')
+library(audio)
+bday_file <- tempfile()
+download.file("http://www.happybirthdaymusic.info/01_happy%20birthday%20song.wav", bday_file, mode = "wb")
+bday <- load.wave(bday_file)
+play(bday)
+#install.packages('tuneR')
+library(tuneR)
+
+File1<- readMP3("Becoming_A_Legend.mp3")
+play(File1)
+
+
+
+
+# image
+install.packages('png')
+library(png)
+#read file
+img<-readPNG("R_logo.png")
+
+#get size
+dim(img)[1]
+dim(img)[2]
+dim(img)
 
 
 
