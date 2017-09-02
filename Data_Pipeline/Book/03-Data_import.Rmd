@@ -11,13 +11,35 @@ Set current working loaction:
 setwd("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book")
 ```
 
+Get computer info:
+```{r}
+Sys.info()
+```
+
+Get file size:
+```{r warning=FALSE}
+#install.packages('pryr')
+library(pryr)
+object_size(mtcars)
+```
+
+Check how much memory R is using :
+```{r warning=FALSE}
+mem_used()
+memory.size()
+```
+
+Check RAM limit :
+```{r warning=FALSE}
+memory.limit()
+```
 
 Show location files:
 ```{r}
 dir(getwd())
 ```
 
-create file A B C:
+Create file A B C:
 ```{r eval=FALSE}
 cat("file A\n", file = "A.txt")
 cat("file B\n", file = "B.txt")
@@ -93,7 +115,7 @@ untar()
 ```
 
 Check file info:
-```{r }
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 dir(getwd())%>%file.info()
 ```
@@ -112,7 +134,7 @@ File1<- readMP3("Becoming_A_Legend.mp3")
 play(File1)
 ```
 
-# image
+## image
 ```{r eval=FALSE}
 library(png)
 img<-readPNG("R_logo.png")
@@ -120,6 +142,11 @@ img<-readPNG("R_logo.png")
 
 
 ## CSV
+Read csv file:
+```{r eval=FALSE}
+zipcode <- read.csv("zipcode.csv", header=TRUE)
+```
+
 
 ## Excel
 
@@ -143,6 +170,17 @@ dplyr
 
 ## Other
 
-SAS
+### SAS
+### Matlab 
 
 ## Web Crawler
+
+### rvest
+
+### RCurl
+
+### RSelenium
+
+
+
+
