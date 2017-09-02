@@ -22,7 +22,7 @@ Install a package from Github**(NOT recommended)**:
 ```{r eval=FALSE}
 install.packages("devtools")
 library(devtools)
-install_github("hadley/dplyr")
+devtools::install_github("rstudio/bookdown")
 ```
 Get help on Package: question mark follow by package name
 ```{r eval=FALSE}
