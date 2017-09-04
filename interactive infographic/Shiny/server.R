@@ -20,7 +20,6 @@ server <- function(input, output) {
            )
   })
   
-  
   # renderPlotly() also understands ggplot2 objects!
   output$plot001 <- renderPlotly({
     plot_ly(datasetInput(), x = ~gmv2, y = ~city, type = 'bar', name = 'gmv',orientation = 'h'
@@ -34,6 +33,9 @@ server <- function(input, output) {
         barmode = 'stack'
       )
   })
+  
+  output$value <- renderPrint({ input$date })
+  
     output$plot002 <- renderPlotly({
       plot_ly(datasetInput(), x = ~gmv2, y = ~city, type = 'bar', name = 'gmv',orientation = 'h'
       ) %>%

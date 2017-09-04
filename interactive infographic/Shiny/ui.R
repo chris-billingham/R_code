@@ -27,9 +27,8 @@ ui=shinyUI(pageWithSidebar(
     verbatimTextOutput("event")
     ),
     tabPanel("Opt-in"),
-    tabPanel("whitelist"),
+    tabPanel("date",verbatimTextOutput("value")),
     tabPanel("video",tags$iframe(src = "https://www.youtube.com/embed/H2xaRA-rUnE"))
-   
     )
   )
 ))
