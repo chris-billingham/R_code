@@ -12,7 +12,7 @@ sail the Seven Seas
 
 In the 9th century AD, author Ya'qubi wrote:
 
-Whoever wants to go to China must cross seven seas, each one with its own color and wind and fish and breeze, completely unlike the sea that lies beside it. The first of them is the Sea of Fars, which men sail setting out from Siraf. It ends at Ra¡¯s al-Jumha; it is a strait where pearls are fished. The second sea begins at Ra¡¯s al-Jumha and is called Larwi. It is a big sea, and in it is the Island of Waqwaq and others that belong to the Zanj. These islands have kings. One can only sail this sea by the stars. It contains huge fish, and in it are many wonders and things that pass description. The third sea is called Harkand, and in it lies the Island of Sarandib, in which are precious stones and rubies. Here are islands with kings, but there is one king over them. In the islands of this sea grow bamboo and rattan. The fourth sea is called Kalah and is shallow and filled with huge serpents. Sometimes they ride the wind and smash ships. Here are islands where the camphor tree grows. The fifth sea is called Salahit and is very large and filled with wonders. The sixth sea is called Kardanj; it is very rainy. The seventh sea is called the sea of Sanji, also known as Kanjli. It is the sea of China; one is driven by the south wind until one reaches a freshwater bay, along which are fortified places and cities, until one reaches Khanfu.[7]
+Whoever wants to go to China must cross seven seas, each one with its own color and wind and fish and breeze, completely unlike the sea that lies beside it. The first of them is the Sea of Fars, which men sail setting out from Siraf. It ends at Ra??s al-Jumha; it is a strait where pearls are fished. The second sea begins at Ra??s al-Jumha and is called Larwi. It is a big sea, and in it is the Island of Waqwaq and others that belong to the Zanj. These islands have kings. One can only sail this sea by the stars. It contains huge fish, and in it are many wonders and things that pass description. The third sea is called Harkand, and in it lies the Island of Sarandib, in which are precious stones and rubies. Here are islands with kings, but there is one king over them. In the islands of this sea grow bamboo and rattan. The fourth sea is called Kalah and is shallow and filled with huge serpents. Sometimes they ride the wind and smash ships. Here are islands where the camphor tree grows. The fifth sea is called Salahit and is very large and filled with wonders. The sixth sea is called Kardanj; it is very rainy. The seventh sea is called the sea of Sanji, also known as Kanjli. It is the sea of China; one is driven by the south wind until one reaches a freshwater bay, along which are fortified places and cities, until one reaches Khanfu.[7]
 
 This passage demonstrates the Seven Seas as referenced in Medieval Arabian literature: the Persian Gulf ("Sea of Fars"), the Arabian Sea ("Sea of Larwi"[8]), the Bay of Bengal ("Sea of Harkand"[9]), the Strait of Malacca ("Sea of Kalah"[10]), the Singapore Strait ("Sea of Salahit"[11]), the Gulf of Thailand ("Sea of Kardanj"[10]), and the South China Sea ("Sea of Sanji"[10]).
 
@@ -63,6 +63,20 @@ DiagrammeR("graph TB
   
   
 ## Shiny App
+
+**Interact. Analyze. Communicate.**
+Take a fresh, interactive approach to telling your data story with Shiny. Let users interact with your data and your analysis. And do it all with R.
+
+by Joe Cheng
+https://shiny.rstudio.com/gallery/
+
+https://rstudio.github.io/shiny/tutorial/
+
+https://www.shinyapps.io/
+
+
+
+
 
 
 
