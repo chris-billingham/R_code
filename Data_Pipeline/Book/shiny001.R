@@ -68,3 +68,19 @@ server <- function(input, output) {
 
 # Create Shiny app ----
 shinyApp(ui = ui, server = server)
+
+a=c(1,2,3)
+data(mtcars)
+mtcars$carnmae=row.names(mtcars)
+mtcars
+
+install.packages('scales')
+
+library(scales)
+library(ggplot2)
+
+g <- ggplot(mtcars, aes(x=carnmae,y=mpg))
+# Number of cars in each class:
+g + geom_bar()
+
+
