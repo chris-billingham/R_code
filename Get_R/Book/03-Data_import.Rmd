@@ -156,7 +156,8 @@ readxl
 
 XLConnect
 
-
+## Google sheet
+https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
 
 ## Database 
 
