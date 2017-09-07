@@ -23,6 +23,16 @@ Finding and Telling Stories with R
 by Andrew Flowers from FiveThirtyEight
 https://www.rstudio.com/resources/videos/finding-and-telling-stories-with-r/
 
+install.packages('fivethirtyeight')
+library(fivethirtyeight)
+
+1.Novelty
+2.Outlier
+3.Archetype
+4.Trend
+5.Debunking
+6.Forecast
+
 
 ## The Walk
 
