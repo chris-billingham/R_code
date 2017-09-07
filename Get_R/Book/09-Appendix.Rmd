@@ -16,8 +16,12 @@ Yihui Xie 谢益辉
 All Things R and RStudio
 Q&A with J.J. Allaire, Hadley Wickham & Joe Cheng
 Moderator: Joseph Rickert
-
 https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/
+
+
+Finding and Telling Stories with R
+by Andrew Flowers from FiveThirtyEight
+https://www.rstudio.com/resources/videos/finding-and-telling-stories-with-r/
 
 
 ## The Walk
