@@ -8,7 +8,7 @@ getwd()
 
 Set current working loaction:
 ```{r eval=FALSE}
-setwd("C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book")
+setwd("C:/Users/User/Desktop/Mission/R/R_code/Get_R/Book")
 ```
 
 Get computer info:
@@ -17,14 +17,14 @@ Sys.info()
 ```
 
 Get file size:
-```{r warning=FALSE}
+```{r eval=FALSE}
 #install.packages('pryr')
 library(pryr)
 object_size(mtcars)
 ```
 
 Check how much memory R is using :
-```{r warning=FALSE}
+```{r eval=FALSE}
 mem_used()
 memory.size()
 ```

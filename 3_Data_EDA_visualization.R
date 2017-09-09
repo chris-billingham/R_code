@@ -1,12 +1,98 @@
 
 # http://ggplot2.tidyverse.org/reference/
 
-library(tidyverse)
-library(sqldf)
-library(ggplot2)
+#install.packages('tidyverse')
+#install.packages('psych')
+#install.packages('reshape2')
+
+install.packages("rbokeh")
 Sys.setenv(LANG = "en")
 Sys.setlocale("LC_ALL", "English")
+
+library(tidyverse)
+
+#############   Correlation   ##################################
+
+head(mtcars)
+
+# Pearson product-moment correlation(r) with no missing value
+mtcars %>%summarize(N = n(), r = cor(mpg,wt, 
+                                     use = "pairwise.complete.obs"))
+
+
+mtcars %>%group_by(cyl)%>%summarize(N = n(), r = cor(mpg,wt, 
+                                     use = "pairwise.complete.obs"))
+mtcars001=mtcars
+glimpse(mtcars001)
+
+
+
+
+ggplot(data = mtcars, aes(x = mpg, y = wt)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+
+
+library(tidyverse)
+
+library(dplyr)
+glimpse(mtcars)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# numeric  vs numeric
+ggplot(data = mtcars001, aes(x = hp, y = mpg)) + 
+  geom_point()
+
+# numeric  vs character
+ggplot(data = mtcars001, aes(x = cut(hp, breaks = 5), y = mpg)) + 
+  geom_point()
+
+
+
+
+
+
+##########   Outlier #########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#############   Regression    ####################################
+
+
+
+
+
+
+
+
+
+
 #######################       Scatter plot     #################################
+
 
 t001=mtcars
 glimpse(mtcars)

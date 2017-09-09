@@ -13,7 +13,6 @@ Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. 
 
 The development of **SAS** began in **1966** at North Carolina State University by *Anthony Barr* and his student *James Goodnight*(current CEO of SAS).
 
-**C** was originally developed by *Dennis Ritchie* between **1969** and **1973** at Bell Labs.
 
 ## Install R
 
