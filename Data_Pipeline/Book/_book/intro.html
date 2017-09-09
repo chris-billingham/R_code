@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Pipeline</title>
+  <meta name="description" content="This is a Data Pipeline guide .">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Pipeline" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a Data Pipeline guide ." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Pipeline" />
+  
+  <meta name="twitter:description" content="This is a Data Pipeline guide ." />
+  
+
+<meta name="author" content="Tony Duan">
+
+
+<meta name="date" content="2017-09-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="package.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Pipeline</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#history-of-analytic-software"><i class="fa fa-check"></i><b>2.1</b> History of analytic software</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#install-r"><i class="fa fa-check"></i><b>2.2</b> Install R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#install-rstudio"><i class="fa fa-check"></i><b>2.3</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#software-navigation"><i class="fa fa-check"></i><b>2.4</b> Software navigation</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#r"><i class="fa fa-check"></i><b>2.4.1</b> R</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#version-and-location"><i class="fa fa-check"></i><b>2.5</b> Version and location</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>3</b> Package</a></li>
+<li class="chapter" data-level="4" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>4</b> Data import</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-import.html"><a href="data-import.html#interactive-with-operation-systemos"><i class="fa fa-check"></i><b>4.1</b> interactive with Operation System[OS]</a></li>
+<li class="chapter" data-level="4.2" data-path="data-import.html"><a href="data-import.html#play-music"><i class="fa fa-check"></i><b>4.2</b> Play music</a></li>
+<li class="chapter" data-level="4.3" data-path="data-import.html"><a href="data-import.html#csv"><i class="fa fa-check"></i><b>4.3</b> CSV</a></li>
+<li class="chapter" data-level="4.4" data-path="data-import.html"><a href="data-import.html#excel"><i class="fa fa-check"></i><b>4.4</b> Excel</a></li>
+<li class="chapter" data-level="4.5" data-path="data-import.html"><a href="data-import.html#database"><i class="fa fa-check"></i><b>4.5</b> Database</a></li>
+<li class="chapter" data-level="4.6" data-path="data-import.html"><a href="data-import.html#http"><i class="fa fa-check"></i><b>4.6</b> HTTP</a></li>
+<li class="chapter" data-level="4.7" data-path="data-import.html"><a href="data-import.html#api-json"><i class="fa fa-check"></i><b>4.7</b> API &amp; JSON</a></li>
+<li class="chapter" data-level="4.8" data-path="data-import.html"><a href="data-import.html#other"><i class="fa fa-check"></i><b>4.8</b> Other</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-import.html"><a href="data-import.html#sas"><i class="fa fa-check"></i><b>4.8.1</b> SAS</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-import.html"><a href="data-import.html#matlab"><i class="fa fa-check"></i><b>4.8.2</b> Matlab</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data-import.html"><a href="data-import.html#web-crawler"><i class="fa fa-check"></i><b>4.9</b> Web Crawler</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="data-import.html"><a href="data-import.html#rvest"><i class="fa fa-check"></i><b>4.9.1</b> rvest</a></li>
+<li class="chapter" data-level="4.9.2" data-path="data-import.html"><a href="data-import.html#rcurl"><i class="fa fa-check"></i><b>4.9.2</b> RCurl</a></li>
+<li class="chapter" data-level="4.9.3" data-path="data-import.html"><a href="data-import.html#rselenium"><i class="fa fa-check"></i><b>4.9.3</b> RSelenium</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-eda.html"><a href="data-eda.html"><i class="fa fa-check"></i><b>5</b> Data EDA</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-eda.html"><a href="data-eda.html#visualization"><i class="fa fa-check"></i><b>5.1</b> visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-cleaning.html"><a href="data-cleaning.html#work-throught-the-data-like-a-ninja"><i class="fa fa-check"></i><b>6.1</b> Work throught the data like a Ninja</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-modeling.html"><a href="data-modeling.html"><i class="fa fa-check"></i><b>7</b> Data Modeling</a></li>
+<li class="chapter" data-level="8" data-path="model-scoring.html"><a href="model-scoring.html"><i class="fa fa-check"></i><b>8</b> Model scoring</a></li>
+<li class="chapter" data-level="9" data-path="data-output.html"><a href="data-output.html"><i class="fa fa-check"></i><b>9</b> Data output</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-output.html"><a href="data-output.html#r-mapping"><i class="fa fa-check"></i><b>9.1</b> R Mapping</a></li>
+<li class="chapter" data-level="9.2" data-path="data-output.html"><a href="data-output.html#r-presentation"><i class="fa fa-check"></i><b>9.2</b> R Presentation</a></li>
+<li class="chapter" data-level="9.3" data-path="data-output.html"><a href="data-output.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="data-output.html"><a href="data-output.html#r-notebook"><i class="fa fa-check"></i><b>9.4</b> R notebook</a></li>
+<li class="chapter" data-level="9.5" data-path="data-output.html"><a href="data-output.html#r-bookdown"><i class="fa fa-check"></i><b>9.5</b> R bookdown</a></li>
+<li class="chapter" data-level="9.6" data-path="data-output.html"><a href="data-output.html#r-mindmap"><i class="fa fa-check"></i><b>9.6</b> R mindmap</a></li>
+<li class="chapter" data-level="9.7" data-path="data-output.html"><a href="data-output.html#r-diagramming"><i class="fa fa-check"></i><b>9.7</b> R diagramming</a></li>
+<li class="chapter" data-level="9.8" data-path="data-output.html"><a href="data-output.html#shiny-app"><i class="fa fa-check"></i><b>9.8</b> Shiny App</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>10</b> Appendix</a><ul>
+<li class="chapter" data-level="10.1" data-path="appendix.html"><a href="appendix.html#the-giants"><i class="fa fa-check"></i><b>10.1</b> The Giants</a></li>
+<li class="chapter" data-level="10.2" data-path="appendix.html"><a href="appendix.html#the-talk"><i class="fa fa-check"></i><b>10.2</b> The Talk</a></li>
+<li class="chapter" data-level="10.3" data-path="appendix.html"><a href="appendix.html#the-walk"><i class="fa fa-check"></i><b>10.3</b> The Walk</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Pipeline</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<div id="history-of-analytic-software" class="section level2">
+<h2><span class="header-section-number">2.1</span> History of analytic software</h2>
+<p><strong>R</strong> is an implementation of the <strong>S</strong> programming language and created by <em>Ross Ihaka</em> and <em>Robert Gentleman</em>. at the University of Auckland, New Zealand.R is named partly after the first names of the first two R authors and partly as a play on the name of S. The project was conceived in <strong>1992</strong>, with an initial version released in 1995 and a stable beta version in 2000.</p>
+<p><strong>Python</strong> is created by <em>Guido van Rossum</em> in <strong>1991</strong>.Python 3.0 was released on <strong>2008</strong>.</p>
+<p><strong>S</strong> is a statistical programming language developed primarily by <em>John Chambers</em> at Bell Laboratories in <strong>1975</strong>.</p>
+<p>Structured Query Language[<strong>SQL</strong>] was initially developed at IBM by <em>Donald D. Chamberlin</em> and <em>Raymond F. Boyce</em> in <strong>1970</strong>.</p>
+<p><em>Cleve Moler</em>, the chairman of the computer science department at the University of New Mexico, started developing <strong>MATLAB</strong> in the late <strong>1970</strong>.</p>
+<p>The development of <strong>SAS</strong> began in <strong>1966</strong> at North Carolina State University by <em>Anthony Barr</em> and his student <em>James Goodnight</em>(current CEO of SAS).</p>
+<p><strong>C</strong> was originally developed by <em>Dennis Ritchie</em> between <strong>1969</strong> and <strong>1973</strong> at Bell Labs.</p>
+</div>
+<div id="install-r" class="section level2">
+<h2><span class="header-section-number">2.2</span> Install R</h2>
+<p>R is a <strong>free software</strong> environment for statistical computing and graphics.Download R at CRAN:<a href="https://www.r-project.org/">www.r-project.org</a></p>
+<p><strong>CRAN</strong> stand for The Comprehensive R Archive Network. It is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.</p>
+<p><strong>CRAN</strong> is maintained by the efforts of volunteers (the ‘CRAN team’).That is a group of talent who contribute their time and expertise to make better <strong>Package</strong></p>
+</div>
+<div id="install-rstudio" class="section level2">
+<h2><span class="header-section-number">2.3</span> Install RStudio</h2>
+<p>RStudio is an <strong>integrated development environment (IDE)</strong> for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.</p>
+<p>Download R Studio:<a href="https://www.rstudio.com/">www.rstudio.com</a></p>
+</div>
+<div id="software-navigation" class="section level2">
+<h2><span class="header-section-number">2.4</span> Software navigation</h2>
+<div id="r" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> R</h3>
+</div>
+<div id="rstudio" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Rstudio</h3>
+</div>
+</div>
+<div id="version-and-location" class="section level2">
+<h2><span class="header-section-number">2.5</span> Version and location</h2>
+<p>Check R version run:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">version</code></pre></div>
+<pre><code>##                _                           
+## platform       i386-w64-mingw32            
+## arch           i386                        
+## os             mingw32                     
+## system         i386, mingw32               
+## status                                     
+## major          3                           
+## minor          4.0                         
+## year           2017                        
+## month          04                          
+## day            21                          
+## svn rev        72570                       
+## language       R                           
+## version.string R version 3.4.0 (2017-04-21)
+## nickname       You Stupid Darkness</code></pre>
+<p>update R version run:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;installr&quot;</span>)
+<span class="kw">library</span>(installr)
+<span class="kw">updateR</span>()</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": true,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

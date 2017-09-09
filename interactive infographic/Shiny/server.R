@@ -60,3 +60,21 @@ shinyApp(ui, server)
 
 #plotly_example("shiny", "event_data")
 
+
+
+  output$plot001 <- renderPlotly({
+    plot_ly(egd_opt_in004, x = ~E2E_DELIVERY, y = ~AM_CNTRY_CD , type = 'bar', name = 'E2E_DELIVERY',orientation = 'h')
+    %>%add_trace(x=~HANDLING_TIME,y = ~AM_CNTRY_CD, name = 'HANDLING_TIME',orientation = 'h') 
+    %>%add_trace(x=~not_opt_in,y = ~AM_CNTRY_CD, name = 'not_opt_in',orientation = 'h') 
+    %>%layout(
+      title='eGD',
+      xaxis = list(title = 'Account'),
+      yaxis = list(title = 'Region'), 
+      barmode = 'stack'
+    )
+  })
+  
+  
+  
+  
+  

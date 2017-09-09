@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Pipeline</title>
+  <meta name="description" content="This is a Data Pipeline guide .">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Pipeline" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a Data Pipeline guide ." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Pipeline" />
+  
+  <meta name="twitter:description" content="This is a Data Pipeline guide ." />
+  
+
+<meta name="author" content="Tony Duan">
+
+
+<meta name="date" content="2017-09-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="package.html">
+<link rel="next" href="data-eda.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Pipeline</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#history-of-analytic-software"><i class="fa fa-check"></i><b>2.1</b> History of analytic software</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#install-r"><i class="fa fa-check"></i><b>2.2</b> Install R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#install-rstudio"><i class="fa fa-check"></i><b>2.3</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#software-navigation"><i class="fa fa-check"></i><b>2.4</b> Software navigation</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#r"><i class="fa fa-check"></i><b>2.4.1</b> R</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#version-and-location"><i class="fa fa-check"></i><b>2.5</b> Version and location</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>3</b> Package</a></li>
+<li class="chapter" data-level="4" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>4</b> Data import</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-import.html"><a href="data-import.html#interactive-with-operation-systemos"><i class="fa fa-check"></i><b>4.1</b> interactive with Operation System[OS]</a></li>
+<li class="chapter" data-level="4.2" data-path="data-import.html"><a href="data-import.html#play-music"><i class="fa fa-check"></i><b>4.2</b> Play music</a></li>
+<li class="chapter" data-level="4.3" data-path="data-import.html"><a href="data-import.html#image"><i class="fa fa-check"></i><b>4.3</b> image</a></li>
+<li class="chapter" data-level="4.4" data-path="data-import.html"><a href="data-import.html#csv"><i class="fa fa-check"></i><b>4.4</b> CSV</a></li>
+<li class="chapter" data-level="4.5" data-path="data-import.html"><a href="data-import.html#excel"><i class="fa fa-check"></i><b>4.5</b> Excel</a></li>
+<li class="chapter" data-level="4.6" data-path="data-import.html"><a href="data-import.html#database"><i class="fa fa-check"></i><b>4.6</b> Database</a></li>
+<li class="chapter" data-level="4.7" data-path="data-import.html"><a href="data-import.html#http"><i class="fa fa-check"></i><b>4.7</b> HTTP</a></li>
+<li class="chapter" data-level="4.8" data-path="data-import.html"><a href="data-import.html#api-json"><i class="fa fa-check"></i><b>4.8</b> API &amp; JSON</a></li>
+<li class="chapter" data-level="4.9" data-path="data-import.html"><a href="data-import.html#other"><i class="fa fa-check"></i><b>4.9</b> Other</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="data-import.html"><a href="data-import.html#sas"><i class="fa fa-check"></i><b>4.9.1</b> SAS</a></li>
+<li class="chapter" data-level="4.9.2" data-path="data-import.html"><a href="data-import.html#matlab"><i class="fa fa-check"></i><b>4.9.2</b> Matlab</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="data-import.html"><a href="data-import.html#web-crawler"><i class="fa fa-check"></i><b>4.10</b> Web Crawler</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="data-import.html"><a href="data-import.html#rvest"><i class="fa fa-check"></i><b>4.10.1</b> rvest</a></li>
+<li class="chapter" data-level="4.10.2" data-path="data-import.html"><a href="data-import.html#rcurl"><i class="fa fa-check"></i><b>4.10.2</b> RCurl</a></li>
+<li class="chapter" data-level="4.10.3" data-path="data-import.html"><a href="data-import.html#rselenium"><i class="fa fa-check"></i><b>4.10.3</b> RSelenium</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-eda.html"><a href="data-eda.html"><i class="fa fa-check"></i><b>5</b> Data EDA</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-eda.html"><a href="data-eda.html#visualization"><i class="fa fa-check"></i><b>5.1</b> visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>6</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-cleaning.html"><a href="data-cleaning.html#work-throught-the-data-like-a-ninja"><i class="fa fa-check"></i><b>6.1</b> Work throught the data like a Ninja</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-modeling.html"><a href="data-modeling.html"><i class="fa fa-check"></i><b>7</b> Data Modeling</a></li>
+<li class="chapter" data-level="8" data-path="model-scoring.html"><a href="model-scoring.html"><i class="fa fa-check"></i><b>8</b> Model scoring</a></li>
+<li class="chapter" data-level="9" data-path="data-output.html"><a href="data-output.html"><i class="fa fa-check"></i><b>9</b> Data output</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-output.html"><a href="data-output.html#r-mapping"><i class="fa fa-check"></i><b>9.1</b> R Mapping</a></li>
+<li class="chapter" data-level="9.2" data-path="data-output.html"><a href="data-output.html#r-presentation"><i class="fa fa-check"></i><b>9.2</b> R Presentation</a></li>
+<li class="chapter" data-level="9.3" data-path="data-output.html"><a href="data-output.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="data-output.html"><a href="data-output.html#r-notebook"><i class="fa fa-check"></i><b>9.4</b> R notebook</a></li>
+<li class="chapter" data-level="9.5" data-path="data-output.html"><a href="data-output.html#r-bookdown"><i class="fa fa-check"></i><b>9.5</b> R bookdown</a></li>
+<li class="chapter" data-level="9.6" data-path="data-output.html"><a href="data-output.html#r-mindmap"><i class="fa fa-check"></i><b>9.6</b> R mindmap</a></li>
+<li class="chapter" data-level="9.7" data-path="data-output.html"><a href="data-output.html#r-diagramming"><i class="fa fa-check"></i><b>9.7</b> R diagramming</a></li>
+<li class="chapter" data-level="9.8" data-path="data-output.html"><a href="data-output.html#shiny-app"><i class="fa fa-check"></i><b>9.8</b> Shiny App</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>10</b> Appendix</a><ul>
+<li class="chapter" data-level="10.1" data-path="appendix.html"><a href="appendix.html#the-giants"><i class="fa fa-check"></i><b>10.1</b> The Giants</a></li>
+<li class="chapter" data-level="10.2" data-path="appendix.html"><a href="appendix.html#the-talk"><i class="fa fa-check"></i><b>10.2</b> The Talk</a></li>
+<li class="chapter" data-level="10.3" data-path="appendix.html"><a href="appendix.html#the-walk"><i class="fa fa-check"></i><b>10.3</b> The Walk</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Pipeline</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-import" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data import</h1>
+<div id="interactive-with-operation-systemos" class="section level2">
+<h2><span class="header-section-number">4.1</span> interactive with Operation System[OS]</h2>
+<p>get current working loaction:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;C:/Users/tduan/Desktop/Mission/R/R_code/Data_Pipeline/Book&quot;</code></pre>
+<p>Set current working loaction:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;C:/Users/User/Desktop/Mission/R/R_code/Data_Pipeline/Book&quot;</span>)</code></pre></div>
+<p>Get computer info:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.info</span>()</code></pre></div>
+<pre><code>##                      sysname                      release 
+##                    &quot;Windows&quot;                      &quot;7 x64&quot; 
+##                      version                     nodename 
+## &quot;build 7601, Service Pack 1&quot;             &quot;L-SZX-15008287&quot; 
+##                      machine                        login 
+##                        &quot;x86&quot;                      &quot;tduan&quot; 
+##                         user               effective_user 
+##                      &quot;tduan&quot;                      &quot;tduan&quot;</code></pre>
+<p>Get file size:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&#39;pryr&#39;)</span>
+<span class="kw">library</span>(pryr)
+<span class="kw">object_size</span>(mtcars)</code></pre></div>
+<pre><code>## 5.34 kB</code></pre>
+<p>Check how much memory R is using :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mem_used</span>()</code></pre></div>
+<pre><code>## 19.2 MB</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">memory.size</span>()</code></pre></div>
+<pre><code>## [1] 28.39</code></pre>
+<p>Check RAM limit :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">memory.limit</span>()</code></pre></div>
+<pre><code>## [1] 3583</code></pre>
+<p>Show location files:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir</span>(<span class="kw">getwd</span>())</code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                 &quot;_bookdown.yml&quot;        
+##  [3] &quot;_build.sh&quot;             &quot;_deploy.sh&quot;           
+##  [5] &quot;_output.yml&quot;           &quot;01-intro.Rmd&quot;         
+##  [7] &quot;02-Package.Rmd&quot;        &quot;03-Data_import.Rmd&quot;   
+##  [9] &quot;04-Data_EDA.Rmd&quot;       &quot;05-Data_Cleaning.Rmd&quot; 
+## [11] &quot;06-Data_Modeling.Rmd&quot;  &quot;07-Model_scoring.Rmd&quot; 
+## [13] &quot;08-Data_output.Rmd&quot;    &quot;09-Appendix.Rmd&quot;      
+## [15] &quot;A&quot;                     &quot;A.txt&quot;                
+## [17] &quot;A.zip&quot;                 &quot;A_B.zip&quot;              
+## [19] &quot;B.txt&quot;                 &quot;Becoming_A_Legend.mp3&quot;
+## [21] &quot;book.bib&quot;              &quot;bookdown-demo.Rmd&quot;    
+## [23] &quot;bookdown-demo.Rproj&quot;   &quot;DESCRIPTION&quot;          
+## [25] &quot;index.Rmd&quot;             &quot;LICENSE&quot;              
+## [27] &quot;local_latitude.xls&quot;    &quot;Notepad++.lnk&quot;        
+## [29] &quot;packages.bib&quot;          &quot;preamble.tex&quot;         
+## [31] &quot;R_logo.png&quot;            &quot;README.md&quot;            
+## [33] &quot;style.css&quot;             &quot;toc.css&quot;</code></pre>
+<p>Create file A B C:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;file A</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">file =</span> <span class="st">&quot;A.txt&quot;</span>)
+<span class="kw">cat</span>(<span class="st">&quot;file B</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">file =</span> <span class="st">&quot;B.txt&quot;</span>)
+<span class="kw">cat</span>(<span class="st">&quot;file C</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">file =</span> <span class="st">&quot;C.txt&quot;</span>)</code></pre></div>
+<p>Add BBBB… to A.txt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">file.append</span>(<span class="st">&quot;A.txt&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">10</span>))</code></pre></div>
+<p>Open A.txt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">file.show</span>(<span class="st">&quot;A.txt&quot;</span>)</code></pre></div>
+<p>Open A.txt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">file.show</span>(<span class="st">&quot;A.txt&quot;</span>)</code></pre></div>
+<p>Open ebay.com with firefox:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;&quot;C:/Program Files (x86)/Mozilla Firefox/firefox.exe&quot;&#39;</span>,
+             <span class="st">&#39;-url www.ebay.com&#39;</span>))</code></pre></div>
+<p>Open ebay.com with defalt browser:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;www.ebay.com&quot;</span>)</code></pre></div>
+<p>Delete a file with unlink or file.remove():</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlink</span>(<span class="st">&quot;C&quot;</span>)
+<span class="kw">file.remove</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</code></pre></div>
+<p>Check a file existence:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.exists</span>(<span class="st">&#39;test_file&#39;</span>)</code></pre></div>
+<p>Create a folder :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&#39;test_file&#39;</span>)</code></pre></div>
+<p>Delete a folder :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlink</span>(<span class="st">&#39;test_file&#39;</span>)</code></pre></div>
+<p>Download Files:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>()</code></pre></div>
+<p>Zip A.txt and B.txt into A_B.zip:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">zip</span>(<span class="st">&quot;A_B.zip&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;A.txt&quot;</span>, <span class="st">&quot;B.txt&quot;</span>))</code></pre></div>
+<p>Unzip A_B.zip</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unzip</span>(<span class="st">&quot;A_B.zip&quot;</span>)</code></pre></div>
+<p>Untar a file:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">untar</span>()</code></pre></div>
+<p>Check file info:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">dir</span>(<span class="kw">getwd</span>())%&gt;%<span class="kw">file.info</span>()</code></pre></div>
+<pre><code>##                          size isdir mode               mtime
+## _book                       0  TRUE  777 2017-09-02 13:25:16
+## _bookdown.yml              80 FALSE  666 2017-08-26 15:21:09
+## _build.sh                  83 FALSE  666 2017-08-26 15:21:09
+## _deploy.sh                414 FALSE  666 2017-08-26 15:21:09
+## _output.yml               582 FALSE  666 2017-08-26 15:21:09
+## 01-intro.Rmd             2260 FALSE  666 2017-09-02 13:20:24
+## 02-Package.Rmd           1621 FALSE  666 2017-09-02 13:21:20
+## 03-Data_import.Rmd       2395 FALSE  666 2017-09-02 13:28:20
+## 04-Data_EDA.Rmd           105 FALSE  666 2017-08-26 15:21:09
+## 05-Data_Cleaning.Rmd      294 FALSE  666 2017-08-31 11:56:19
+## 06-Data_Modeling.Rmd       30 FALSE  666 2017-08-26 15:21:09
+## 07-Model_scoring.Rmd       30 FALSE  666 2017-08-26 15:21:09
+## 08-Data_output.Rmd        656 FALSE  666 2017-09-02 10:57:56
+## 09-Appendix.Rmd           453 FALSE  666 2017-08-31 11:56:19
+## A                           8 FALSE  666 2017-08-31 11:56:19
+## A.txt                      29 FALSE  666 2017-08-31 11:56:19
+## A.zip                     250 FALSE  666 2017-08-31 11:56:19
+## A_B.zip                   250 FALSE  666 2017-08-31 11:56:19
+## B.txt                      29 FALSE  666 2017-08-31 11:56:19
+## Becoming_A_Legend.mp3 3701973 FALSE  666 2017-08-31 11:56:19
+## book.bib                  278 FALSE  666 2017-08-26 15:21:09
+## bookdown-demo.Rmd        3646 FALSE  666 2017-09-02 13:28:21
+## bookdown-demo.Rproj       295 FALSE  666 2017-08-26 15:21:09
+## DESCRIPTION               121 FALSE  666 2017-08-26 15:21:09
+## index.Rmd                1294 FALSE  666 2017-09-02 10:58:57
+## LICENSE                  6673 FALSE  666 2017-08-26 15:21:09
+## local_latitude.xls       4111 FALSE  666 2017-08-31 11:56:19
+## Notepad++.lnk            1099 FALSE  666 2017-08-31 11:56:19
+## packages.bib             1103 FALSE  666 2017-09-02 10:58:59
+## preamble.tex              169 FALSE  666 2017-08-26 15:21:09
+## R_logo.png               1493 FALSE  666 2017-08-31 11:56:19
+## README.md                 294 FALSE  666 2017-08-26 15:21:09
+## style.css                 186 FALSE  666 2017-08-26 15:21:09
+## toc.css                  2570 FALSE  666 2017-08-26 15:21:09
+##                                     ctime               atime exe
+## _book                 2017-09-02 10:55:14 2017-09-02 13:25:16  no
+## _bookdown.yml         2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## _build.sh             2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## _deploy.sh            2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## _output.yml           2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 01-intro.Rmd          2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 02-Package.Rmd        2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 03-Data_import.Rmd    2017-08-26 15:21:09 2017-08-31 11:56:19  no
+## 04-Data_EDA.Rmd       2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 05-Data_Cleaning.Rmd  2017-08-26 15:21:09 2017-08-31 11:56:19  no
+## 06-Data_Modeling.Rmd  2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 07-Model_scoring.Rmd  2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## 08-Data_output.Rmd    2017-08-26 15:21:09 2017-08-31 11:56:19  no
+## 09-Appendix.Rmd       2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## A                     2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## A.txt                 2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## A.zip                 2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## A_B.zip               2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## B.txt                 2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## Becoming_A_Legend.mp3 2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## book.bib              2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## bookdown-demo.Rmd     2017-09-02 13:25:55 2017-09-02 13:28:21  no
+## bookdown-demo.Rproj   2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## DESCRIPTION           2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## index.Rmd             2017-08-26 15:21:09 2017-08-31 11:56:19  no
+## LICENSE               2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## local_latitude.xls    2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## Notepad++.lnk         2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## packages.bib          2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## preamble.tex          2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## R_logo.png            2017-08-31 11:56:19 2017-08-31 11:56:19  no
+## README.md             2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## style.css             2017-08-26 15:21:09 2017-08-26 15:21:09  no
+## toc.css               2017-08-26 15:21:09 2017-08-26 15:21:09  no</code></pre>
+<p>Shutdown Computer in 10 seconds:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shutdown</span>(<span class="dt">wait=</span><span class="dv">10</span>)</code></pre></div>
+</div>
+<div id="play-music" class="section level2">
+<h2><span class="header-section-number">4.2</span> Play music</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tuneR)
+File1&lt;-<span class="st"> </span><span class="kw">readMP3</span>(<span class="st">&quot;Becoming_A_Legend.mp3&quot;</span>)
+<span class="kw">play</span>(File1)</code></pre></div>
+</div>
+<div id="image" class="section level2">
+<h2><span class="header-section-number">4.3</span> image</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(png)
+img&lt;-<span class="kw">readPNG</span>(<span class="st">&quot;R_logo.png&quot;</span>)</code></pre></div>
+</div>
+<div id="csv" class="section level2">
+<h2><span class="header-section-number">4.4</span> CSV</h2>
+</div>
+<div id="excel" class="section level2">
+<h2><span class="header-section-number">4.5</span> Excel</h2>
+<p>asdfasdf</p>
+<p>readxl</p>
+<p>XLConnect</p>
+</div>
+<div id="database" class="section level2">
+<h2><span class="header-section-number">4.6</span> Database</h2>
+<p>RJDBC</p>
+<p>dplyr</p>
+</div>
+<div id="http" class="section level2">
+<h2><span class="header-section-number">4.7</span> HTTP</h2>
+</div>
+<div id="api-json" class="section level2">
+<h2><span class="header-section-number">4.8</span> API &amp; JSON</h2>
+</div>
+<div id="other" class="section level2">
+<h2><span class="header-section-number">4.9</span> Other</h2>
+<div id="sas" class="section level3">
+<h3><span class="header-section-number">4.9.1</span> SAS</h3>
+</div>
+<div id="matlab" class="section level3">
+<h3><span class="header-section-number">4.9.2</span> Matlab</h3>
+</div>
+</div>
+<div id="web-crawler" class="section level2">
+<h2><span class="header-section-number">4.10</span> Web Crawler</h2>
+<div id="rvest" class="section level3">
+<h3><span class="header-section-number">4.10.1</span> rvest</h3>
+</div>
+<div id="rcurl" class="section level3">
+<h3><span class="header-section-number">4.10.2</span> RCurl</h3>
+</div>
+<div id="rselenium" class="section level3">
+<h3><span class="header-section-number">4.10.3</span> RSelenium</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-eda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": true,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Data_import.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
