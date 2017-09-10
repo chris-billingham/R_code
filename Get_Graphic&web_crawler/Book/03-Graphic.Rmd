@@ -1,0 +1,66 @@
+# Graphic
+
+## Base
+
+## ggplot
+
+Grammar of graphic 
+### qplot
+Scatter plot:
+```{r}
+library(ggplot2)
+#Scatter
+qplot(displ,hwy,data=mpg)
+qplot(displ,hwy,data=mpg,color=drv)# group with color
+qplot(displ,hwy,data=mpg,shape=drv)# group with shape
+```
+
+Scatter and line:
+```{r}
+library(ggplot2)
+qplot(displ,hwy,data=mpg,geom=c('point','smooth'))
+```
+
+Histogram:
+```{r}
+qplot(hwy,data=mpg)
+qplot(hwy,data=mpg,fill=drv)# group with color
+```
+
+
+facets
+```{r}
+qplot(displ,hwy,data=mpg,facets = .~drv)#facet
+qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
+```
+
+### ggplot
+```{r}
+g=ggplot(mpg,aes(displ,hwy))
+summary(g)
+```
+#Scatter
+
+```{r}
+g+geom_point()
+```
+
+```{r}
+g+geom_point()+facet_grid(.~ cyl)+geom_smooth(method='lm')
+```
+
+
+```{r}
+g+geom_point(color='steelblue',size=4,alpha=0.5)
+
+g+geom_point(aes(color=as.factor(cyl)),size=4,alpha=0.5)
+```
+
+
+
+## plotly
+
+## bokeh
+
+
+
