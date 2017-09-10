@@ -34,7 +34,7 @@ how
 
 
 
-```{r warning=FALSE}
+```{r warning=FALSE,message=FALSE}
 library(dplyr)
 head(iris)       # first 5 rows
 head(iris,n=10)  # first 10 rows
@@ -45,29 +45,29 @@ class(iris)      # object type
 dim(iris)        # how many rows and how many columns
 
 summary(iris)    # summary of the data
-glimpse(iris)    # a another way to summary of the data with dplyr
+glimpse(iris)    # a another way to smmarize the data with dplyr
 ```
 
 ## Visualization
 
 A Chart means thousand words.a good infographic can tell a story in many ways 
 
-More on Get Graphic & Web crawler
+More on Get_Graphic & web_crawler
 
-### Base plot(not important)
+### Base plot(not recommend)
 histogram chart
 ```{r}
 hist(mtcars$wt)
 ```
 
 ### ggplot
-```{r eval=FALSE}
-install.packages("ggplot2")
+```{r message=FALSE}
+#install.packages("ggplot2")
 library(ggplot2)
 ```
 
 Scatter chart
-```{r eval=FALSE}
+```{r message=FALSE}
 library(ggplot2)
 ggplot(mtcars,
        aes(x=mpg,
@@ -78,7 +78,7 @@ ggplot(mtcars,
   
   
 line chart
-```{r eval=FALSE}
+```{r message=FALSE}
 library(ggplot2)
 ggplot(mtcars,
        aes(x=mpg,
@@ -152,7 +152,7 @@ time servies chart
 Correlation coefficent Between -1 and 1.  
 Sign->direction and Magnitude->strength  
 
-```{r}
+```{r eval=FALSE}
 # Pearson product-moment correlation(r) with no missing value
 library(tidyverse)
 mtcars %>%summarize(N = n(), r = cor(mpg,wt, 

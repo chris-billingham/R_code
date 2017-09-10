@@ -14,13 +14,23 @@ Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. 
 The development of **SAS** began in **1966** at North Carolina State University by *Anthony Barr* and his student *James Goodnight*(current CEO of SAS).
 
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 devtools::install_github("PMassicotte/gtrendsR")
 library(gtrendsR)
 res <- gtrends("sko", geo = "NO", cat = "18")
 head(res$interest_over_time)
 ```
-
+```{r echo = TRUE,message=FALSE}
+library(plotly)
+google_trend<- read.csv("multiTimeline001.csv", header=TRUE，skip=1)
+p <- plot_ly(google_trend, x = ~Week, y = ~R...Worldwide.,name = 'R', type = 'scatter', mode = 'lines')%>%
+  add_trace(y = ~SQL...Worldwide., name = 'SQL', mode = 'lines')%>%
+  add_trace(y = ~Python...Worldwide., name = 'Python', mode = 'lines')%>%
+    layout(title = "Past 5 years Google Trends",
+       xaxis = list(title = "Date"),
+       yaxis = list (title = "Interest"))
+p
+```
 
 
 ## Install R
@@ -41,12 +51,22 @@ Download R Studio:[www.rstudio.com](https://www.rstudio.com/)
 
 ### R
 
+```{r echo=FALSE, out.width='70%',out.length='50%'}
+knitr::include_graphics('./Base_R.png')
+```
+
 ### Rstudio
+
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('./R_studio.png')
+```
+
+### Rstudio server(don't worry about it at the moment)
 
 ## Version and location
 
-Check R version run:
-```{r}
+Check R version:
+```{r message=FALSE}
 version
 ```
 

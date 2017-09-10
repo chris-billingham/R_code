@@ -12,7 +12,7 @@ setwd("C:/Users/User/Desktop/Mission/R/R_code/Get_R/Book")
 ```
 
 Get computer info:
-```{r}
+```{r message=FALSE}
 Sys.info()
 ```
 
@@ -35,7 +35,7 @@ memory.limit()
 ```
 
 Show location files:
-```{r}
+```{r message=FALSE}
 dir(getwd())
 ```
 
@@ -141,10 +141,12 @@ img<-readPNG("R_logo.png")
 ```
 
 ## txt 
+Read txt file:
 ```{r eval=FALSE}
 txt_df <- read.table("txt_data.txt", 
                  header = TRUE)
 ```
+
 
 ## CSV
 Read csv file:
@@ -152,15 +154,27 @@ Read csv file:
 csv_df <- read.csv("zipcode.csv", header=TRUE)
 ```
 
+Create csv file:
+```{r eval=FALSE}
+write.csv(txt_df, file = "txt_df_out.csv")
+```
+
 
 ## Excel
 
 ### xlsx Package
 
-Create a Excel:
+Read Excel file:
 ```{r eval=FALSE}
 library(xlsx)
-write.xlsx2(mtcars, 
+excel_df1=read.xlsx("df.xlsx", sheetIndex =1)                          #read 1 sheets 
+excel_df2=read.xlsx("df.xlsx", sheetIndex =1,startRow=2, colIndex = 2) #read 1 sheets start from 2 row and 2 colmun
+```
+
+Create Excel file:
+```{r eval=FALSE}
+library(xlsx)
+write.xlsx(mtcars, 
            "df.xlsx", 
            sheetName="data_sheet1"
            )
@@ -168,41 +182,46 @@ write.xlsx2(mtcars,
 
 
 
-Read a Excel:
-```{r eval=FALSE}
-library(xlsx)
-excel_df1=read.xlsx("df.xlsx", sheetIndex =1)                          #read 1 sheets 
-excel_df2=read.xlsx("df.xlsx", sheetIndex =1,startRow=2, colIndex = 2) #read 1 sheets start from 2 row and 2 colmun
-```
-
-
-
-
 ## Google sheet
 https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
 
 ## Database 
-
+Coming soon
 RJDBC
 
 dplyr
 
+
+## SAS SPSS Stata Matlab
+```{r eval=FALSE}
+install.packages("haven")
+library(haven)
+# SAS
+read_sas("mtcars.sas7bdat")
+write_sas(mtcars, "mtcars.sas7bdat")
+
+# SPSS
+read_sav("mtcars.sav")
+write_sav(mtcars, "mtcars.sav")
+
+# Stata
+read_dta("mtcars.dta")
+write_dta(mtcars, "mtcars.dta")
+
+# matlab
+install.packages("R.matlab")
+library(R.matlab)
+readMat('file.mat'))
+```
+
 ## HTTP
+Coming soon
 
 ## API & JSON
-
-## Other
-
-### SAS
-### Matlab 
+Coming soon
 
 ## Web Crawler
-
-### rvest
-
-### RCurl
-
-### RSelenium
+More on Get_Graphic & web_crawler
 
 
 

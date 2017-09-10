@@ -144,7 +144,7 @@ lapply(MyList,"[", 1, )        # Get each dataframs first row
 
 #### sapply()
 
-The sapply() function works like lapply(), but it tries to simplify the output to the most elementary data structure that is possible. And indeed, sapply() is a ¡®wrapper¡¯ function for lapply().
+The sapply() function works like lapply(), but it tries to simplify the output to the most elementary data structure that is possible. And indeed, sapply() is a ??wrapper?? function for lapply().
 
 ```{r eval=FALSE}
 A=as.data.frame(matrix(1:9,nrow=3,ncol=3))
@@ -231,4 +231,21 @@ res <- gtrends("sko", geo = "NO", cat = "18")
 head(res$interest_over_time)
 
 
+
+library(xlsx)
+  
+excel_df2=read.xlsx("multiTimeline001.csv", sheetIndex =1,startRow=2)
+excel_df2
+
+google_trend<- read.csv("multiTimeline001.csv", header=TRUEï¼Œskip=1)
+head(google_trend)
+names(google_trend)
+library(plotly)
+p <- plot_ly(google_trend, x = ~Week, y = ~R...Worldwide.,name = 'R', type = 'scatter', mode = 'lines')%>%
+  add_trace(y = ~SQL...Worldwide., name = 'SQL', mode = 'lines')%>%
+  add_trace(y = ~Python...Worldwide., name = 'Python', mode = 'lines')%>%
+  layout(title = "Past 5 years Google Trends",
+         xaxis = list(title = "Date"),
+         yaxis = list (title = "Interest"))
+p
 
