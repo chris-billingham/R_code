@@ -12,7 +12,130 @@ Data cleaning seems to be a dirty job at first ,but its truely the art of data a
 
 ## Fifty shape of data
 
+tidy data and data wrangler
+
+
 
 ### dplyr
 
-### apply
+
+
+#### Filter row and select column
+```{r eval=FALSE}
+mtcars%>%filter(cyl==6)                    # filter cly==6
+mtcars%>%filter(cyl==6 & (hp >120|hp<110)) # filter cly==6 and (hp >120 or hp<110)
+```
+
+```{r eval=FALSE}
+mtcars%>%select(mpg,cyl)                    # select mpg and cyl column
+mtcars%>%select(-mpg)                       # select all but exclude mpg
+```
+
+#### Summary and group by 
+
+```{r eval=FALSE}
+mtcars%>%group_by()%>%summarise(row_number=n(),cyl_number=n_distinct(cyl))   # sum row number and distinct cyl number
+mtcars%>%group_by(cyl)%>%summarise(mpg_sum=sum(mpg),mpg_mean=mean(mpg))   # sum mpg and mean mpg for each cyl
+```
+
+#### order and transpose
+
+```{r eval=FALSE}
+mtcars%>%arrange(desc(cyl))   # order by cyl decreasing
+t(mtcars)                     # transpose
+```
+
+#### join
+```{r eval=FALSE}
+
+left_join(mtcars[c(1:3),],mtcars[c(3:5),],by=c('mpg'='mpg'))   # left join 
+
+full_join(mtcars[c(1:3),],mtcars[c(3:5),],by=c('mpg'='mpg'))   # full join 
+
+inner_join(mtcars[c(1:3),],mtcars[c(3:5),],by=c('mpg'='mpg'))  # inner join 
+```
+
+
+### apply family 
+
+#### apply()
+
+apply to matrix
+
+```{r eval=FALSE}
+X <- matrix(rnorm(30), nrow=2, ncol=6) # Construct a 5x6 matrix
+apply(X, 2, sum)  # Sum the values of each column with `apply()`  
+apply(X, 1, mean)  # mean the values of each row with `apply()` 
+```
+
+
+
+#### lapply()
+The output returned is a list 
+```{r eval=FALSE}
+A=as.data.frame(matrix(1:9,nrow=3,ncol=3))
+B=as.data.frame(matrix(11:19,nrow=3,ncol=3))
+C=as.data.frame(matrix(101:109,nrow=3,ncol=3))
+
+MyList <- list(A,B,C)          # Put dataframe A B C to a list 
+lapply(MyList,"[", , 2)        # Get each dataframs second col
+lapply(MyList,"[", 1, )        # Get each dataframs first row
+```
+
+
+#### sapply()
+
+The sapply() function works like lapply(), but it tries to simplify the output to the most elementary data structure that is possible. And indeed, sapply() is a 'wrapper' function for lapply().
+
+```{r eval=FALSE}
+A=as.data.frame(matrix(1:9,nrow=3,ncol=3))
+B=as.data.frame(matrix(11:19,nrow=3,ncol=3))
+C=as.data.frame(matrix(101:109,nrow=3,ncol=3))
+
+MyList <- list(A,B,C)          # Put dataframe A B C to a list 
+sapply(MyList,"[", , 2)        # Get each dataframs second col and put it into a matrix by col
+sapply(MyList,"[", 1, )        # Get each dataframs first row  and put it into a matrix by col
+```
+
+#### mapply()
+
+The mapply() function stands for 'multivariate apply'. Its purpose is to be able to vectorize arguments to a function that is not usually accepting vectors as arguments.
+
+
+
+## tidey data
+
+The Journal of Statistical Software, vol. 59, 2014. by Hadley Wickham.
+
+http://vita.had.co.nz/papers/tidy-data.html
+
+1.Obervation as row
+2.Varibale as column
+3.One type of observational unit per table
+
+wide dataset
+
+long dataset
+
+tidyr package
+
+gether()  # gather columns into key-value pairs
+
+spread() # spread key-value pairs into columns
+separate() # separate one column ino multiple
+unite() # unite multiple columns into one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,15 +15,26 @@ description: "This is a Data Pipeline guide ."
 # Preface
 
 **Contents**
-1. Package    
-2. Data import
-3. Data EDA & visualization
-4. Data Cleaning
-5. Data Modeling
-6. Model Vaildation
-7. Model scoring
-8. Data output &presentation
-9. Appendix
+
+1. Introducation 
+
+2. Package    
+
+3. Data import
+
+4. Data EDA & Visualization
+
+5. Data cleaning
+
+6. Data modeling
+
+7. Model vaildation
+
+8. Model scoring
+
+9. Data output & Presentation
+
+10. Appendix
 
 
 **Reference**

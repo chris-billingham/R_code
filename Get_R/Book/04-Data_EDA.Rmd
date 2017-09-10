@@ -2,25 +2,57 @@
 
 Some _significant_ applications are demonstrated in this chapter.
 
-Base data set
+
+
+
+
+## Base data set
 ```{r eval=FALSE}
 library(help = "datasets")
+
+?iris
+?mtcars
 ```
+
+
+
+## EDA
+what ;who ;where;when how
+
+who 
+who genrate the data and who will use the data
+
+
+where
+where the data being genrate
+
+when 
+
+
+how
+
+
+
 
 ```{r warning=FALSE}
 library(dplyr)
-head(mtcars)
-head(mtcars,n=10)
+head(iris)       # first 5 rows
+head(iris,n=10)  # first 10 rows
 
-tail(mtcars)
+tail(iris)       # last 5 rows
 
-class(mtcars)
-dim(mtcars)
+class(iris)      # object type
+dim(iris)        # how many rows and how many columns
 
-glimpse(mtcars)
+summary(iris)    # summary of the data
+glimpse(iris)    # a another way to summary of the data with dplyr
 ```
 
 ## Visualization
+
+A Chart means thousand words.a good infographic can tell a story in many ways 
+
+More on Get Graphic & Web crawler
 
 ### Base plot(not important)
 histogram chart

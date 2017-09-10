@@ -140,21 +140,43 @@ library(png)
 img<-readPNG("R_logo.png")
 ```
 
+## txt 
+```{r eval=FALSE}
+txt_df <- read.table("txt_data.txt", 
+                 header = TRUE)
+```
 
 ## CSV
 Read csv file:
 ```{r eval=FALSE}
-zipcode <- read.csv("zipcode.csv", header=TRUE)
+csv_df <- read.csv("zipcode.csv", header=TRUE)
 ```
 
 
 ## Excel
 
-asdfasdf
+### xlsx Package
 
-readxl
+Create a Excel:
+```{r eval=FALSE}
+library(xlsx)
+write.xlsx2(mtcars, 
+           "df.xlsx", 
+           sheetName="data_sheet1"
+           )
+```
 
-XLConnect
+
+
+Read a Excel:
+```{r eval=FALSE}
+library(xlsx)
+excel_df1=read.xlsx("df.xlsx", sheetIndex =1)                          #read 1 sheets 
+excel_df2=read.xlsx("df.xlsx", sheetIndex =1,startRow=2, colIndex = 2) #read 1 sheets start from 2 row and 2 colmun
+```
+
+
+
 
 ## Google sheet
 https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
