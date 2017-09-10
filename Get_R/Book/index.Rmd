@@ -14,7 +14,7 @@ description: "This is a Get R guide ."
 
 
 # Welcome {-}
-<img src="cover.png" width="450" height="480" alt="Cover image" />
+<img src="cover.png" width="350" height="480" alt="Cover image"/>
 
 
 
