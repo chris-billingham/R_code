@@ -22,7 +22,7 @@ head(res$interest_over_time)
 ```
 ```{r echo = TRUE,message=FALSE}
 library(plotly)
-google_trend<- read.csv("multiTimeline001.csv", header=TRUE，skip=1)
+google_trend<- read.csv("multiTimeline001.csv", header=TRUE,skip=1)
 p <- plot_ly(google_trend, x = ~Week, y = ~R...Worldwide.,name = 'R', type = 'scatter', mode = 'lines')%>%
   add_trace(y = ~SQL...Worldwide., name = 'SQL', mode = 'lines')%>%
   add_trace(y = ~Python...Worldwide., name = 'Python', mode = 'lines')%>%
@@ -62,6 +62,17 @@ knitr::include_graphics('./R_studio.png')
 ```
 
 ### Rstudio server(don't worry about it at the moment)
+
+Rstudio server pro is able to run multi R section at the same time
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('./r_studio_server1.png')
+```
+
+Rstudio server display
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('./r_studio_server2.png')
+```
+
 
 ## Version and location
 
