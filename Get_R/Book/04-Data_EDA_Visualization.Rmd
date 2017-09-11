@@ -1,0 +1,225 @@
+# Data EDA and Visualization
+
+Some _significant_ applications are demonstrated in this chapter.
+
+
+
+
+
+## Base data set
+```{r eval=FALSE}
+library(help = "datasets")
+
+?iris
+?mtcars
+```
+
+
+
+## EDA
+what ;who ;where;when how
+
+who 
+who genrate the data and who will use the data
+
+
+where
+where the data being genrate
+
+when 
+
+
+how
+
+
+
+
+```{r warning=FALSE,message=FALSE}
+library(dplyr)
+head(iris)       # first 5 rows
+head(iris,n=10)  # first 10 rows
+
+tail(iris)       # last 5 rows
+
+class(iris)      # object type
+dim(iris)        # how many rows and how many columns
+
+summary(iris)    # summary of the data
+glimpse(iris)    # a another way to smmarize the data with dplyr
+```
+
+
+  
+### Correlation
+Correlation coefficent Between -1 and 1.  
+Sign->direction and Magnitude->strength  
+
+```{r eval=FALSE}
+# Pearson product-moment correlation(r) with no missing value
+library(tidyverse)
+mtcars %>%summarize(N = n(), r = cor(mpg,wt, 
+                                     use = "pairwise.complete.obs"))
+
+mtcars %>%group_by(cyl)%>%summarize(N = n(), r = cor(mpg,wt, 
+                                     use = "pairwise.complete.obs"))
+
+```
+
+### Simple linear regression
+
+Scatterplot with regression line
+```{r message=FALSE,warning=FALSE}
+library(ggplot2)
+ggplot(data = mtcars, aes(x = mpg, y = wt)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+## Visualization
+
+A Chart means thousand words.a good infographic can tell a story in many ways 
+
+More on Get_Graphic & web_crawler
+
+### Base plot
+histogram chart
+```{r message=FALSE,warning=FALSE}
+hist(mtcars$wt)
+```
+
+### ggplot
+
+Grammar of graphic 
+
+#### qplot
+Scatter plot:
+```{r message=FALSE,warning=FALSE}
+library(ggplot2)
+#Scatter
+qplot(displ,hwy,data=mpg)
+qplot(displ,hwy,data=mpg,color=drv)# group with color
+qplot(displ,hwy,data=mpg,shape=drv)# group with shape
+```
+
+Scatter and line:
+```{r warning=FALSE,message=FALSE}
+library(ggplot2)
+qplot(displ,hwy,data=mpg,geom=c('point','smooth'))
+```
+
+Histogram:
+```{r message=FALSE,warning=FALSE}
+qplot(hwy,data=mpg)
+qplot(hwy,data=mpg,fill=drv)# group with color
+```
+
+
+facets
+```{r message=FALSE,warning=FALSE}
+qplot(displ,hwy,data=mpg,facets = .~drv)#facet
+qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
+```
+
+#### ggplot2
+
+```{r message= FALSE, warning=FALSE}
+library(ggplot2)
+g=ggplot(mpg,aes(x=displ,y=hwy))
+```
+
+Scatter
+```{r message=FALSE,warning=FALSE}
+g+geom_point()
+```
+
+```{r message=FALSE,warning=FALSE}
+g+geom_point()+facet_grid(.~ cyl)+geom_smooth(method='lm')
+```
+
+
+```{r message=FALSE,warning=FALSE}
+g+geom_point(color='steelblue',size=4,alpha=0.5)
+
+g+geom_point(aes(color=as.factor(cyl)),size=4,alpha=0.5)
+```
+
+
+
+bar chart
+
+histogram chart
+
+pie chart(not important)
+
+time servies chart
+
+
+
+http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html
+
+https://rpubs.com/g_jw/ggplot2_tutorial
+
+
+### plotly
+
+
+https://plot.ly/r/
+```{r message=FALSE,warning=FALSE}
+#install.packages("plotly")
+library(plotly)
+packageVersion('plotly')
+```
+
+Scatter chart
+
+```{r message=FALSE,warning=FALSE}
+p <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species)
+p
+```
+
+line chart
+
+bar chart
+
+histogram chart
+
+pie chart(not important)
+
+time servies chart
+
+
+### Bokeh
+
+http://hafen.github.io/rbokeh/#background
+
+
+```{r message=FALSE,warning=FALSE}
+#install.packages("rbokeh")
+library(rbokeh)
+```
+
+Scatter chart
+```{r message=FALSE,warning=FALSE}
+p <- figure() %>%
+  ly_points(Sepal.Length, Sepal.Width, data = iris,
+            color = Species, glyph = Species,
+            hover = list(Sepal.Length, Sepal.Width))
+p
+```
+line chart
+
+bar chart
+
+histogram chart
+
+pie chart(not important)
+
+time servies chart
+
+
+
+### Map
+
+
+

@@ -42,8 +42,6 @@ knitr::write_bib(c(
 ```
 
 
-
-# Preface
 **Contents**
 
 1. Introducation 
@@ -52,17 +50,17 @@ knitr::write_bib(c(
 
 3. Data import
 
-4. Data EDA & Visualization
+4. Data EDA and Visualization
 
 5. Data cleaning
 
 6. Data modeling
 
-7. Model vaildation
+7. Model vaildation and scoring
 
-8. Model scoring
+8. Data output and Presentation
 
-9. Data output & Presentation
+9. Shiny and Web crawler
 
 10. Appendix
 
