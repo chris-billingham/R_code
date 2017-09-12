@@ -1,5 +1,37 @@
-# Data Modeling
+# Data Modeling 
 
 Coming Soon
 
-More on Get Stat
+
+## statistic distribution 
+
+## statistic Test
+
+## Modeling
+
+
+### supervised learning
+Supervised learning is the machine learning task of inferring a function from labeled training data.[1] The training data consist of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal). A supervised learning algorithm analyzes the training data and produces an inferred function, which can be used for mapping new examples.
+
+#### Linear regression
+linear regression is a linear approach for modeling the relationship between a scalar dependent variable y and one or more explanatory variables (or independent variables) denoted X
+
+#### Logistic regression
+
+
+#### Random forest
+
+#### Support Vector Machine
+
+#### Association rule learning
+
+#### Neural Network
+
+
+### unsupervised learning
+Unsupervised machine learning is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not included in the observations).
+
+#### K mean clusting
+
+#### hierarchical clustering
+
