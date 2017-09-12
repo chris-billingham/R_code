@@ -92,7 +92,7 @@ hist(mtcars$wt)
 
 Grammar of graphic 
 
-#### qplot
+#### qplot()
 Scatter plot:
 ```{r message=FALSE,warning=FALSE}
 library(ggplot2)
@@ -121,7 +121,7 @@ qplot(displ,hwy,data=mpg,facets = .~drv)#facet
 qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
 ```
 
-#### ggplot2
+#### ggplot()
 
 ```{r message= FALSE, warning=FALSE}
 library(ggplot2)
@@ -153,6 +153,10 @@ histogram chart
 pie chart(not important)
 
 time servies chart
+
+Map
+
+
 
 
 
