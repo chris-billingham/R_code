@@ -54,11 +54,11 @@ knitr::write_bib(c(
 
 5. Data cleaning
 
-6. Data modeling
+6. Data modeling(Comming Soon)
 
-7. Model vaildation and scoring
+7. Model vaildation and scoring(Comming Soon)
 
-8. Data output and Presentation
+8. Data output and Presentation(Comming Soon)
 
 9. Shiny and Web crawler
 
