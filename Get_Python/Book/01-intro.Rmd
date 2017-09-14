@@ -33,7 +33,7 @@ p
 ```
 
 
-## Install R
+## Install Python
 
 R is a **free software** environment for statistical computing and graphics.Download R at CRAN:[www.r-project.org](https://www.r-project.org/)
 
@@ -41,37 +41,32 @@ R is a **free software** environment for statistical computing and graphics.Down
 
 **CRAN** is maintained by the efforts of volunteers (the 'CRAN team').That is a group of talent who contribute their time and expertise to make better **Package**
 
-## Install RStudio
+## Install anaconda
 
-RStudio is an **integrated development environment (IDE)** for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.
 
-Download R Studio:[www.rstudio.com](https://www.rstudio.com/)
+Download R Studio:[www.rstudio.com](https://www.anaconda.com/download/)
+
+Anaconda is the world’s most popular Python data science platform. Anaconda, Inc. continues to lead open source projects like Anaconda, NumPy and SciPy 
+that form the foundation of modern data science. Anaconda’s flagship product, Anaconda Enterprise, allows organizations to secure, govern, 
+scale and extend Anaconda to deliver actionable insights that drive businesses and industries forward.
+
+Spyder is an **integrated development environment (IDE)** for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.
+
 
 ## Software navigation
 
-### R
+### Python
 
 ```{r echo=FALSE, out.width='70%',out.length='50%'}
 knitr::include_graphics('./Base_R.png')
 ```
 
-### Rstudio
+### Spyder
 
 ```{r echo=FALSE, out.width='100%'}
 knitr::include_graphics('./R_studio.png')
 ```
 
-### Rstudio server(don't worry about it at the moment)
-
-Rstudio server pro is able to run multi R section at the same time
-```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('./r_studio_server1.png')
-```
-
-Rstudio server display
-```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('./r_studio_server2.png')
-```
 
 
 ## Version and location

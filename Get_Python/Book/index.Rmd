@@ -1,5 +1,5 @@
 --- 
-title: "Get R"
+title: "Get Python"
 author: "Tony Duan"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: no
 github-repo: rstudio/bookdown-demo
-description: "This is a Get R guide ."
+description: "This is a Get Python guide ."
 ---
 
 
@@ -60,21 +60,15 @@ knitr::write_bib(c(
 
 8. Data output and Presentation(Comming Soon)
 
-9. Shiny and Web crawler
+9. Dash and Web crawler
 
 10. Appendix
 
 
 **Reference**
-www.r-bloggers.com
+https://www.python.org/
 
-www.rstudio.com
-
-www.r-project.org
-
-www.wikipedia.org
-
-
+https://www.anaconda.com/
 
 
 
