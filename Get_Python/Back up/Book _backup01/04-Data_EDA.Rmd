@@ -1,0 +1,7 @@
+# Data EDA
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## visualization
+
+

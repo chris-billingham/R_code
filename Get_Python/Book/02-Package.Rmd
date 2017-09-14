@@ -1,0 +1,52 @@
+# Package
+
+Part of the reason R has become so popular is the vast array of packages available at the **CRAN**.In the last few years, the number of packages has grown exponentially!
+
+Untill Aug 2017, the CRAN package repository features 11288 available packages.
+
+In order to use a package.we need to first download it and then load the package.
+
+Install a package from CRAN:
+```{r eval=FALSE}
+install.packages('ggplot2')
+```
+load a package:
+```{r eval=FALSE}
+libray(ggplot2)
+```
+
+Package on CRAN are been verified and tested by CRAN Team.
+Be careful when you need to download Package from other sources.
+
+Install a package from Github**(NOT recommended)**:
+```{r eval=FALSE}
+install.packages("devtools")
+library(devtools)
+devtools::install_github("rstudio/bookdown")
+```
+Get help on Package: question mark follow by package name
+```{r eval=FALSE}
+?dplyr
+```
+
+Uninstall packages:
+```{r eval=FALSE}
+library(installr)
+uninstall.packages(c("reshape",'plyr'))
+```
+
+
+**Popluar Package**:
+
+**ggplot2**:ggplot2 is a plotting system for R, based on the grammar of graphics.
+
+**dplyr**:dplyr provides a grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges.
+
+**tidyr**:tidyr provides a set of functions that help you get to tidy data.
+
+**readr**:readr provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+
+**tibble**:tibble is a modern re-imaginging of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly.
+
+**readxl**:The readxl package makes it easy to get data out of Excel and into R.
+

@@ -1,0 +1,227 @@
+--- 
+title: "Data Pipeline"
+author: "Tony Duan"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: no
+github-repo: rstudio/bookdown-demo
+description: "This is a Data Pipeline guide ."
+---
+
+# Preface
+
+**Contents**
+1. Package    
+2. Data import
+3. Data EDA & visualization
+4. Data Cleaning
+5. Data Modeling
+6. Model Vaildation
+7. Model scoring
+8. Data output &presentation
+
+
+**Reference**
+www.r-bloggers.com
+
+www.rstudio.com
+
+www.r-project.org
+
+www.wikipedia.org
+
+This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+
+For now, you have to install the development versions of **bookdown** from Github:
+
+```{r eval=FALSE}
+devtools::install_github("rstudio/bookdown")
+```
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+
+To compile this example to PDF, you need to install XeLaTeX.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction {#intro}
+
+## History of analytic software
+**R** is an implementation of the **S** programming language and created by *Ross Ihaka* and *Robert Gentleman*. at the University of Auckland, New Zealand.R is named partly after the first names of the first two R authors and partly as a play on the name of S. The project was conceived in **1992**, with an initial version released in 1995 and a stable beta version in 2000.
+
+**Python** is created by *Guido van Rossum* in **1991**.Python 3.0 was released on **2008**
+
+**S** is a statistical programming language developed primarily by *John Chambers* at Bell Laboratories in **1975**
+
+Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. Chamberlin* and *Raymond F. Boyce* in **1970**
+
+The development of **SAS** began in **1966** at North Carolina State University by *Anthony Barr* and his student *James Goodnight*(current CEO of SAS)
+
+**C** was originally developed by *Dennis Ritchie* between **1969** and **1973** at Bell Labs
+
+## Install R
+
+R is a **free software** environment for statistical computing and graphics.Download R at CRAN:[www.r-project.org](https://www.r-project.org/)
+
+**CRAN** stand for The Comprehensive R Archive Network. It is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.
+
+**CRAN** is maintained by the efforts of volunteers (the “CRAN team”).That is a group of talent who contribute their time and expertise to make better **Package**
+
+## Install RStudio
+
+RStudio is an **integrated development environment (IDE)** for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.
+
+Download R Studio:[www.rstudio.com](https://www.rstudio.com/)
+
+## Software navigation
+
+### R
+
+### Rstudio
+
+## Version and location
+
+Check R version run:
+```{r}
+version
+```
+
+update R version run:
+```{r eval=FALSE}
+install.packages("installr")
+library(installr)
+updateR()
+```
+
+<!--chapter:end:01-intro.Rmd-->
+
+# Package
+
+Part of the reason R has become so popular is the vast array of packages available at the **CRAN**.In the last few years, the number of packages has grown exponentially!
+
+Untill Aug 2017, the CRAN package repository features 11288 available packages.
+
+In order to use a package.we need to first download it and then load the package.
+
+Install a package from CRAN:
+```{r eval=FALSE}
+install.packages('ggplot2')
+```
+load a package:
+```{r eval=FALSE}
+libray(ggplot2)
+```
+
+Package on CRAN are been verified and tested by CRAN Team.
+Be careful when you need to download Package from other sources.
+
+Install a package from Github**(NOT recommended)**:
+```{r eval=FALSE}
+install.packages("devtools")
+library(devtools)
+install_github("hadley/dplyr")
+```
+Get help on Package: question mark follow by package name
+```{r eval=FALSE}
+?dplyr
+```
+
+
+
+
+
+**Popluar Package**:
+
+**ggplot2**:ggplot2 is a plotting system for R, based on the grammar of graphics.
+
+**dplyr**:dplyr provides a grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges.
+
+**tidyr**:tidyr provides a set of functions that help you get to tidy data.
+
+**readr**:readr provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+
+**tibble**:tibble is a modern re-imaginging of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly.
+
+**readxl**:The readxl package makes it easy to get data out of Excel and into R.
+
+
+<!--chapter:end:02-Package.Rmd-->
+
+# Data import
+
+
+##Excel
+
+asdfasdf
+
+readxl
+
+XLConnect
+
+
+
+##Database 
+
+RJDBC
+
+dplyr
+
+## HTTP
+
+## API & JSON
+
+## Other
+
+SAS
+
+
+<!--chapter:end:03-Data_import.Rmd-->
+
+# Data EDA
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## visualization
+
+
+
+<!--chapter:end:04-Data_EDA.Rmd-->
+
+# Data Cleaning
+
+We have finished a nice book.
+
+<!--chapter:end:05-Data_Cleaning.Rmd-->
+
+# Data Modeling
+
+ASDFASDFA
+
+<!--chapter:end:06-Data_Modeling.Rmd-->
+
+# Model scoring
+
+ASDFASDFA
+
+<!--chapter:end:07-Model_scoring.Rmd-->
+
+# Data output
+
+ASDFASDFA
+
+
+##presentation
+
+<!--chapter:end:08-Data_output.Rmd-->
+
