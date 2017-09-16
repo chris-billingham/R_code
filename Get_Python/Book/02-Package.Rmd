@@ -6,13 +6,26 @@ Untill Aug 2017, the CRAN package repository features 11288 available packages.
 
 In order to use a package.we need to first download it and then load the package.
 
+pip for conda
+https://pypi.python.org/pypi/pip
+https://conda.io/
+
 Install a package from CRAN:
-```{r eval=FALSE}
-install.packages('ggplot2')
+```{python eval=FALSE}
+in cmd
+conda install pandas
 ```
+
+Check all installed package:
+```{python eval=FALSE}
+in cmd
+conda list
+```
+
+
 load a package:
-```{r eval=FALSE}
-libray(ggplot2)
+```{python}
+import sys
 ```
 
 Package on CRAN are been verified and tested by CRAN Team.
