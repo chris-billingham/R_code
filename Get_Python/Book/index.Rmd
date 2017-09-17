@@ -70,5 +70,14 @@ https://www.python.org/
 
 https://www.anaconda.com/
 
+Book
+
+think python(not so good)
+http://www.greenteapress.com/thinkpython/thinkpython.pdf
 
 
+think stat
+http://greenteapress.com/thinkstats/thinkstats.pdf
+
+think bayes
+http://www.greenteapress.com/thinkbayes/thinkbayes.pdf

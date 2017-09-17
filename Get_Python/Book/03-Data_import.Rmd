@@ -2,18 +2,25 @@
 
 ## interactive with Operation System[OS]
 get current working loaction:
-```{r}
-getwd()
+```{python}
+import os 
+print(os.getcwd())
 ```
 
 Set current working loaction:
-```{r eval=FALSE}
-setwd("C:/Users/User/Desktop/Mission/R/R_code/Get_R/Book")
+```{python}
+import os
+os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Get_Python\\Book")
 ```
 
 Get computer info:
-```{r message=FALSE}
-Sys.info()
+```{python}
+import platform
+print(platform.machine())
+print(platform.platform())
+print(platform.system())
+print(platform.processor())
+print(platform.python_version())
 ```
 
 Get file size:
@@ -35,8 +42,9 @@ memory.limit()
 ```
 
 Show location files:
-```{r message=FALSE}
-dir(getwd())
+```{python}
+import os
+print(os.listdir())
 ```
 
 Create file A B C:
