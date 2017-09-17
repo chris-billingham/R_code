@@ -218,6 +218,21 @@ nycflights%>%
             avg_delay=mean(arr_delay))%>%
   arrange(avg_delay)          
 
+  
+# download data in batch  
+ res<-dbSendQuery(conn, "select * from p_bm_tony_T.trans_level002")
+#dbFetch(res)
+rm(result)
+result<-list()
+i=1
+result[[i]]<-dbFetch(res,n=10000)
+
+while(nrow(chunk <- dbFetch(res, n = 10000))>0){
+  i<-i+1
+  result[[i]]<-chunk
+  print(i)
+}
+sea001<-do.call(rbind,result) 
 
 ##########################  HTTP ###########################################
 
