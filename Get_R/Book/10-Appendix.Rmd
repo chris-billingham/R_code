@@ -13,6 +13,11 @@ Yihui Xie
 
 ## The Talk
 
+Expressing yourself in R by  Hadley Wickham on 2014 @Stanford Seminar
+https://www.youtube.com/watch?v=wki0BqlztCo
+
+
+
 All Things R and RStudio
 Q&A with J.J. Allaire, Hadley Wickham & Joe Cheng
 Moderator: Joseph Rickert

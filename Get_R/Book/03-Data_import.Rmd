@@ -156,7 +156,7 @@ csv_df <- read.csv("zipcode.csv", header=TRUE)
 
 Create csv file:
 ```{r eval=FALSE}
-write.csv(txt_df, file = "txt_df_out.csv")
+write.csv(txt_df, file = "txt_df_out.csv",row.names = FALSE)
 ```
 
 
