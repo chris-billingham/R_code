@@ -166,6 +166,8 @@ https://rpubs.com/g_jw/ggplot2_tutorial
 
 
 ### plotly
+https://www.youtube.com/watch?v=v_kK5c0QUnU
+
 
 
 https://plot.ly/r/
@@ -177,12 +179,35 @@ packageVersion('plotly')
 
 Scatter chart
 
+simple 
 ```{r message=FALSE,warning=FALSE}
-p <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species)
-p
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers')
 ```
 
+group by numeric
+```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~cyl)
+```
+
+group by factor
+```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~as.factor(cyl))
+```
+
+group by factor + hp as dot size 
+```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~as.factor(cyl),size=~hp)
+```
+
+3D 
+```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,z=~hp,type="scatter3d",mode='markers',color = ~as.factor(cyl))
+```
+
+
 line chart
+
+
 
 bar chart
 
@@ -192,6 +217,25 @@ pie chart(not important)
 
 time servies chart
 
+line
+```{r message=FALSE,warning=FALSE}
+plot_ly(x=~time(airmiles),y=~airmiles,mode='lines')
+```
+library(plotly)
+library(tidyr)
+library(dplyr)
+data("EuStockMarkets")
+
+
+Multi Line Graph
+```{r message=FALSE,warning=FALSE}
+stocks <- as.data.frame(EuStockMarkets) %>%
+  gather(index, price) %>%
+  mutate(time = rep(time(EuStockMarkets), 4))
+stocks
+
+plot_ly(stocks, x = ~time, y = ~price, color = ~index)
+```
 
 ### Bokeh
 

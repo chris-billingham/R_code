@@ -47,7 +47,43 @@ server=function(input,output){
 #run
 shinyApp(ui=ui,server = server)
 
-##################################################################################
+###############################   ploty                      ###################################################
+
+
+library(plotly)
+
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers')
+
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~cyl)
+
+
+
+plot_ly(data=mtcars, x = ~wt , y =~mpg,z=~hp,type="scatter3d",mode='markers',color = ~as.factor(cyl))
+
+library(dplyr)
+data("airmiles")
+head(airmiles)
+class(airmiles)
+
+plot_ly(x=~time(airmiles),y=~airmiles,mode='lines')
+
+
+library(plotly)
+library(tidyr)
+library(dplyr)
+data("EuStockMarkets")
+
+stocks <- as.data.frame(EuStockMarkets) %>%
+  gather(index, price) %>%
+  mutate(time = rep(time(EuStockMarkets), 4))
+stocks
+
+plot_ly(stocks, x = ~time, y = ~price, color = ~index)
+
+
+
+
+
 
 
 
