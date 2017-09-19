@@ -81,9 +81,32 @@ stocks
 plot_ly(stocks, x = ~time, y = ~price, color = ~index)
 
 
+library(plotly)
+plot_ly(x = ~precip, type = "histogram")
+
+plot_ly(iris, y = ~Petal.Length, color = ~Species, type = "box")
+
+?state.abb
+
+# Create data frame
+state_pop <- data.frame(State = state.abb, Pop = as.vector(state.x77[,1]))
+# Create hover text
+state_pop$hover <- with(state_pop, paste(State, '<br>', "Population:", Pop))
+# Make state borders white
+borders <- list(color = toRGB("black"))
+# Set up some mapping options
+map_options <- list(
+  scope = 'usa',
+  projection = list(type = 'USA'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
 
 
-
+plot_ly(state_pop, z = ~Pop, text = ~hover, locations = ~State, 
+        type = 'choropleth', locationmode = 'USA-states', 
+        color = ~Pop, colors = 'Reds', marker = list(line = borders)) %>%
+  layout(title = 'US Population in 1975', geo = map_options)
 
 
 
