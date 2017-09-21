@@ -130,6 +130,7 @@ g=ggplot(mpg,aes(x=displ,y=hwy))
 
 Scatter
 ```{r message=FALSE,warning=FALSE}
+g=ggplot(mpg,aes(x=displ,y=hwy))
 g+geom_point()
 ```
 
@@ -167,7 +168,7 @@ https://rpubs.com/g_jw/ggplot2_tutorial
 
 ### plotly
 https://www.youtube.com/watch?v=v_kK5c0QUnU
-
+https://images.plot.ly/plotly-documentation/images/r_cheat_sheet.pdf  
 
 
 https://plot.ly/r/
@@ -243,8 +244,9 @@ boxplot:
 plot_ly(iris, y = ~Petal.Length, color = ~Species, type = "box")
 ```
 
-Map:
+Map one:
 ```{r message=FALSE,warning=FALSE}
+library(plotly)
 # Create data frame
 state_pop <- data.frame(State = state.abb, Pop = as.vector(state.x77[,1]))
 # Create hover text
@@ -266,7 +268,47 @@ plot_ly(state_pop, z = ~Pop, text = ~hover, locations = ~State,
   layout(title = 'US Population in 1975', geo = map_options)
 ```
 
+Map two:
+```{r message=FALSE,warning=FALSE}
+library(plotly)
+df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv")
+df$hover <- with(df, paste(state, '<br>', "Beef", beef, "Dairy", dairy, "<br>",
+                           "Fruits", total.fruits, "Veggies", total.veggies,
+                           "<br>", "Wheat", wheat, "Corn", corn))
+# give state boundaries a white border
+l <- list(color = toRGB("white"), width = 2)
+# specify some map projection/options
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p <- plot_geo(df, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~total.exports, text = ~hover, locations = ~code,
+    color = ~total.exports, colors = 'Purples'
+  ) %>%
+  colorbar(title = "Millions USD") %>%
+  layout(
+    title = '2011 US Agriculture Exports by State<br>(Hover for breakdown)',
+    geo = g
+    
+  )
+p
+```
+
+
 ggplot to Plotly
+```{r message=FALSE,warning=FALSE}
+library(plotly)
+library(ggplot2)
+g=ggplot(mpg,aes(x=displ,y=hwy))+geom_point()
+
+p=ggplotly(g)
+p
+```
 
 
 ### Bokeh
@@ -298,8 +340,6 @@ pie chart(not important)
 time servies chart
 
 
-
-### Map
 
 
 
