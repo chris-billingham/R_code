@@ -1,7 +1,7 @@
 # Data import
 
 ## interactive with Operation System[OS]
-get current working loaction:
+get current working `:
 ```{r}
 getwd()
 ```
@@ -214,14 +214,308 @@ library(R.matlab)
 readMat('file.mat'))
 ```
 
-## HTTP
+## Web Data
 Coming soon
 
-## API & JSON
-Coming soon
+### import Data from URL
+```{r eval=FALSE}
+# Direct import 
+csv_url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv"
+csv_data <- read.csv(file = csv_url)
 
-## Web Crawler
-More on Get_Graphic & web_crawler
+# Download the file with download.file()
+csv_url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv"
+download.file(url = csv_url, destfile = "feed_data.csv")
+# Read it in with read.csv()
+csv_data <- read.csv(file = "feed_data.csv")
+```
+
+Save data to R-specific file format
+```{r eval=FALSE}
+# Save it to disk with saveRDS()
+saveRDS(object = csv_data, file = "modified_feed_data.RDS")
+
+# Read it back in with readRDS()
+modified_feed_data <- readRDS(file = "modified_feed_data.RDS")
+```
+
+### API
+
+#### API package
+wiki API example: 
+```{r eval=FALSE}
+# Load pageviews
+#install.packages('pageviews')
+library(pageviews)
+
+# Get the pageviews for "Hadley Wickham"
+hadley_pageviews <- article_pageviews(article = "Hadley Wickham")
+
+# Examine the resulting object
+str(hadley_pageviews)
+hadley_pageviews
+```
+
+
+
+
+Twitter API example: 
+
+#### GET and POST request
+
+GET request:
+```{r eval=FALSE}
+library(httr)
+# Make a GET request to http://httpbin.org/get
+get_result <- GET(url = "http://httpbin.org/get")
+
+# Print it to inspect it
+get_result
+```
+
+POST request:
+```{r eval=FALSE}
+# Load the httr package
+library(httr)
+
+# Make a POST request to http://httpbin.org/post with the body "this is a test"
+post_result <- POST(url = "http://httpbin.org/post", body = "this is a test")
+
+# Print it to inspect it
+post_result
+```
+
+Get request content:
+```{r eval=FALSE}
+# Make a GET request to url and save the results
+pageview_response <- GET(url)
+
+# Call content() to retrieve the data the server sent back
+pageview_data <- content(pageview_response)
+
+# Examine the results with str()
+str(pageview_data)
+```
+
+directory-based URL:
+```{r eval=FALSE}
+# Construct a directory-based API URL to `http://swapi.co/api/`,
+# looking for person `1` in `people`
+directory_url <- paste("http://swapi.co/api", "people", "1", sep = "/")
+
+# Make a GET call with it
+result <- GET(directory_url)
+```
+
+parameter-based URL:
+```{r eval=FALSE}
+# Create list with nationality and country elements
+query_params <- list(nationality = "americans", 
+    country = "antigua")
+    
+# Make parameter-based call to httpbin, with query_params
+parameter_response <- GET("https://httpbin.org/get", query = query_params)
+
+# Print parameter_response
+parameter_response
+```
+
+
+### JSON
+Object type:{"first_name": "Jason","last_name": "Bourne"}
+arrary type:[123,4345,56]
+
+```{r eval=FALSE}
+library(httr)
+library(jsonlite)
+# Make a GET request to http://httpbin.org/get
+get_result <- GET(url = "http://httpbin.org/get")
+
+# Print it to inspect it
+get_result
+# check tpye
+http_type(get_result)
+# Examine returned text with content()
+content(get_result, as = "text")
+# Parse response with content()
+content(get_result, as = "parsed")
+# Parse returned text with fromJSON()
+fromJSON(content(get_result, as = "text"))
+```
+
+### XML 
+```{r eval=FALSE}
+library(xml2)
+x <- read_xml("<foo>
+              <bar>text <baz id = 'a' /></bar>
+              <bar>2</bar>
+              <baz id = 'b' />
+              </foo>")
+
+xml_name(x)
+xml_children(x)
+# Find all baz nodes anywhere in the document
+baz <- xml_find_all(x, ".//baz")
+baz
+
+xml_path(baz)
+
+xml_attr(baz, "id")
+```
+
+
+### XPATH
+```{r eval=FALSE}
+library(xml2)
+x <- read_xml("<foo>
+              <bar>text <baz id = 'a' /></bar>
+              <bar>2</bar>
+              <baz id = 'b' />
+              <bar type='123'>2</bar>  
+              </foo>")
+
+node=xml_find_all(x, "//bar")
+# xml node collection
+node
+# get text
+xml_text(node)
+# find attributes 'type'
+xml_attr(node, "type")
+
+
+```
+
+
+
+
+### Web Crawler
+
+rvest by xpath:
+```{r eval=FALSE}
+# Load rvest
+library(rvest)
+
+# Hadley Wickham's Wikipedia page
+test_url <- "https://en.wikipedia.org/wiki/Hadley_Wickham"
+
+# Read the URL stored as "test_url" with read_html()
+test_xml <- read_html(test_url)
+
+# Print test_xml
+test_xml
+
+# xpath 
+test_node_xpath='//*[contains(concat( \" \", @class, \" \" ), concat( \" \", \"vcard\", \" \" ))]'
+
+# Use html_node() to grab the node with the XPATH stored as `test_node_xpath`
+node <- html_node(x = test_xml, xpath = test_node_xpath)
+
+# Print the first element of the result
+node[[1]]
+```
+
+
+Read table:
+```{r eval=FALSE}
+url='https://www.basketball-reference.com/leagues/NBA_2017.html'
+xml <- read_html(url)
+all_table <- html_table(xml)
+all_table
+all_table[[1]] # first table
+
+# find table with table name(xpath)
+node <- html_node(x = xml, xpath = '//*[@id="confs_standings_E"]')
+table <- html_table(node)
+table
+```
+rvest by CSS:
+
+Example:
+```{r eval=FALSE}
+# Load httr
+library(httr)
+
+# The API url
+base_url <- "https://en.wikipedia.org/w/api.php"
+
+# Set query parameters
+query_params <- list(action = "parse", 
+  page = "Hadley Wickham", 
+  format = "xml")
+
+# Get data from API
+resp <- GET(url = base_url, query = query_params)
+    
+# Parse response
+resp_xml <- content(resp)
+```
+
+
+
+
+### Big Data
+R lets you write data analysis code quickly. With a bit of care, you can also make your code easy to read, which means that you can easily maintain your code too. In many cases, R is also fast enough at running your code.
+
+Unfortunately, R requires that all your data be analyzed in memory (RAM), on a single machine. This limits how much data you can analyze using R. There are a few solutions to this problem, including using Spark.
+
+#### Spark
+Spark is an open source cluster computing platform. That means that you can spread your data and your computations across multiple machines, effectively letting you analyze an unlimited amount of data. The two technologies complement each other strongly. By using R and Spark together you can write code fast and run code fast!
+
+sparklyr is an R package that lets you write R code to work with data in a Spark cluster. It has a dplyr interface, which means that you can write (more or less) the same dplyr-style R code, whether you are working with data on your machine or on a Spark cluster.
+
+```{r eval=FALSE}
+# Load sparklyr
+library(sparklyr)
+#spark_install()
+
+# Connect to your Spark cluster
+spark_conn <- spark_connect("local")
+
+# Print the version of Spark
+spark_version(spark_conn)
+
+# Disconnect from Spark
+spark_disconnect(spark_conn)
+```
+
+```{r eval=FALSE}
+
+# Load dplyr
+library(dplyr)
+
+# Explore track_metadata structure
+str(track_metadata)
+
+# Connect to your Spark cluster
+spark_conn <- spark_connect("local")
+
+# Copy track_metadata to Spark
+track_metadata_tbl <- copy_to(spark_conn, track_metadata)
+
+# List the data frames available in Spark
+src_tbls(spark_conn)
+
+
+# Link to the track_metadata table in Spark
+track_metadata_tbl <- tbl(spark_conn, "track_metadata")
+
+# See how big the dataset is
+dim(track_metadata_tbl)
+
+# See how small the tibble is
+object_size(track_metadata_tbl)
+
+
+# Disconnect from Spark
+spark_disconnect(spark_conn)
+
+
+```
+#### Hadoop
+
+
+
+
 
 
 

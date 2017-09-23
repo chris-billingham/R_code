@@ -43,6 +43,8 @@ word
 
 ## R bookdown
 
+## R Blogdown
+
 ## R mindmap
 
 ## R diagramming
