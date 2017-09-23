@@ -1,6 +1,8 @@
 # Data output
 
-Coming Soon
+After all the hard work you have done.Now you have  your insignfull ,analytical, story telling result that you want to share with your boss and make him/her think the world will end without you.You need to present it! in many ways.So that they can not aviod you.Make a PPT with excel attchment is not enough.Make them a website.Make them a video or even write them a book.In this Chapter you will get new knowledage on how to show your output.
+
+
 
 ## R Mapping
 A nautical chart is a graphic representation of a maritime area and adjacent coastal regions
