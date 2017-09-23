@@ -1,6 +1,26 @@
 # Appendix
 
 
+## Version control
+
+
+### Git
+Download Git:https://git-scm.com/
+
+
+### Github
+Create a account :https://github.com
+
+### Gitlab
+Create a account :https://about.gitlab.com/
+
+### Bitbucket
+Create a account : https://bitbucket.org/
+
+
+
+
+
 ## The Giants
 "If I have seen further, it is by standing on the shoulders of giants" by Isaac Newton.
 
