@@ -43,7 +43,7 @@ tail(iris)       # last 5 rows
 
 class(iris)      # object type
 dim(iris)        # how many rows and how many columns
-
+str(iris)        # structure of the data
 summary(iris)    # summary of the data
 glimpse(iris)    # a another way to smmarize the data with dplyr
 ```
@@ -338,6 +338,24 @@ histogram chart
 pie chart(not important)
 
 time servies chart
+
+### lattice
+
+histogram:
+```{r message=FALSE,warning=FALSE}
+# Load the lattice package
+library(lattice)
+# Create the histogram 
+histogram(~ Ozone, data = airquality)
+```
+
+Scatter chart:
+```{r message=FALSE,warning=FALSE}
+# Load the lattice package
+library(lattice)
+# Create the scatter plot
+xyplot(Ozone ~ Solar.R, data = airquality)
+```
 
 
 

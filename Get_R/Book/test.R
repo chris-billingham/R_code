@@ -144,3 +144,59 @@ p <- plot_geo(df, locationmode = 'USA-states') %>%
     geo = g
   )
 p
+
+
+
+
+
+
+
+
+str(airquality)
+# Load the lattice package
+library(lattice)
+
+# Create the histogram 
+histogram(~ Ozone, data = airquality)
+
+
+# Load the quantmod package
+library(quantmod)
+
+# Import QQQ data from Yahoo! Finance
+getSymbols("QQQ")
+head(QQQ)
+
+
+
+# Import QQQ data from Google Finance
+getSymbols("QQQ", src = "google")
+# Look at the structure of QQQ
+str(QQQ)
+
+# Import GDP data from FRED
+getSymbols("GDP", src = "FRED")
+
+# Look at the structure of GDP
+str(GDP)
+getSymbols("EBAY")
+tail(EBAY)
+
+
+?getSymbols
+
+
+# Load the Quandl package
+library(Quandl)
+
+# Import GDP data from FRED
+gdp <- Quandl("FRED/GDP")
+
+# Look at the structure of the object returned by Quandl
+str(gdp)
+
+
+
+
+
+
