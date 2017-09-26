@@ -264,7 +264,7 @@ str(gdp_zoo)
 ```
 
 
-time period
+time period:
 ```{r eval=FALSE}
 # Create a currency_pair object
 currency_pair <- "GBP/CAD"
