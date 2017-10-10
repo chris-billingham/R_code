@@ -74,7 +74,21 @@ www.r-project.org
 
 www.wikipedia.org
 
+The Lady Tasting Tea by David Salsburg
 
+The Art of R Programming by Norman Matloff 
 
+R for Data Science by Hadley Wickham and Garrett Grolemund
 
+Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
 
+** Resource **
+
+Learn R, in R.  http://swirlstats.com/
+```{r eval=FALSE}
+install.packages("swirl")
+library("swirl")
+swirl()
+```
+
+www.datacamp.com

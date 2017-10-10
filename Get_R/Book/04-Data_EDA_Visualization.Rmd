@@ -82,7 +82,7 @@ A Chart means thousand words.a good infographic can tell a story in many ways
 
 More on Get_Graphic & web_crawler
 
-### Base plot
+### Basic plot
 histogram chart
 ```{r message=FALSE,warning=FALSE}
 hist(mtcars$wt)
@@ -338,6 +338,18 @@ histogram chart
 pie chart(not important)
 
 time servies chart
+
+
+### ggmap
+
+### leaflet
+
+### ggvis
+
+### GoogleVis
+
+### googleCharts
+
 
 ### lattice
 

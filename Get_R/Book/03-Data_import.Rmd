@@ -74,11 +74,11 @@ browseURL("www.ebay.com")
 
 Delete a file with unlink or file.remove():
 ```{r eval=FALSE}
-unlink("C")
-file.remove("A", "B")
+unlink("C.txt")
+file.remove("A.txt", "B.txt")
 ```
 
-Check a file existence:
+Check a folder existence:
 ```{r eval=FALSE}
 dir.exists('test_file')
 ```
@@ -213,7 +213,7 @@ install.packages("R.matlab")
 library(R.matlab)
 readMat('file.mat'))
 ```
-## financial data
+## Financial data
 
 Money Money Money~
 

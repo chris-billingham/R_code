@@ -13,8 +13,71 @@ Coming Soon
 ### supervised learning
 Supervised learning is the machine learning task of inferring a function from labeled training data.[1] The training data consist of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal). A supervised learning algorithm analyzes the training data and produces an inferred function, which can be used for mapping new examples.
 
+
+
 #### Linear regression
+
+Regression to the mean by Francis Galton
+
+Regression to the mean is a statistical phenomenon that can make natural variation in repeated data look like real change. It happens when unusually large or small measurements tend to be followed by measurements that are closer to the mean.
+
+"Regression to the mean is so powerful that once-in-a-generation talent basically never sires once-in-a-generation talent. It explains why Michael Jordan’s sons were middling college basketball players and Jakob Dylan wrote two good songs. It is why there are no American parent-child pairs among Hall of Fame players in any major professional sports league."
+by economist Seth Stephens-Davidowitz
+
 linear regression is a linear approach for modeling the relationship between a scalar dependent variable y and one or more explanatory variables (or independent variables) denoted X
+
+
+
+
+##### Simple linear regression
+
+```{r}
+library(ggplot2)
+# Scatterplot with regression line
+ggplot(data = mtcars, aes(x = mpg, y = cyl)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+
+Find the Equation : 
+$$Y=\beta_0+\beta_1*X$$
+
+Residuals:
+$$e=Y-\hat{x}$$
+
+So that minimize:
+$$\sum_{i=1}^n e_i^2$$
+
+Fit a model:
+```{r}
+mod=lm(cyl ~ mpg, data = mtcars)
+mod
+#coef(mod)
+class(mod)
+summary(mod)
+
+head(fitted.values(mod))
+```
+
+broom package:
+```{r eval=FALSE}
+install.packages('broom')
+library(broom)
+head(augment(mod))
+
+```
+
+
+
+
+
+##### Multi linear regression
+
+
+
+
+
 
 #### Logistic regression
 
@@ -34,4 +97,8 @@ Unsupervised machine learning is the machine learning task of inferring a functi
 #### K mean clusting
 
 #### hierarchical clustering
+
+
+
+## Parallel computing
 

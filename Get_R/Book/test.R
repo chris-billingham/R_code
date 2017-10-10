@@ -197,6 +197,39 @@ str(gdp)
 
 
 
+##########################   modeling ##########################
+
+library(ggplot2)
+# Scatterplot with regression line
+ggplot(data = mtcars, aes(x = mpg, y = cyl)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+mtcars
+
+
+getwd()
+dir.exists('index.Rmd')
+
+library(tuneR)
+File1<- readMP3("Becoming_A_Legend.mp3")
+play(File1)
+
+
+install.packages("swirl")
+library("swirl")
+swirl()
+
+
+mod=lm(cyl ~ mpg, data = mtcars)
+fitted.values(mod)
+
+
+
+install.packages('broom')
+library(broom)
+head(augment(mod))
+
 
 
 
