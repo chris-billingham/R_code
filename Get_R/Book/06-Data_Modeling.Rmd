@@ -60,15 +60,15 @@ summary(mod)
 head(fitted.values(mod))
 ```
 
-broom package:
+Using broom package to get the predict value and residue :
 ```{r eval=FALSE}
-install.packages('broom')
+#install.packages('broom')
 library(broom)
 head(augment(mod))
 
 ```
 
-
+make a prediction
 
 
 

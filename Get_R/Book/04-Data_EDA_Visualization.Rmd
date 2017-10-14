@@ -9,11 +9,11 @@ dont let the datasad make your mind datasad
 ## Base data set
 ```{r eval=FALSE}
 library(help = "datasets")
-
+library(ggplot2)
 ?iris
 ?mtcars
+?mpg
 ```
-
 
 
 ## EDA
@@ -90,75 +90,153 @@ hist(mtcars$wt)
 
 ### ggplot
 
-Grammar of graphic 
+Grammar of graphic;
 
-#### qplot()
-Scatter plot:
-```{r message=FALSE,warning=FALSE}
-library(ggplot2)
-#Scatter
-qplot(displ,hwy,data=mpg)
-qplot(displ,hwy,data=mpg,color=drv)# group with color
-qplot(displ,hwy,data=mpg,shape=drv)# group with shape
-```
+1. data
+The dataset used to make the graphic.Better to use one dataset instead of multiple dataset  
 
-Scatter and line:
-```{r warning=FALSE,message=FALSE}
-library(ggplot2)
-qplot(displ,hwy,data=mpg,geom=c('point','smooth'))
-```
+2. aesthetic
+variable in the dataset to make the graphic.In ggplot land aesthetic means 'something you can see'
 
-Histogram:
-```{r message=FALSE,warning=FALSE}
-qplot(hwy,data=mpg)
-qplot(hwy,data=mpg,fill=drv)# group with color
-```
+3. geom
+Geometric objects are the actual marks we put on a plot. Examples include:lines,points,boxplots ect.
+  
+4. coordinate
+5. Facet
+6. Scales
+7. Stats
+8. Labels
+title,x label,y label
+
+9. Legends
+10. Themes
 
 
-facets
-```{r message=FALSE,warning=FALSE}
-qplot(displ,hwy,data=mpg,facets = .~drv)#facet
-qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
-```
-
-#### ggplot()
+Graphic example:
 
 ```{r message= FALSE, warning=FALSE}
 library(ggplot2)
-g=ggplot(mpg,aes(x=displ,y=hwy))
+a=ggplot(mpg, aes(hwy))
 ```
 
-Scatter
-```{r message=FALSE,warning=FALSE}
-g=ggplot(mpg,aes(x=displ,y=hwy))
-g+geom_point()
-```
+
+#### Histogram chart:
 
 ```{r message=FALSE,warning=FALSE}
-g+geom_point()+facet_grid(.~ cyl)+geom_smooth(method='lm')
+a+geom_histogram()
 ```
 
+Add color by manufacturer
+```{r message=FALSE,warning=FALSE}
+a+geom_histogram(aes(fill = manufacturer))
+```
+
+
+
+#### Dot plot:
+```{r message=FALSE,warning=FALSE}
+a+geom_dotplot()
+```
+
+Add color by  manufacturer
+```{r message=FALSE,warning=FALSE}
+a+geom_dotplot(aes(fill = manufacturer))
+```
+
+#### Bar chart:
 
 ```{r message=FALSE,warning=FALSE}
-g+geom_point(color='steelblue',size=4,alpha=0.5)
+b=ggplot(mpg,aes(x=trans))
+b+geom_bar()
+```
 
-g+geom_point(aes(color=as.factor(cyl)),size=4,alpha=0.5)
+Add color by fl
+```{r message=FALSE,warning=FALSE}
+b+geom_bar(aes(fill = fl)) 
 ```
 
 
 
-bar chart
+#### Scatter:
 
-histogram chart
-
-pie chart(not important)
-
-time servies chart
-
-Map
+```{r message= FALSE, warning=FALSE}
+library(ggplot2)
+f <- ggplot(mpg, aes(cty, hwy))
+```
 
 
+Add geom_point
+```{r message=FALSE,warning=FALSE}
+f+geom_point() + 
+  labs(title =" New title", x = "New x", y = "New y") #label title,x,y
+```
 
+Add geom_point with facet & geom_smooth
+```{r message=FALSE,warning=FALSE}
+f+geom_point()+facet_grid(.~ cyl)+geom_smooth(method='lm')
+```
+
+Add geom_point with color
+```{r message=FALSE,warning=FALSE}
+f+geom_point(color='steelblue',size=4,alpha=0.5)
+```
+
+Add geom_point with group by cyl with color
+```{r message=FALSE,warning=FALSE}
+f+geom_point(aes(color=as.factor(cyl)),size=4,alpha=0.5)
+```
+
+#### point and line:
+```{r message=FALSE,warning=FALSE}
+f+geom_point()+geom_smooth(model = lm)
+```
+
+
+#### Boxplot:
+
+```{r message=FALSE,warning=FALSE}
+g <- ggplot(mpg, aes(class, hwy))
+
+```
+
+```{r message=FALSE,warning=FALSE}
+g + geom_boxplot()
+```
+
+
+
+#### time servies line
+
+```{r message=FALSE,warning=FALSE}
+j <- ggplot(economics, aes(date, unemploy))
+j + geom_line()
+```
+
+
+#### facet 
+```{r message=FALSE,warning=FALSE}
+t <- ggplot(mpg, aes(cty, hwy)) + geom_point()
+t + facet_grid(. ~ fl)#facet into columns
+t + facet_grid( fl~.)#facet into rows
+t + facet_grid(year ~ fl)#facet year into rows,fl to columns
+```
+
+#### Legends
+
+#### Themes
+
+#### Map
+```{r message=FALSE,warning=FALSE}
+data <- data.frame(murder = USArrests$Murder, state = tolower(rownames(USArrests)))
+map <- map_data("state")
+l <- ggplot(data, aes(fill = murder))
+l + geom_map(aes(map_id = state), map = map) +
+expand_limits(x = map$long, y = map$lat)
+```
+
+
+
+#### pie chart(not important)
 
 
 http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html

@@ -1,4 +1,20 @@
 
+library(dplyr)
+glimpse(mpg)
+t <- ggplot(mpg, aes(cty, hwy)) + geom_point()
+t + facet_grid(. ~ fl)#facet into columns
+t + facet_grid( fl~.)#facet into rows
+t + facet_grid(year ~ fl)#facet year into rows,fl to columns
+
+t <- ggplot(mpg, aes(cty, hwy)) + geom_point()
+t + theme(legend.position = "bottom")
+t + guides(color = "none")
+t + scale_fill_discrete(name = "Title",
+                        labels = c("A", "B", "C"))
+
+g=ggplot(mpg,aes(x=manufacturer))
+g+geom_histogram()
+
 ################   temple    #################
 #library(shiny)
 #ui
@@ -56,7 +72,7 @@ plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers')
 
 plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~cyl)
 
-
+?mpg
 
 plot_ly(data=mtcars, x = ~wt , y =~mpg,z=~hp,type="scatter3d",mode='markers',color = ~as.factor(cyl))
 
