@@ -52,25 +52,25 @@ Download R Studio:[www.rstudio.com](https://www.rstudio.com/)
 ### R
 
 ```{r echo=FALSE, out.width='70%',out.length='50%'}
-knitr::include_graphics('./Base_R.png')
+knitr::include_graphics('./Pic/Base_R.png')
 ```
 
 ### Rstudio
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('./R_studio.png')
+knitr::include_graphics('./Pic/R_studio.png')
 ```
 
 ### Rstudio server(don't worry about it at the moment)
 
 Rstudio server pro is able to run multi R section at the same time
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('./r_studio_server1.png')
+knitr::include_graphics('./Pic/r_studio_server1.png')
 ```
 
 Rstudio server display
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('./r_studio_server2.png')
+knitr::include_graphics('./Pic/r_studio_server2.png')
 ```
 
 

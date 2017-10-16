@@ -39,3 +39,33 @@ library(fivethirtyeight)
 follow the master,work with the master and become the master 
 
 
+## Learning resource
+
+
+## Reference
+
+### web 
+www.r-bloggers.com
+
+www.rstudio.com
+
+www.r-project.org
+
+www.wikipedia.org
+
+https://www.youtube.com/user/thenewboston/videos
+
+https://www.youtube.com/user/sentdex/videos
+
+
+
+
+### book
+1.The Lady Tasting Tea by David Salsburg
+
+2.The Art of R Programming by Norman Matloff 
+
+3.R for Data Science by Hadley Wickham and Garrett Grolemund
+
+4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
+

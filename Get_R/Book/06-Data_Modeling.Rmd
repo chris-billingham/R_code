@@ -1,7 +1,12 @@
 # Data Modeling 
 
-Coming Soon
+## statistical inference
+```{r echo=FALSE, out.width='50%'}
+knitr::include_graphics('./Pic/inference001.png')
+```
+### sampling
 
+### inference
 
 ## statistic distribution 
 
@@ -31,10 +36,11 @@ linear regression is a linear approach for modeling the relationship between a s
 
 ##### Simple linear regression
 
+One of the regression model,using one vairable to predict a continual target
 ```{r}
 library(ggplot2)
 # Scatterplot with regression line
-ggplot(data = mtcars, aes(x = mpg, y = cyl)) + 
+ggplot(data = mtcars, aes(x = mpg, y = wt)) + 
   geom_point() + 
   geom_smooth(method = "lm")
 ```
@@ -51,7 +57,7 @@ $$\sum_{i=1}^n e_i^2$$
 
 Fit a model:
 ```{r}
-mod=lm(cyl ~ mpg, data = mtcars)
+mod=lm(wt ~ mpg, data = mtcars)# mpg to predict wt
 mod
 #coef(mod)
 class(mod)
@@ -69,25 +75,57 @@ head(augment(mod))
 ```
 
 make a prediction
+```{r eval=FALSE}
+#install.packages('broom')
+library(broom)
+library(dplyr)
+head(augment(mod)%>%select(wt,mpg,.fitted,.se.fit))
+
+```
+
+
+Outlier impact:leverage:the distance of that observation from the mean of the explanatory variable
+
+```{r eval=FALSE}
+#install.packages('broom')
+library(broom)
+library(dplyr)
+augment(mod)%>%select(wt,mpg,.fitted,.hat)%>%arrange(desc(.hat))%>%head()
+```
+
+
+Outlier impact:Influence:using Cook's distance, which incorporates both the leverage and residual of each observation.
+```{r eval=FALSE}
+#install.packages('broom')
+library(broom)
+library(dplyr)
+augment(mod)%>%select(wt,mpg,.fitted,.cooksd)%>%arrange(desc(.cooksd))%>%head()
+```
+
+
 
 
 
 ##### Multi linear regression
+One of the regression model,using Multi vairables to predict a continual target
 
-
+caret package
 
 
 
 
 #### Logistic regression
+classification model
+
+
 
 
 #### Random forest
-
+classification model
 #### Support Vector Machine
 
 #### Association rule learning
-
+classification model
 #### Neural Network
 
 

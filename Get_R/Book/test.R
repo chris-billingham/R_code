@@ -1,4 +1,14 @@
 
+install.packages('writexl')
+??read_xlsx
+
+
+library(writexl)
+
+mtcars
+write_xlsx(mtcars, path="df.xlsx")
+
+
 library(dplyr)
 glimpse(mpg)
 t <- ggplot(mpg, aes(cty, hwy)) + geom_point()
@@ -242,10 +252,11 @@ fitted.values(mod)
 
 
 
-install.packages('broom')
+#install.packages('broom')
 library(broom)
 head(augment(mod))
 
+glimpse(mtcars)
 
 
 
