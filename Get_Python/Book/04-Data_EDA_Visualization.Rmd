@@ -7,11 +7,10 @@ Some _significant_ applications are demonstrated in this chapter.
 
 
 ## Base data set
-```{r eval=FALSE}
-library(help = "datasets")
-
-?iris
-?mtcars
+```{python eval=FALSE}
+import seaborn.apionly as sns
+iris = sns.load_dataset('iris')
+iris.head()
 ```
 
 
@@ -34,18 +33,10 @@ how
 
 
 
-```{r warning=FALSE,message=FALSE}
-library(dplyr)
-head(iris)       # first 5 rows
-head(iris,n=10)  # first 10 rows
+```{python warning=FALSE,message=FALSE}
+iris.info()
 
-tail(iris)       # last 5 rows
-
-class(iris)      # object type
-dim(iris)        # how many rows and how many columns
-
-summary(iris)    # summary of the data
-glimpse(iris)    # a another way to smmarize the data with dplyr
+iris.info.describe()
 ```
 
 

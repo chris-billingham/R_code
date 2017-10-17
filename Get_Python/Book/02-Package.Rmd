@@ -31,35 +31,51 @@ import sys
 Package on CRAN are been verified and tested by CRAN Team.
 Be careful when you need to download Package from other sources.
 
+
 Install a package from Github**(NOT recommended)**:
-```{r eval=FALSE}
-install.packages("devtools")
-library(devtools)
-devtools::install_github("rstudio/bookdown")
-```
+
+
 Get help on Package: question mark follow by package name
-```{r eval=FALSE}
-?dplyr
-```
+
 
 Uninstall packages:
-```{r eval=FALSE}
-library(installr)
-uninstall.packages(c("reshape",'plyr'))
-```
 
 
 **Popluar Package**:
 
-**ggplot2**:ggplot2 is a plotting system for R, based on the grammar of graphics.
+**NumPy**:It provides an abundance of useful features for operations on n-arrays and matrices in Python. The library provides vectorization of mathematical operations on the NumPy array type.
 
-**dplyr**:dplyr provides a grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges.
+**SciPy **: SciPy contains modules for linear algebra, optimization, integration, and statistics. The main functionality of SciPy library is built upon NumPy.
 
-**tidyr**:tidyr provides a set of functions that help you get to tidy data.
+**Pandas **:Pandas is a Python package designed to do work with “labeled” and “relational” data simple and intuitive. Pandas is a perfect tool for data wrangling. It designed for quick and easy data manipulation, aggregation, and visualization.
 
-**readr**:readr provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+**Matplotlib **:tailored for the generation of simple and powerful visualizations with ease is Matplotlib.
 
-**tibble**:tibble is a modern re-imaginging of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly.
+**Seaborn **:Seaborn is mostly focused on the visualization of statistical models; such visualizations include heat maps, those that summarize the data but still depict the overall distributions. Seaborn is based on Matplotlib.
 
-**readxl**:The readxl package makes it easy to get data out of Excel and into R.
+**Bokeh**:Another great visualization library is Bokeh, which is aimed at interactive visualizations.
+
+
+**Plotly**:Plotly is  a web-based toolbox for building visualizations.
+
+
+**SciKit-Learn**:adding a set of algorithms for common machine learning and data mining tasks, including clustering, regression, and classification. 
+
+
+**TensorFlow **: another high-profile entrant into machine learning, developed by Google as an open-source successor to DistBelief, their previous framework for training neural networks. TensorFlow uses a system of multi-layered nodes that allow you to quickly set up, train, and deploy artificial neural networks with large datasets.
+
+**Scrapy**:is an aptly named library for creating spider bots to systematically crawl the web
+
+
+**NLTK**:is a set of libraries designed for Natural Language Processing (NLP). NLTK’s basic functions allow you to tag text, identify named entities, and display parse trees, which are like sentence diagrams that reveal parts of speech and dependencies. 
+
+
+
+
+
+
+
+
+
+
 

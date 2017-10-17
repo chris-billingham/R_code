@@ -47,119 +47,66 @@ import os
 print(os.listdir())
 ```
 
-Create file A B C:
-```{r eval=FALSE}
-cat("file A\n", file = "A.txt")
-cat("file B\n", file = "B.txt")
-cat("file C\n", file = "C.txt")
-```
-
-Add BBBB...  to A.txt:
-```{r eval=FALSE}
-file.append("A.txt", rep("B", 10))
-```
-
-Open A.txt:
-```{r eval=FALSE}
-file.show("A.txt")
-```
-
-Open A.txt:
-```{r eval=FALSE}
-file.show("A.txt")
-```
 
 Open ebay.com with firefox:
-```{r eval=FALSE}
-system(paste('"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"',
-             '-url www.ebay.com'))
-```
+
 
 Open ebay.com with defalt browser:
-```{r eval=FALSE}
-browseURL("www.ebay.com")
-```
+
 
 Delete a file with unlink or file.remove():
-```{r eval=FALSE}
-unlink("C")
-file.remove("A", "B")
-```
+
 
 Check a file existence:
-```{r eval=FALSE}
-dir.exists('test_file')
-```
+
 
 Create a folder :
-```{r eval=FALSE}
-dir.create('test_file')
-```
+
 
 Delete a folder :
-```{r eval=FALSE}
-unlink('test_file')
-```
+
 
 Download Files:
-```{r eval=FALSE}
-download.file()
-```
+
 
 Zip A.txt and B.txt into A_B.zip:
-```{r eval=FALSE}
-zip("A_B.zip", c("A.txt", "B.txt"))
-```
+
 
 Unzip A_B.zip
-```{r eval=FALSE}
-unzip("A_B.zip")
-```
+
 
 
 Untar a file:
-```{r eval=FALSE}
-untar()
-```
+
 
 Check file info:
-```{r message=FALSE, warning=FALSE}
-library(dplyr)
-dir(getwd())%>%file.info()
-```
+
 
 
 Shutdown Computer in 10 seconds:
-```{r eval=FALSE}
-shutdown(wait=10)
-```
+
 
 
 ## Play music
-```{r eval=FALSE}
-library(tuneR)
-File1<- readMP3("Becoming_A_Legend.mp3")
-play(File1)
-```
+
 
 ## image
-```{r eval=FALSE}
-library(png)
-img<-readPNG("R_logo.png")
-```
+
 
 ## txt 
-Read txt file:
-```{r eval=FALSE}
-txt_df <- read.table("txt_data.txt", 
-                 header = TRUE)
-```
+
 
 
 ## CSV
 Read csv file:
-```{r eval=FALSE}
-csv_df <- read.csv("zipcode.csv", header=TRUE)
+```{python eval=FALSE}
+import pandas as pd
+xl = pd.ExcelFile('df.xlsx')
+print(xl.sheet_names)
+# Load a sheet into a DataFrame by name: df1
+df1 = xl.parse('data_sheet1')
+# Load a sheet into a DataFrame by index: df2
+df2 = xl.parse(0)
 ```
 
 Create csv file:
