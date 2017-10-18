@@ -216,11 +216,13 @@ tail(EBAY)
 library(Quandl)
 
 # Import GDP data from FRED
-gdp <- Quandl("FRED/GDP")
+mydata = Quandl("WIKI/EBAY")
 
 # Look at the structure of the object returned by Quandl
-str(gdp)
-
+str(mydata)
+head(mydata)
+library(plotly)
+plot_ly(data=mydata%>%filter(Date>='2016-09-01'),x=~Date,y=~Open,mode='lines')
 
 
 ##########################   modeling ##########################

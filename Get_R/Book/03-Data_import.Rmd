@@ -263,6 +263,15 @@ gdp <- Quandl("FRED/GDP")
 
 # Look at the structure of the object returned by Quandl
 str(gdp)
+
+# Import EBAY data from WIKI
+mydata = Quandl("WIKI/EBAY")
+
+# Look at the structure of the object returned by Quandl
+
+library(plotly)
+plot_ly(data=mydata%>%filter(Date>='2016-09-01'),x=~Date,y=~Open,mode='lines')
+
 ```
 
 

@@ -8,7 +8,7 @@ print(os.getcwd())
 ```
 
 Set current working loaction:
-```{python}
+```{python eval=FALSE}
 import os
 os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Get_Python\\Book")
 ```
@@ -101,17 +101,15 @@ Shutdown Computer in 10 seconds:
 Read csv file:
 ```{python eval=FALSE}
 import pandas as pd
-xl = pd.ExcelFile('df.xlsx')
-print(xl.sheet_names)
-# Load a sheet into a DataFrame by name: df1
-df1 = xl.parse('data_sheet1')
-# Load a sheet into a DataFrame by index: df2
-df2 = xl.parse(0)
+df_csv = pd.read_csv('zipcode.csv')
+print(df_csv.head())
 ```
 
 Create csv file:
-```{r eval=FALSE}
-write.csv(txt_df, file = "txt_df_out.csv")
+```{python eval=FALSE}
+import pandas as pd
+df_csv = pd.read_csv('zipcode.csv')
+df_csv.to_csv('python_out_csv.csv', sep='\t')
 ```
 
 
@@ -120,19 +118,29 @@ write.csv(txt_df, file = "txt_df_out.csv")
 ### xlsx Package
 
 Read Excel file:
-```{r eval=FALSE}
-library(xlsx)
-excel_df1=read.xlsx("df.xlsx", sheetIndex =1)                          #read 1 sheets 
-excel_df2=read.xlsx("df.xlsx", sheetIndex =1,startRow=2, colIndex = 2) #read 1 sheets start from 2 row and 2 colmun
+```{python eval=FALSE}
+import pandas as pd
+xl = pd.ExcelFile('df.xlsx')
+print(xl.sheet_names)
+# Load a sheet into a DataFrame by name: df1
+df1 = xl.parse('data_sheet1')
+print(df1.head())
+# Load a sheet into a DataFrame by index: df2
+df2 = xl.parse(0)
 ```
 
 Create Excel file:
-```{r eval=FALSE}
-library(xlsx)
-write.xlsx(mtcars, 
-           "df.xlsx", 
-           sheetName="data_sheet1"
-           )
+```{python eval=FALSE}
+import pandas as pd
+#  import
+xl = pd.ExcelFile('df.xlsx')
+print(xl.sheet_names)
+# Load a sheet into a DataFrame by name: df1
+df1 = xl.parse('data_sheet1')
+
+#  export
+writer = pd.ExcelWriter('python_out_excel.xlsx')
+df1.to_excel(writer,'Sheet1')
 ```
 
 
@@ -141,32 +149,59 @@ write.xlsx(mtcars,
 https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
 
 ## Database 
-Coming soon
-RJDBC
+sqlalchemy package
+```{python eval=FALSE}
+# Import necessary module
+import pandas as pd
+from sqlalchemy import create_engine
 
-dplyr
+# Create engine: engine
+engine = create_engine('sqlite:///Chinook.sqlite')
+
+# Save the table names to a list: table_names
+table_names = engine.table_names()
+
+# Print the table names to the shell
+print(table_names)
+
+# Open engine connection
+con = engine.connect()
+
+# Perform query: rs
+rs = con.execute("SELECT * FROM Album")
+
+# Save results of the query to DataFrame: df
+df = pd.DataFrame(rs.fetchall())
+print(df.head())
+```
+
 
 
 ## SAS SPSS Stata Matlab
-```{r eval=FALSE}
-install.packages("haven")
-library(haven)
+```{python eval=FALSE}
+
+
 # SAS
-read_sas("mtcars.sas7bdat")
-write_sas(mtcars, "mtcars.sas7bdat")
+import pandas as pd
+from sas7bdat import SAS7BDAT
+
+# Save file to a DataFrame: df_sas
+with SAS7BDAT('airline.sas7bdat') as file:
+    df_sas = file.to_data_frame()
+
+# Print head of DataFrame
+print(df_sas.head())
+
 
 # SPSS
-read_sav("mtcars.sav")
-write_sav(mtcars, "mtcars.sav")
+
 
 # Stata
-read_dta("mtcars.dta")
-write_dta(mtcars, "mtcars.dta")
+df_stata = pd.read_stata('alcohol.dta')
+print(df_stata.head())
 
 # matlab
-install.packages("R.matlab")
-library(R.matlab)
-readMat('file.mat'))
+
 ```
 
 ## HTTP
