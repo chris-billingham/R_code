@@ -13,6 +13,14 @@ Yihui Xie
 
 ## The Talk
 
+useR! International R User 2017 Conference
+Sponsor Talk - Data Camp by Jonathan Cornelissen CEO
+https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/Sponsor-Talk-Data-Camp
+
+
+
+
+
 Expressing yourself in R by  Hadley Wickham on 2014 @Stanford Seminar
 https://www.youtube.com/watch?v=wki0BqlztCo
 
