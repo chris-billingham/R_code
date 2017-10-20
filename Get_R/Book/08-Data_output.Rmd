@@ -3,6 +3,33 @@
 After all the hard work you have done.Now you have  your insignfull ,analytical, story telling result that you want to share with your boss and make him/her think the world will end without you.You need to present it! in many ways.So that they can not aviod you.Make a PPT with excel attchment is not enough.Make them a website.Make them a video or even write them a book.In this Chapter you will get new knowledage on how to show your output.
 
 
+## R email
+
+```{r eval=FALSE}
+library(mailR)
+email_name="xxx@gmail.com"
+email_password="xxx"
+
+send.mail(from = "xxx@gmail.com",
+          to = "xxx@gmail.com",
+          subject = "Sent by R ",
+          body =
+            "
+          Hi,
+          Sent by R
+
+          Thank you
+          
+          ",
+            authenticate = TRUE,
+            attach.files = 'attchemnt.xlsx',
+            smtp = list(host.name = "xxx.xxx.com", port = 25,
+                        user.name = email_name, passwd = email_password, tls = TRUE)) 
+
+```
+
+
+
 
 ## R Mapping
 A nautical chart is a graphic representation of a maritime area and adjacent coastal regions
