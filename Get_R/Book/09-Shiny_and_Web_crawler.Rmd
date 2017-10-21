@@ -1,6 +1,20 @@
 # Shiny and Web Crawler
 ## Shiny
 
+
+**Interact. Analyze. Communicate.**
+Take a fresh, interactive approach to telling your data story with Shiny. Let users interact with your data and your analysis. And do it all with R.
+
+by Joe Cheng
+https://shiny.rstudio.com/gallery/
+
+https://rstudio.github.io/shiny/tutorial/
+
+https://www.shinyapps.io/
+
+
+
+
 https://www.youtube.com/watch?v=_0ORRJqctHE&list=PL6wLL_RojB5xNOhe2OTSd-DPkMLVY9DfB
 
 https://shiny.rstudio.com/
@@ -20,7 +34,7 @@ server=function(input,output){}     # make server
 shinyApp(ui=ui,server = server)     # make shiny
 ```
 
-#### Sample 1 a+b+c shiny
+#### Sample 1 :a+b+c 
 
 make ui
 ```{r eval=FALSE}
@@ -68,7 +82,7 @@ shinyApp(ui=ui,server = server)
 ```
 
 
-#### Sample 2 one way reactive shiny 
+#### Sample 2: one way reactive 
 
 make ui:
 ```{r eval=FALSE}
@@ -136,21 +150,28 @@ shinyApp(ui=ui,server = server)
 
 ### share your shiny 
 
+Share your shiny on [www.shinyapps.io] or [Shiny Server]
+
 One file:
-```{r echo=FALSE, out.width='100%'}
+
+```{r echo=FALSE, out.width='80%'}
 knitr::include_graphics('./shiny003.png')
 ```
 
 Two file:
-```{r echo=FALSE, out.width='100%'}
+
+```{r echo=FALSE, out.width='80%'}
 knitr::include_graphics('./shiny002.png')
 ```
 
-#### www.shinyapps.io 
 
-#### Shiny Server
 
 ## Shiny Dashboard
+
+
+
+
+
 
 ## Web Crawler
 
@@ -158,7 +179,7 @@ knitr::include_graphics('./shiny002.png')
 
 
 ### sample 1 :Wework
-```{r echo=FALSE}
+```{r eval=FALSE}
 location_url='https://www.wework.com/locations'    #url
 
 location_html=readLines(location_url)              # location html

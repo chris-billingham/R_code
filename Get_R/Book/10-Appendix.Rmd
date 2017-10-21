@@ -92,39 +92,14 @@ swirl()
 
 www.datacamp.com
 
-## Appendix to the book To Chapter 4 :qplot()[quickly plotting]
 
 
-### Scatter plot:
-```{r message=FALSE,warning=FALSE}
-library(ggplot2)
-#Scatter
-qplot(displ,hwy,data=mpg)
-qplot(displ,hwy,data=mpg,color=drv)# group with color
-qplot(displ,hwy,data=mpg,shape=drv)# group with shape
-```
-
-### Scatter and line:
-```{r warning=FALSE,message=FALSE}
-library(ggplot2)
-qplot(displ,hwy,data=mpg,geom=c('point','smooth'))
-```
-
-#### Histogram:
-```{r message=FALSE,warning=FALSE}
-qplot(hwy,data=mpg)
-qplot(hwy,data=mpg,fill=drv)# group with color
-```
-
-
-### facets
-```{r message=FALSE,warning=FALSE}
-qplot(displ,hwy,data=mpg,facets = .~drv)#facet
-qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
-```
+## Appendix to the book To Chapter 3 : Google sheet
+https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
 
 
 ## Appendix to the book To Chapter 3 :Web Data and Big Data
+
 finding the internet
 
 ### import Data from URL
@@ -403,3 +378,138 @@ spark_disconnect(spark_conn)
 
 
 ## Appendix to the book To Chapter 6 : Parallel computing
+
+## Appendix to the book To Chapter 8 : R Mapping
+A nautical chart is a graphic representation of a maritime area and adjacent coastal regions
+
+cartography:https://en.wikipedia.org/wiki/History_of_cartography
+
+
+sail the Seven Seas
+
+In the 9th century AD, author Ya'qubi wrote:
+
+Whoever wants to go to China must cross seven seas, each one with its own color and wind and fish and breeze, completely unlike the sea that lies beside it. The first of them is the Sea of Fars, which men sail setting out from Siraf. It ends at Ra??s al-Jumha; it is a strait where pearls are fished. The second sea begins at Ra??s al-Jumha and is called Larwi. It is a big sea, and in it is the Island of Waqwaq and others that belong to the Zanj. These islands have kings. One can only sail this sea by the stars. It contains huge fish, and in it are many wonders and things that pass description. The third sea is called Harkand, and in it lies the Island of Sarandib, in which are precious stones and rubies. Here are islands with kings, but there is one king over them. In the islands of this sea grow bamboo and rattan. The fourth sea is called Kalah and is shallow and filled with huge serpents. Sometimes they ride the wind and smash ships. Here are islands where the camphor tree grows. The fifth sea is called Salahit and is very large and filled with wonders. The sixth sea is called Kardanj; it is very rainy. The seventh sea is called the sea of Sanji, also known as Kanjli. It is the sea of China; one is driven by the south wind until one reaches a freshwater bay, along which are fortified places and cities, until one reaches Khanfu.[7]
+
+This passage demonstrates the Seven Seas as referenced in Medieval Arabian literature: the Persian Gulf ("Sea of Fars"), the Arabian Sea ("Sea of Larwi"[8]), the Bay of Bengal ("Sea of Harkand"[9]), the Strait of Malacca ("Sea of Kalah"[10]), the Singapore Strait ("Sea of Salahit"[11]), the Gulf of Thailand ("Sea of Kardanj"[10]), and the South China Sea ("Sea of Sanji"[10]).
+
+
+## Appendix to the book To Chapter 4 :qplot()[quickly plotting]
+
+
+### Scatter plot:
+```{r message=FALSE,warning=FALSE}
+library(ggplot2)
+#Scatter
+qplot(displ,hwy,data=mpg)
+qplot(displ,hwy,data=mpg,color=drv)# group with color
+qplot(displ,hwy,data=mpg,shape=drv)# group with shape
+```
+
+### Scatter and line:
+```{r warning=FALSE,message=FALSE}
+library(ggplot2)
+qplot(displ,hwy,data=mpg,geom=c('point','smooth'))
+```
+
+#### Histogram:
+```{r message=FALSE,warning=FALSE}
+qplot(hwy,data=mpg)
+qplot(hwy,data=mpg,fill=drv)# group with color
+```
+
+
+### facets
+```{r message=FALSE,warning=FALSE}
+qplot(displ,hwy,data=mpg,facets = .~drv)#facet
+qplot(hwy,data=mpg,facets = .~drv,binwidth=2)# facet and binwidth setting
+```
+
+
+
+
+
+
+## autohotkey
+
+AutoHotkey is a free, open-source scripting language for Windows that allows users to easily create small to complex scripts for all kinds of tasks such as: form fillers, auto-clicking, macros, etc.
+
+
+Online Tutorial :https://autohotkey.com/docs/Tutorial.htm
+
+
+autohotkey Download:https://autohotkey.com/
+
+
+IDE:
+
+SciTE4AutoHotkey(recommend) or AHK Studio(still under development) .
+
+SciTE4AutoHotkey Download:https://fincs.ahk4.net/scite4ahk/
+
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics('./Pic/AHK001.png')
+```
+
+AHK Studio Download:http://www.maestrith.com/
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics('./Pic/AHK002.png')
+```
+
+
+keyboard output example:
+```{r eval=FALSE}
+;keyboard hot key    [;is  comment]
+^`::                 [^` is hotkey Ctrl +`]
+Send,123123123       [output key 123123123]
+Sleep,500            [wait for 0.5 sec]
+Send,{enter}         [output key Enter]
+return               [finish the hotkey]
+```
+
+
+Mouse click output example:
+
+
+```{r eval=FALSE}
+^q::                             [^q is hotkey Ctrl +q]
+MouseClick, left, 200, 300,3     [Right click 200, 300 3 times ]
+Return
+```
+
+
+```{r eval=FALSE}
+^q::                              [^q is hotkey Ctrl +q]
+  Loop, 3{                        [loop 3 times]
+    MouseClick, Right, 200, 300   [Right click 200, 300 ]
+	Sleep,500                       [wait for 0.5 sec]
+	MouseClick, left, 100, 300      [left click 100, 300 ]
+  }
+  Return
+```
+
+Open window message and software example:
+```{r eval=FALSE}
+^j::                                      [^j is hotkey Ctrl +j]
+   MsgBox Wow!                            [window message Wow!]
+   MsgBox this is                         [window this is]
+   Run, Notepad.exe                       [Notepad.exe]
+   winactivate, Untitled - Notepad        [activate Notepad.exe]
+   WinWaitActive, Untitled - Notepad      [wait for activate Notepad.exe]
+   send, I LOVE YOU eBAY{!}{enter}        [write I LOVE YOU EBAY!]
+   sendinput, inside the ctrl{+}j hotkey
+Return
+```
+
+
+
+Other applicatin:recognise the window info or pixel color 
+
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics('./Pic/AHK003.png')
+```
+
+
+
+
+

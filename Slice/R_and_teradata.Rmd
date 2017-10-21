@@ -1,0 +1,58 @@
+---
+title: "R connection to teradata"
+
+date: "2017/09/23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Install [R] [R studio] [RJDBC package] [ebaytd package]
+Wiki page:
+https://wiki.vip.corp.ebay.com/display/Analytics/Connecting+to+Teradata+from+R+at+eBay+-+ebaytd+R+package+not+RJDBC+RODBC
+
+
+
+## Sample code 
+Set up connection:
+```{r eval=FALSE}
+library(RJDBC)
+library(ebaytd)
+teradataInit("YOUR_USER_NAME", "YOUR_TERADATA_PASSWORD")
+
+conn <- teradataConnect(database= 'P_xxxx_t', system="mozart") 
+connf <- teradataConnect(database='P_xxxx_t', fastload = TRUE,csv=TRUE,system="mozart")
+```
+
+
+Create table at Teradata:
+```{r eval=FALSE}
+dbSendQuery(conn, "create multiset table P_xxxx_t.DW_COUNTRIES AS (SELECT  * from DW_COUNTRIES) WITH	DATA ")
+```
+
+
+Download table from Teradata:
+```{r eval=FALSE}
+data001=dbGetQuery(conn, " select * from P_xxxx_t.DW_COUNTRIES")
+```
+
+
+Upload table to Teradata:
+```{r eval=FALSE}
+teradataFastloadCSV(data001, conn, connf, "P_xxxx_t", "tera_data001", replace = TRUE, primary_index = c(1))
+```
+
+
+Check whether a table is exist on Teradata:
+```{r eval=FALSE}
+dbExistsTable(conn,"P_xxxx_t","test")
+```
+
+
+Delete table on Teradata:
+```{r eval=FALSE}
+dbExistsRemove(conn,"P_xxxx_t","tera_data001")
+```
+

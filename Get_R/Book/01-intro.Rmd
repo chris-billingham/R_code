@@ -3,9 +3,10 @@
 ## History of analytic software
 **R** is an implementation of the **S** programming language and created by *Ross Ihaka* and *Robert Gentleman*. at the University of Auckland, New Zealand.R is named partly after the first names of the first two R authors and partly as a play on the name of S. The project was conceived in **1992**, with an initial version released in 1995 and a stable beta version in 2000.
 
+**S** is a statistical programming language developed primarily by *John Chambers* at Bell Laboratories in **1975**.
+
 **Python** is created by *Guido van Rossum* in **1991**.Python 3.0 was released on **2008**.
 
-**S** is a statistical programming language developed primarily by *John Chambers* at Bell Laboratories in **1975**.
 
 Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. Chamberlin* and *Raymond F. Boyce* in **1970**.
 
@@ -61,7 +62,7 @@ knitr::include_graphics('./Pic/Base_R.png')
 knitr::include_graphics('./Pic/R_studio.png')
 ```
 
-### Rstudio server(don't worry about it at the moment)
+### Rstudio server
 
 Rstudio server pro is able to run multi R section at the same time
 ```{r echo=FALSE, out.width='100%'}

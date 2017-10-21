@@ -1,0 +1,34 @@
+---
+title: "R Share 2017"
+author: "Tony D"
+#date: "2017/10/21"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Topic
+
+- Autohotkey 
+- R intro
+- R Package
+- Data import
+- Shiny App 
+
+
+## Book: Get R 
+
+
+```{r echo=FALSE, out.width='45%'}
+knitr::include_graphics('./Pic/Get_R001.png')
+```
+
+
+## Book:Get Python 
+
+```{r echo=FALSE, out.width='40%'}
+knitr::include_graphics('./Pic/Get_python001.png')
+```

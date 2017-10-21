@@ -11,55 +11,6 @@ Set current working loaction:
 setwd("C:/Users/User/Desktop/Mission/R/R_code/Get_R/Book")
 ```
 
-Get computer info:
-```{r message=FALSE}
-Sys.info()
-```
-
-Get file size:
-```{r eval=FALSE}
-#install.packages('pryr')
-library(pryr)
-object_size(mtcars)
-```
-
-Check how much memory R is using :
-```{r eval=FALSE}
-mem_used()
-memory.size()
-```
-
-Check RAM limit :
-```{r warning=FALSE}
-memory.limit()
-```
-
-Show location files:
-```{r message=FALSE}
-dir(getwd())
-```
-
-Create file A B C:
-```{r eval=FALSE}
-cat("file A\n", file = "A.txt")
-cat("file B\n", file = "B.txt")
-cat("file C\n", file = "C.txt")
-```
-
-Add BBBB...  to A.txt:
-```{r eval=FALSE}
-file.append("A.txt", rep("B", 10))
-```
-
-Open A.txt:
-```{r eval=FALSE}
-file.show("A.txt")
-```
-
-Open A.txt:
-```{r eval=FALSE}
-file.show("A.txt")
-```
 
 Open ebay.com with firefox:
 ```{r eval=FALSE}
@@ -98,28 +49,12 @@ Download Files:
 download.file()
 ```
 
-Zip A.txt and B.txt into A_B.zip:
-```{r eval=FALSE}
-zip("A_B.zip", c("A.txt", "B.txt"))
-```
-
-Unzip A_B.zip
-```{r eval=FALSE}
-unzip("A_B.zip")
-```
-
-
-Untar a file:
-```{r eval=FALSE}
-untar()
-```
 
 Check file info:
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
-dir(getwd())%>%file.info()
+head(dir(getwd()))%>%file.info()
 ```
-
 
 Shutdown Computer in 10 seconds:
 ```{r eval=FALSE}
@@ -162,7 +97,7 @@ write.csv(txt_df, file = "txt_df_out.csv",row.names = FALSE)
 
 ## Excel
 
-### (without Java)
+### readxl and writexl Package(without Java)
 
 
 Read Excel file:
@@ -200,14 +135,55 @@ write_xlsx(mtcars, path="df.xlsx")
 
 
 
-## Google sheet
-https://www.youtube.com/watch?v=7l2_R61jrUU&list=PLH6mU1kedUy-IW8mi46ZhowTm3-_yQNAQ
-
 ## Database 
-Coming soon
-RJDBC
 
-dplyr
+RJDBC Package:
+
+```{r eval=FALSE}
+#Set up connection:
+library(RJDBC)
+drv <- JDBC("com.mysql.jdbc.Driver", "/etc/jdbc/mysql-connector-java-3.1.14-bin.jar", "`")
+conn <- dbConnect(drv, "jdbc:mysql://localhost/test", jdbcUser, jdbcPass)
+
+# check table
+dbListTables(conn)
+
+# wirte table to database
+data(iris)
+dbWriteTable(conn, "iris", iris)
+
+# read table from database
+d1=dbGetQuery(conn, "select count(*) from iris")
+# read table from database
+d2= dbReadTable(conn, "iris")
+```
+
+
+ebaytd Package:
+```{r eval=FALSE}
+#Set up connection:
+library(RJDBC)
+library(ebaytd)
+teradataInit("YOUR_USER_NAME", "YOUR_TERADATA_PASSWORD")
+
+conn <- teradataConnect(database= 'P_xxxx_t', system="mozart") 
+connf <- teradataConnect(database='P_xxxx_t', fastload = TRUE,csv=TRUE,system="mozart")
+
+#Create table at Teradata:
+dbSendQuery(conn, "create multiset table P_xxxx_t.DW_COUNTRIES AS (SELECT  * from DW_COUNTRIES) WITH    DATA ")
+
+#Download table from Teradata:  
+data001=dbGetQuery(conn, " select * from P_xxxx_t.DW_COUNTRIES")
+  
+#Upload table to Teradata:
+teradataFastloadCSV(data001, conn, connf, "P_xxxx_t", "tera_data001", replace = TRUE, primary_index = c(1))
+
+#Check whether a table is exist on Teradata:
+dbExistsTable(conn,"P_xxxx_t","test")
+
+#Delete table on Teradata:
+dbExistsRemove(conn,"P_xxxx_t","tera_data001")
+```
 
 
 ## SAS SPSS Stata Matlab
@@ -240,21 +216,35 @@ source:yahoo finance,google finance,FRED,Oanda
 
 
 ### getSymbols()
-```{r eval=FALSE}
+```{r message=FALSE,warning=FALSE}
+
+Sys.setenv(LANG = "en")
+Sys.setlocale("LC_ALL", "English")
+
 # Load the quantmod package
 library(quantmod)
-# Import EBAY data to xts from Yahoo! Finance
-getSymbols("EBAY")
-tail(EBAY)
-# Import EBAY data from Google Finance
-getSymbols("EBAY", src = "google")
+
+# Import Amazon data from Google Finance
+getSymbols("AMZN", src = "google")
 # Look at the structure of EBAY
-str(EBAY)
+#str(AMZN)
+tail(AMZN)
+# Plot ebay stock from 2016-09-01 to current
+library(plotly)
+library(ggplot2)
+AMZN2 <- AMZN["2016-09-01/"] 
+gg=ggplot(AMZN2, aes(x = Index, y = AMZN.Close)) + geom_line()+ggtitle("Amazon Stock price") 
+ggplotly(gg)
 
 ```
 
 ### Quandl()
-```{r eval=FALSE}
+```{r message=FALSE,warning=FALSE}
+
+Sys.setenv(LANG = "en")
+Sys.setlocale("LC_ALL", "English")
+
+
 # Load the Quandl package
 library(Quandl)
 
@@ -266,11 +256,11 @@ str(gdp)
 
 # Import EBAY data from WIKI
 mydata = Quandl("WIKI/EBAY")
-
-# Look at the structure of the object returned by Quandl
-
+tail(mydata)
+# Plot ebay stock from 2016-09-01 to current
 library(plotly)
-plot_ly(data=mydata%>%filter(Date>='2016-09-01'),x=~Date,y=~Open,mode='lines')
+plot_ly(data=mydata%>%filter(Date>='2016-09-01'),x=~Date,y=~Open,mode='lines')%>%layout(
+    title = "eBay Stock price")
 
 ```
 

@@ -225,6 +225,41 @@ library(plotly)
 plot_ly(data=mydata%>%filter(Date>='2016-09-01'),x=~Date,y=~Open,mode='lines')
 
 
+
+library(dplyr)
+library(quantmod)
+# Import EBAY data to xts from Yahoo! Finance
+
+
+# Import Amazon data from Google Finance
+getSymbols("AMZN", src = "google")
+# Look at the structure of EBAY
+str(AMZN)
+
+glimpse(AMZN)
+
+# Plot ebay stock from 2016-09-01 to current
+
+head(AMZN)
+
+
+
+
+
+library(quantmod)
+
+# Import Amazon data from Google Finance
+getSymbols("AMZN", src = "google")
+# Look at the structure of EBAY
+#str(AMZN)
+tail(AMZN)
+# Plot ebay stock from 2016-09-01 to current
+library(plotly)
+library(ggplot2)
+AMZN2 <- AMZN["2016-09-01/"] 
+gg=ggplot(AMZN2, aes(x = Index, y = AMZN.Close)) + geom_line()+ggtitle("Amazon Stock price") 
+  ggplotly(gg)
+
 ##########################   modeling ##########################
 
 library(ggplot2)
