@@ -1,4 +1,35 @@
 
+
+
+install.packages('meme')
+
+
+library(meme)
+
+
+getwd()
+
+f <- system.file("shiny002.png", package="meme")
+
+meme('https://cdn.arstechnica.net/wp-content/uploads/2017/03/GettyImages-461246108-1-800x941.jpg', "code", "all the things!") + aes(color="firebrick")
+Sys.Date()
+
+
+u2 <- 'egd001.png'
+
+
+text=paste('Updated at',Sys.Date())
+text
+x=meme(u2, "", text)+ aes(color="#C2F5FF", size=0.8)
+x
+meme_save(x, file="./meme.png") 
+
+
+
+
+
+
+
 install.packages('writexl')
 ??read_xlsx
 
