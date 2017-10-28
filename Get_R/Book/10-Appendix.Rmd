@@ -459,12 +459,12 @@ knitr::include_graphics('./Pic/AHK002.png')
 
 keyboard output example:
 ```{r eval=FALSE}
-;keyboard hot key    [;is  comment]
-^`::                 [^` is hotkey Ctrl +`]
-Send,123123123       [output key 123123123]
-Sleep,500            [wait for 0.5 sec]
-Send,{enter}         [output key Enter]
-return               [finish the hotkey]
+;keyboard hot key    ;[;is  comment]
+^`::                 ;[^` is hotkey Ctrl +`]
+Send,123123123       ;[output key 123123123]
+Sleep,500            ;[wait for 0.5 sec]
+Send,{enter}         ;[output key Enter]
+return               ;[finish the hotkey]
 ```
 
 
@@ -472,31 +472,31 @@ Mouse click output example:
 
 
 ```{r eval=FALSE}
-^q::                             [^q is hotkey Ctrl +q]
-MouseClick, left, 200, 300,3     [Right click 200, 300 3 times ]
+^q::                             ;[^q is hotkey Ctrl +q]
+MouseClick, left, 200, 300,3     ;[Right click 200, 300 3 times ]
 Return
 ```
 
 
 ```{r eval=FALSE}
-^q::                              [^q is hotkey Ctrl +q]
-  Loop, 3{                        [loop 3 times]
-    MouseClick, Right, 200, 300   [Right click 200, 300 ]
-	Sleep,500                       [wait for 0.5 sec]
-	MouseClick, left, 100, 300      [left click 100, 300 ]
+^q::                              ;[^q is hotkey Ctrl +q]
+  Loop, 3{                        ;[loop 3 times]
+    MouseClick, Right, 200, 300   ;[Right click 200, 300 ]
+	Sleep,500                       ;[wait for 0.5 sec]
+	MouseClick, left, 100, 300      ;[left click 100, 300 ]
   }
   Return
 ```
 
 Open window message and software example:
 ```{r eval=FALSE}
-^j::                                      [^j is hotkey Ctrl +j]
-   MsgBox Wow!                            [window message Wow!]
-   MsgBox this is                         [window this is]
-   Run, Notepad.exe                       [Notepad.exe]
-   winactivate, Untitled - Notepad        [activate Notepad.exe]
-   WinWaitActive, Untitled - Notepad      [wait for activate Notepad.exe]
-   send, I LOVE YOU eBAY{!}{enter}        [write I LOVE YOU EBAY!]
+^j::                                      ;[^j is hotkey Ctrl +j]
+   MsgBox Wow!                            ;[window message Wow!]
+   MsgBox this is                         ;[window this is]
+   Run, Notepad.exe                       ;[Notepad.exe]
+   winactivate, Untitled - Notepad        ;[activate Notepad.exe]
+   WinWaitActive, Untitled - Notepad      ;[wait for activate Notepad.exe]
+   send, I LOVE YOU eBAY{!}{enter}        ;[write I LOVE YOU EBAY!]
    sendinput, inside the ctrl{+}j hotkey
 Return
 ```

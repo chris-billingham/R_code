@@ -15,12 +15,6 @@ Structured Query Language[**SQL**] was initially developed at IBM by *Donald D. 
 The development of **SAS** began in **1966** at North Carolina State University by *Anthony Barr* and his student *James Goodnight*(current CEO of SAS).
 
 
-```{r eval = FALSE}
-devtools::install_github("PMassicotte/gtrendsR")
-library(gtrendsR)
-res <- gtrends("sko", geo = "NO", cat = "18")
-head(res$interest_over_time)
-```
 ```{r echo = TRUE,message=FALSE}
 library(plotly)
 google_trend<- read.csv("multiTimeline001.csv", header=TRUE,skip=1)

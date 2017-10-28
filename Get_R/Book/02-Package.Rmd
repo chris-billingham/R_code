@@ -26,7 +26,7 @@ devtools::install_github("rstudio/bookdown")
 ```
 Get help on Package: question mark follow by package name
 ```{r eval=FALSE}
-?dplyr
+?ggplot2
 ```
 
 Uninstall packages:
