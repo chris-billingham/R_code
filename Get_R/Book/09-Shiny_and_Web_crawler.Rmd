@@ -5,28 +5,19 @@
 **Interact. Analyze. Communicate.**
 Take a fresh, interactive approach to telling your data story with Shiny. Let users interact with your data and your analysis. And do it all with R.
 
-by Joe Cheng
-https://shiny.rstudio.com/gallery/
+create by Joe Cheng at Rstudio
 
-https://rstudio.github.io/shiny/tutorial/
-
-https://www.shinyapps.io/
+exampe:https://shiny.rstudio.com/gallery/
 
 
-
-
-https://www.youtube.com/watch?v=_0ORRJqctHE&list=PL6wLL_RojB5xNOhe2OTSd-DPkMLVY9DfB
-
-https://shiny.rstudio.com/
-
+Tutorial: 
 https://shiny.rstudio.com/tutorial/
-
 
 https://shiny.rstudio.com/images/shiny-cheatsheet.pdf
 
 ### Build Shiny
 
-#### temple:
+#### template:
 ```{r eval=FALSE}
 library(shiny)
 ui=fluidPage()                      # make ui
@@ -34,7 +25,7 @@ server=function(input,output){}     # make server
 shinyApp(ui=ui,server = server)     # make shiny
 ```
 
-#### Sample 1 :a+b+c 
+#### example 1: simple a+b+c dashboard
 
 make ui
 ```{r eval=FALSE}
@@ -82,7 +73,7 @@ shinyApp(ui=ui,server = server)
 ```
 
 
-#### Sample 2: one way reactive 
+#### example 2: one way reactive dashboard
 
 make ui:
 ```{r eval=FALSE}
@@ -141,9 +132,9 @@ shinyApp(ui=ui,server = server)
 
 
 
-#### Sample 3 two way reactive shiny 
+#### example 3: two way reactive shiny 
 
-#### Sample 4 tab shiny
+#### example 4: tab shiny
 
 
 
@@ -178,7 +169,7 @@ knitr::include_graphics('./shiny002.png')
 ### RCurl; rvest
 
 
-### sample 1 :Wework
+### example 1 :Wework
 ```{r eval=FALSE}
 location_url='https://www.wework.com/locations'    #url
 

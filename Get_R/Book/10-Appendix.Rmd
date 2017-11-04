@@ -80,7 +80,7 @@ https://www.youtube.com/user/marinstatlectures/videos
 
 4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
 
-
+5.https://github.com/rstudio/Intro/tree/master/slides
 
 
 Learn R, in R.  http://swirlstats.com/
@@ -459,12 +459,12 @@ knitr::include_graphics('./Pic/AHK002.png')
 
 keyboard output example:
 ```{r eval=FALSE}
-;keyboard hot key    [;is  comment]
-^`::                 [^` is hotkey Ctrl +`]
-Send,123123123       [output key 123123123]
-Sleep,500            [wait for 0.5 sec]
-Send,{enter}         [output key Enter]
-return               [finish the hotkey]
+;keyboard hot key    ;[;is  comment]
+^`::                 ;[^` is hotkey Ctrl +`]
+Send,123123123       ;[output key 123123123]
+Sleep,500            ;[wait for 0.5 sec]
+Send,{enter}         ;[output key Enter]
+return               ;[finish the hotkey]
 ```
 
 
@@ -472,31 +472,31 @@ Mouse click output example:
 
 
 ```{r eval=FALSE}
-^q::                             [^q is hotkey Ctrl +q]
-MouseClick, left, 200, 300,3     [Right click 200, 300 3 times ]
+^q::                             ;[^q is hotkey Ctrl +q]
+MouseClick, left, 200, 300,3     ;[Right click 200, 300 3 times ]
 Return
 ```
 
 
 ```{r eval=FALSE}
-^q::                              [^q is hotkey Ctrl +q]
-  Loop, 3{                        [loop 3 times]
-    MouseClick, Right, 200, 300   [Right click 200, 300 ]
-	Sleep,500                       [wait for 0.5 sec]
-	MouseClick, left, 100, 300      [left click 100, 300 ]
+^q::                              ;[^q is hotkey Ctrl +q]
+  Loop, 3{                        ;[loop 3 times]
+    MouseClick, Right, 200, 300   ;[Right click 200, 300 ]
+	Sleep,500                       ;[wait for 0.5 sec]
+	MouseClick, left, 100, 300      ;[left click 100, 300 ]
   }
   Return
 ```
 
 Open window message and software example:
 ```{r eval=FALSE}
-^j::                                      [^j is hotkey Ctrl +j]
-   MsgBox Wow!                            [window message Wow!]
-   MsgBox this is                         [window this is]
-   Run, Notepad.exe                       [Notepad.exe]
-   winactivate, Untitled - Notepad        [activate Notepad.exe]
-   WinWaitActive, Untitled - Notepad      [wait for activate Notepad.exe]
-   send, I LOVE YOU eBAY{!}{enter}        [write I LOVE YOU EBAY!]
+^j::                                      ;[^j is hotkey Ctrl +j]
+   MsgBox Wow!                            ;[window message Wow!]
+   MsgBox this is                         ;[window this is]
+   Run, Notepad.exe                       ;[Notepad.exe]
+   winactivate, Untitled - Notepad        ;[activate Notepad.exe]
+   WinWaitActive, Untitled - Notepad      ;[wait for activate Notepad.exe]
+   send, I LOVE YOU eBAY{!}{enter}        ;[write I LOVE YOU EBAY!]
    sendinput, inside the ctrl{+}j hotkey
 Return
 ```
@@ -509,6 +509,61 @@ Other applicatin:recognise the window info or pixel color
 knitr::include_graphics('./Pic/AHK003.png')
 ```
 
+
+
+
+## Shadowsocks
+
+
+Download Shadowsocks Client:
+
+github:https://github.com/shadowsocks/shadowsocks-windows/releases
+
+https://shadowsocks.org
+
+
+Apply Google cloud:https://cloud.google.com/
+
+1.Set up VM instances
+
+
+
+
+
+sudo su
+
+apt-get?update
+
+apt-get install python-gevent python-pip python-m2crypto
+
+wget no-check-certificate?https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+
+chmod +x?shadowsocks.sh
+
+./shadowsocks.sh 2>&1 | tee shadowsocks.log 
+
+
+
+104.199.207.159
+
+qwe123qwe
+
+1234
+
+7) aes-256-cfb
+
+
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh 
+
+
+VPC networks
+
+Create a VPC network
+
+Source IP ranges 
+0.0.0.0/0
+
+tcp:1-65535
 
 
 

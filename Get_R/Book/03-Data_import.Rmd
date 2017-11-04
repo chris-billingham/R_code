@@ -1,7 +1,7 @@
 # Data import
 
 ## interactive with Operation System[OS]
-get current working `:
+get current working :
 ```{r}
 getwd()
 ```
@@ -12,15 +12,10 @@ setwd("C:/Users/User/Desktop/Mission/R/R_code/Get_R/Book")
 ```
 
 
-Open ebay.com with firefox:
+Open ebay.com with defalt chrome:
 ```{r eval=FALSE}
-system(paste('"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"',
-             '-url www.ebay.com'))
-```
-
-Open ebay.com with defalt browser:
-```{r eval=FALSE}
-browseURL("www.ebay.com")
+browseURL("www.ebay.com",
+          browser = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe")
 ```
 
 Delete a file with unlink or file.remove():
@@ -41,38 +36,26 @@ dir.create('test_file')
 
 Delete a folder :
 ```{r eval=FALSE}
-unlink('test_file')
+unlink('test_file', recursive=TRUE)
 ```
 
 Download Files:
 ```{r eval=FALSE}
-download.file()
+download.file('https://freemusicarchive.org/file/music/no_curator/Scott_Holmes/Corporate__Motivational_Music/Scott_Holmes_-_13_-_Think_BIG.mp3',destfile='Think_BIG.mp3',method='curl')
+
 ```
 
 
-Check file info:
-```{r message=FALSE, warning=FALSE}
-library(dplyr)
-head(dir(getwd()))%>%file.info()
+Play music
+```{r eval=FALSE}
+library(tuneR)
+File1<- readMP3("Think_BIG.mp3")
+play(File1)
 ```
 
 Shutdown Computer in 10 seconds:
 ```{r eval=FALSE}
 shutdown(wait=10)
-```
-
-
-## Play music
-```{r eval=FALSE}
-library(tuneR)
-File1<- readMP3("Becoming_A_Legend.mp3")
-play(File1)
-```
-
-## image
-```{r eval=FALSE}
-library(png)
-img<-readPNG("R_logo.png")
 ```
 
 ## txt 
