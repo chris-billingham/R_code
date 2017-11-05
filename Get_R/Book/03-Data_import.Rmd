@@ -95,8 +95,7 @@ Create Excel file:
 
 ```{r eval=FALSE}
 library(writexl)
-excel_df1=read_xlsx("df.xlsx", 1)               #read first sheets 
-read_excel(datasets, range = "mtcars!B1:D5")    #read mtcars sheets  B1:D5
+write_xlsx(iris,path =  "iris.xlsx"))
 ```
 
 
