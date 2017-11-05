@@ -65,7 +65,8 @@ with tf.Session() as sess:
 
     
 ########################################################    
-    
+import sys
+print (sys.version)
     
     
     
