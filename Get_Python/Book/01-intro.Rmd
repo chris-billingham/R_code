@@ -71,13 +71,13 @@ knitr::include_graphics('./R_studio.png')
 
 ## Version and location
 
-Check R version:
+Check Python version:
 ```{python}
 import sys
 print (sys.version)
 ```
 
-update R version run:
+update Python version run on CMD:
 ```{python eval=FALSE}
 in command line:
 conda version:conda --v
@@ -85,4 +85,8 @@ anaconda version:conda info
 
 update conda :conda update conda
 update anaconda :conda update anaconda
+```
+update Spyder IDE version run on CMD:
+```{python eval=FALSE}
+conda update spyder
 ```

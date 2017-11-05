@@ -38,7 +38,7 @@ import pickle
 
 
 ################  Download data ############################
-df=quandl.get('WIKI/GOOGL')
+df=quandl.get('WIKI/EBAY')
 
 #save_df=df
 
@@ -49,6 +49,9 @@ df.describe()# 3328 days
 
 
 list(df) #variable name
+
+df['Adj. Close'].plot()
+
 
 
 ##############   data cleaning ###########################
