@@ -1,7 +1,7 @@
 
 # F4  run select
 
-%reset -f      # remove all vairable
+%reset -f   # remove all vairable
 
 #################  01-intro
 #################  02-Package
@@ -22,26 +22,65 @@ os.chdir('C:/Users/User/Desktop/Mission/R/R_code/Get_Python/Book')
 
 
 
+#################  03-Data_import
 
+#train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
+#test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
+
+# csv
+#import 
+import pandas as pd
+
+titanic_train_001 = pd.read_csv('train.csv')
+
+#export 
+titanic_train_001.to_csv('train_out.csv')
+# excel
+
+#import 
+execl001 = pd.read_excel('df.xlsx')
+
+#export 
+execl001.to_csv('df_out.xlsx')
 
 #################  04-Data_EDA_Visualization
 
+titanic_train_001.head()
+
+titanic_train_001.head(10)
 
 
+titanic_train_001.tail()
 
+titanic_train_001.shape
 
+titanic_train_001.columns
 
+titanic_train_001.info()
+titanic_train_001.describe()
 
+titanic_train_001['Pclass'].value_counts(dropna=False)
 
+######################      Matplotlib 
 
-
-#Matplotlib 
+import seaborn.apionly as sns
+iris = sns.load_dataset('iris')
+iris.head()
 
 
 import matplotlib.pyplot as plt
 plt.plot(year, physical_sciences, color='blue')
 
-#bokeh
+# line
+# scatter
+# bar
+# histogram
+# box plot
+
+
+###################         seaborn
+
+###################         bokeh
 # Import figure from bokeh.plotting
 from bokeh.plotting import figure
 
@@ -64,9 +103,9 @@ show(p)
 
 
 
+#################  05-Data_Cleaning
 
-
-
+titanic_train_001
 
 
 
