@@ -3,7 +3,7 @@
 #https://pythonprogramming.net/features-labels-machine-learning-tutorial/
 
 
-#Machine Learning 2017/11/04 P7
+#Machine Learning 2017/11/04 P12
 
 #Deep Learning   2017/11/04 P2
 
@@ -237,6 +237,8 @@ plt.show()
 
 predict_x = 7
 predict_y = (m*predict_x)+b
+
+
 
 
 
