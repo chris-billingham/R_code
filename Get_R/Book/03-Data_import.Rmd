@@ -156,6 +156,26 @@ dbSendQuery(conn, "create multiset table P_xxxx_t.DW_COUNTRIES AS (SELECT  * fro
 
 #Download table from Teradata:  
 data001=dbGetQuery(conn, " select * from P_xxxx_t.DW_COUNTRIES")
+
+
+#Download big table from Teradata:  
+
+res<-dbSendQuery(conn, "select * from p_bm_tony_T.us_multiwarehouse_t_002")
+#dbFetch(res)   #download all 
+rm(result)
+result<-list()
+i=1
+
+result[[i]]<-dbFetch(res,n=100000)
+
+  while(nrow(chunk <- dbFetch(res, n = 100000))>0){
+  i<-i+1
+  result[[i]]<-chunk
+  print(i)
+}
+train_data<-do.call(rbind,result)
+
+
   
 #Upload table to Teradata:
 teradataFastloadCSV(data001, conn, connf, "P_xxxx_t", "tera_data001", replace = TRUE, primary_index = c(1))
