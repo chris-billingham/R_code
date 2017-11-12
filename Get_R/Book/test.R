@@ -25,8 +25,8 @@ x
 meme_save(x, file="./meme.png") 
 
 
-
-
+devtools::install_github("hrbrmstr/speedtest")
+speedtest::spd_test()
 
 
 
@@ -324,7 +324,82 @@ fitted.values(mod)
 library(broom)
 head(augment(mod))
 
-glimpse(mtcars)
+
+Sys.time()
+Sys.Date()
+library(RJDBC)
+library(shiny)
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(reshape2)
+library(ebaytd)
+library(gsubfn)
+library(chron)
+library(sqldf)
+library(scales)
+library(plotly)
+library(readxl)
+library(tidyr)
+library(ggplot2)
+
+library(RJDBC)
+
+
+
+
+teradataInit("tduan", "Jcqwe123qwe$")
+
+conn <- teradataConnect(database= 'P_bm_tony_t', system="mozart")
+connf <- teradataConnect(database='P_bm_tony_t', fastload = TRUE,csv=TRUE,system="mozart")
+
+
+res<-dbSendQuery(conn, "select * from P_bm_tony_t.BIG_002")
+
+
+rm(result)
+result<-list()
+i=1
+
+result[[i]]<-dbFetch(res,n=100000)
+
+while(nrow(chunk <- dbFetch(res, n = 100000))>0){
+  i<-i+1
+  result[[i]]<-chunk
+  print(i)
+}
+
+ACCT001<-do.call(rbind,result)
+
+#rm(ACCT001)
+
+glimpse(ACCT001)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

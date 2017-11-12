@@ -58,6 +58,27 @@ Shutdown Computer in 10 seconds:
 shutdown(wait=10)
 ```
 
+
+internet speed:
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/speedtest")
+speedtest::spd_test()
+```
+
+run time:
+```{r eval=FALSE}
+sleep_for_a_minute <- function() { Sys.sleep(60) }
+start_time <- Sys.time()
+sleep_for_a_minute()
+end_time <- Sys.time()
+start_time
+end_time
+end_time - start_time
+```
+
+
+
+
 ## txt 
 Read txt file:
 ```{r eval=FALSE}
