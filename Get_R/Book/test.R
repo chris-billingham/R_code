@@ -377,18 +377,35 @@ ACCT001<-do.call(rbind,result)
 glimpse(ACCT001)
 
 
+install.packages("officer")
 
+#https://rdrr.io/cran/officer/f/vignettes/powerpoint.Rmd
+library(officer)
+library(dplyr)
 
+my_pres <- read_pptx() 
 
+my_pres <- my_pres %>% 
+  add_slide(layout = "Title and Content", master = "Office Theme")
 
+layout_summary(my_pres)
 
+my_pres <- my_pres %>% 
+  ph_with_text(type = "title", str = "A title") %>%
+  ph_with_text(type = "ftr", str = "A footer") %>%
+  ph_with_text(type = "dt", str = format(Sys.Date())) %>%
+  ph_with_text(type = "sldNum", str = "slide 1") %>%
+  ph_with_text(str = "Hello world", type = "body")%>%
+  
+  add_slide(layout = "Two Content", master = "Office Theme") %>%
+  ph_with_text(type = "body", str = "A first text", index = 1) %>%
+  ph_with_text(type = "body", str = "A second text", index = 2) %>%
+  ph_with_text(type = "title", str = "A title") %>%
+  ph_with_text(type = "ftr", str = "Slide footer") %>%
+  ph_with_text(type = "dt", str = format(Sys.Date()))
 
-
-
-
-
-
-
+print(my_pres, target = "first_example.pptx") %>% 
+  invisible()
 
 
 
