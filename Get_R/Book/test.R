@@ -25,8 +25,8 @@ x
 meme_save(x, file="./meme.png") 
 
 
-
-
+devtools::install_github("hrbrmstr/speedtest")
+speedtest::spd_test()
 
 
 
@@ -324,7 +324,99 @@ fitted.values(mod)
 library(broom)
 head(augment(mod))
 
-glimpse(mtcars)
+
+Sys.time()
+Sys.Date()
+library(RJDBC)
+library(shiny)
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(reshape2)
+library(ebaytd)
+library(gsubfn)
+library(chron)
+library(sqldf)
+library(scales)
+library(plotly)
+library(readxl)
+library(tidyr)
+library(ggplot2)
+
+library(RJDBC)
+
+
+
+
+teradataInit("tduan", "Jcqwe123qwe$")
+
+conn <- teradataConnect(database= 'P_bm_tony_t', system="mozart")
+connf <- teradataConnect(database='P_bm_tony_t', fastload = TRUE,csv=TRUE,system="mozart")
+
+
+res<-dbSendQuery(conn, "select * from P_bm_tony_t.BIG_002")
+
+
+rm(result)
+result<-list()
+i=1
+
+result[[i]]<-dbFetch(res,n=100000)
+
+while(nrow(chunk <- dbFetch(res, n = 100000))>0){
+  i<-i+1
+  result[[i]]<-chunk
+  print(i)
+}
+
+ACCT001<-do.call(rbind,result)
+
+#rm(ACCT001)
+
+glimpse(ACCT001)
+
+
+install.packages("officer")
+
+#https://rdrr.io/cran/officer/f/vignettes/powerpoint.Rmd
+library(officer)
+library(dplyr)
+
+my_pres <- read_pptx() 
+
+my_pres <- my_pres %>% 
+  add_slide(layout = "Title and Content", master = "Office Theme")
+
+layout_summary(my_pres)
+
+my_pres <- my_pres %>% 
+  ph_with_text(type = "title", str = "A title") %>%
+  ph_with_text(type = "ftr", str = "A footer") %>%
+  ph_with_text(type = "dt", str = format(Sys.Date())) %>%
+  ph_with_text(type = "sldNum", str = "slide 1") %>%
+  ph_with_text(str = "Hello world", type = "body")%>%
+  
+  add_slide(layout = "Two Content", master = "Office Theme") %>%
+  ph_with_text(type = "body", str = "A first text", index = 1) %>%
+  ph_with_text(type = "body", str = "A second text", index = 2) %>%
+  ph_with_text(type = "title", str = "A title") %>%
+  ph_with_text(type = "ftr", str = "Slide footer") %>%
+  ph_with_text(type = "dt", str = format(Sys.Date()))
+
+print(my_pres, target = "first_example.pptx") %>% 
+  invisible()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
