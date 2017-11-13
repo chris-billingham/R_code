@@ -510,6 +510,90 @@ knitr::include_graphics('./Pic/AHK003.png')
 ```
 
 
+## Linux
+
+print:
+echo hello world
+
+show system info:
+uname -a
+
+show system size:
+df -h
+
+current working directory:
+pwd
+
+show file:
+ls
+
+show file in long format:
+ls -l
+
+go to:
+cd
+
+go back :
+cd ..
+
+copy file:
+cp
+
+move file:
+mv
+
+delete file:
+rm
+
+create folder:
+mkdir
+
+find a running program:
+ps x | grep bad_program
+
+kill a running program:
+kill -9 2931
+
+create file:
+touch newfile.txt
+
+enter a file:
+vi newfile.txt
+
+input 'i' to insert text and Esc 
+
+save and quit:
+:wq
+
+not save and quit:
+:q!
+
+update software:
+sudo apt-get update
+sudo apt-get upgrade
+
+
+check all installed software:
+dpkg -l
+
+install software(R):
+apt-get install r-base-dev
+
+Run R:
+Rscript 'R/auto_email.R'
+
+find system time:
+date
+
+
+
+
+Scheduled task:
+crontab -e
+
+
+
+
 
 
 ## Shadowsocks
@@ -544,6 +628,7 @@ chmod +x shadowsocks.sh
 
 
 35.196.9.46 
+jcflyingco
 qwe123qwe
 1234
 7) aes-256-cfb
@@ -564,6 +649,16 @@ Source IP ranges
 
 tcp:1-65535
 
+connect to cloud with winSCP:
+1.download putty 
+2.download winSCP
+3.use puttygen create public key and private key file 
+4.enter public key to google cloud VM
+5.use winSCP to login in google cloud VM with private key file 
 
+
+connect to cloud with Putty:
+enter Host name
+SSH/Auth set private key file
 
 
