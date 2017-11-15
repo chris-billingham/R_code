@@ -661,4 +661,11 @@ connect to cloud with Putty:
 enter Host name
 SSH/Auth set private key file
 
+##The book
+
+The Art of Learning: An Inner Journey to Optimal Performance
+
+A Mind for Numbers: How to Excel at Math and Science
+
+
 
