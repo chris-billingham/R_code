@@ -512,8 +512,15 @@ knitr::include_graphics('./Pic/AHK003.png')
 
 ## Linux
 
+https://www.youtube.com/playlist?list=PL6gx4Cwl9DGCkg2uj3PxUWhMDuTw3VKjM
+
+
+### linux command
 print:
 echo hello world
+
+clear the window:
+clear or crtl+L
 
 show system info:
 uname -a
@@ -526,6 +533,9 @@ pwd
 
 show file:
 ls
+
+show file and Permissions:
+ls -l 
 
 show file in long format:
 ls -l
@@ -557,6 +567,18 @@ kill -9 2931
 create file:
 touch newfile.txt
 
+delete file:
+rm newfile.txt
+
+copy file:
+cp newfile.txt coyped_newfile.txt
+
+move file:
+mv newfile.txt python/moved_newfile.txt
+
+rename file:
+mv newfile.txt new_namefile.txt
+
 enter a file:
 vi newfile.txt
 
@@ -568,6 +590,34 @@ save and quit:
 not save and quit:
 :q!
 
+find world(hello) in file(new_test.txt):
+grep hello new_test.txt
+
+
+compare the difference between 2 files:
+diff file1 file2
+
+test a website connection:
+ping www.bing.com
+
+save result to a file:
+ls > result_log.txt
+
+save and append result to a file:
+ls >> result_log.txt
+
+stop current running program:
+ctrl+c
+
+quit current software:
+ctrl+D
+
+change password:
+passwd
+
+change permissions:
+chmod
+
 update software:
 sudo apt-get update
 sudo apt-get upgrade
@@ -576,17 +626,40 @@ sudo apt-get upgrade
 check all installed software:
 dpkg -l
 
+check software version:
+python -version
+
 install software(R):
 apt-get install r-base-dev
 
 Run R:
 Rscript 'R/auto_email.R'
 
+Run Python:
+python auto_email.py
+
 find system time:
 date
 
 
+check the file version:
+sha1sum auto_email.py
 
+Compress file:
+gzip new_test.txt
+
+Extract file:
+gunzip new_test.txt.gz
+
+zip a tar file:
+tar cvf tar_file.tar new_test.txt new_test2.txt
+
+unzip a tar file:
+tar xvf tar_file.tar
+
+
+run sh program:
+bash test.sh
 
 Scheduled task:
 crontab -e
