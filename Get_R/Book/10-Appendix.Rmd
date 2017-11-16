@@ -537,14 +537,17 @@ ls
 show file and Permissions:
 ls -l 
 
-show file in long format:
-ls -l
+show user and group:
+ls -la
 
 go to:
-cd
+cd 
 
 go back :
 cd ..
+
+go to main directory:
+cd ~
 
 copy file:
 cp
@@ -660,6 +663,33 @@ tar xvf tar_file.tar
 
 run sh program:
 bash test.sh
+
+
+create user:
+sudo useradd new_user
+
+
+create group:
+sudo groupadd new_group
+
+add a user to a group:
+;-a :add ;-G :add to new group ;-g :add to new group and keep in the old group
+
+sudo usermod -a -G new_group new_user
+
+delete a user:
+sudo userdel new_group
+
+find all user info:
+cd ..
+cd ..
+cat 
+
+find all user password:
+cd ..
+cd ..
+sudo cat shadow
+
 
 Scheduled task:
 crontab -e
