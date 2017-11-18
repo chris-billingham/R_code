@@ -139,5 +139,34 @@ DiagrammeR("graph TB
   
 ## R Shiny App
 
+## Write R funcation
+```{r warning=FALSE,message=FALSE}
+add1=function(a,b=1){
+  c=a+b
+  c
+}
+
+add1(10)
+```  
+
+## Write R package
+```{r eval==FALSE}
+library(devtools)
+library(roxygen2)
+
+# create package cats:
+create("cats")
+# add function(cat_function.R) in R folder
+
+
+# create document: 
+setwd("./cats")
+document()
+
+#install package(cats):
+install("cats")
+```  
+
+
 
 

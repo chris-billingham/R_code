@@ -76,10 +76,10 @@ end_time
 end_time - start_time
 ```
 
+## data frame
 
 
-
-## txt 
+### txt 
 Read txt file:
 ```{r eval=FALSE}
 txt_df <- read.table("txt_data.txt", 
@@ -87,7 +87,7 @@ txt_df <- read.table("txt_data.txt",
 ```
 
 
-## CSV
+### CSV
 Read csv file:
 ```{r eval=FALSE}
 csv_df <- read.csv("zipcode.csv", header=TRUE)
@@ -99,9 +99,9 @@ write.csv(txt_df, file = "txt_df_out.csv",row.names = FALSE)
 ```
 
 
-## Excel
+### Excel
 
-### readxl and writexl Package(without Java)
+#### readxl and writexl Package(without Java)
 
 
 Read Excel file:
@@ -121,7 +121,7 @@ write_xlsx(iris,path =  "iris.xlsx"))
 
 
 
-### xlsx Package(use Java)
+#### xlsx Package(use Java)
 
 Read Excel file:
 ```{r eval=FALSE}
@@ -138,7 +138,7 @@ write_xlsx(mtcars, path="df.xlsx")
 
 
 
-## Database 
+### Database 
 
 RJDBC Package:
 
@@ -209,7 +209,7 @@ dbExistsRemove(conn,"P_xxxx_t","tera_data001")
 ```
 
 
-## SAS SPSS Stata Matlab
+### SAS SPSS Stata Matlab
 ```{r eval=FALSE}
 install.packages("haven")
 library(haven)
@@ -230,7 +230,7 @@ install.packages("R.matlab")
 library(R.matlab)
 readMat('file.mat'))
 ```
-## Financial data
+### Financial data
 
 Money Money Money~
 
@@ -238,7 +238,7 @@ funcation:getSymbols() and Quandl()
 source:yahoo finance,google finance,FRED,Oanda
 
 
-### getSymbols()
+#### getSymbols()
 ```{r message=FALSE,warning=FALSE}
 
 Sys.setenv(LANG = "en")
@@ -261,7 +261,7 @@ ggplotly(gg)
 
 ```
 
-### Quandl()
+#### Quandl()
 ```{r message=FALSE,warning=FALSE}
 
 Sys.setenv(LANG = "en")
@@ -321,7 +321,7 @@ getSymbols(currency_pair, from = Sys.Date() - 190, to = Sys.Date(), src = "oanda
   
   
 
-
+## data.table
 
 
 

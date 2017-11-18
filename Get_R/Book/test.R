@@ -1,5 +1,10 @@
 
+add1=function(a,b=1){
+  c=a+b
+  c
+}
 
+add1(10)
 
 install.packages('meme')
 
@@ -409,14 +414,15 @@ print(my_pres, target = "first_example.pptx") %>%
 
 
 
+library(devtools)
+#install.packages("roxygen2")
+library(roxygen2)
 
+getwd()
+create("cats")
 
-
-
-
-
-
-
-
+setwd("./cats")
+getwd()
+document()
 
 
