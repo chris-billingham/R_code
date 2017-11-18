@@ -424,5 +424,25 @@ create("cats")
 setwd("./cats")
 getwd()
 document()
+setwd("..")
+getwd()
+install("cats")
+cat_function('haha')
 
+cat_function()
+?cat_function()
 
+data(mtcars)
+class(mtcars)
+library(data.table)
+library(dplyr)
+mtcars_dt=data.table(mtcars)
+class(mtcars_dt)
+
+my_first_data_table <- data.table(x = c("a", "b", "c", "d", "e"), 
+                                  y = c(1, 2, 3, 4, 5))  
+mtcars_dt
+mtcars_dt[2:3,]
+mtcars_dt[,2:3]
+
+glimpse(mtcars_dt)

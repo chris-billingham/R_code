@@ -77,8 +77,10 @@ end_time - start_time
 ```
 
 ## data frame
-
-
+```{r }
+data(mtcars)
+class(mtcars)
+```
 ### txt 
 Read txt file:
 ```{r eval=FALSE}
@@ -323,7 +325,19 @@ getSymbols(currency_pair, from = Sys.Date() - 190, to = Sys.Date(), src = "oanda
 
 ## data.table
 
+data.table is data.frame too.DT[select,summarize,group by].
+```{r message=FALSE,warning=FALSE}
+library(data.table)
+mtcars_dt=data.table(mtcars)
+class(mtcars_dt)
 
+# Print the second and third row 
+mtcars_dt[2:3,]
+
+# Print the second and third colmun 
+mtcars_dt[,2:3]
+
+```
 
 
 
