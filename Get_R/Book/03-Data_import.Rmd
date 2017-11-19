@@ -118,7 +118,7 @@ Create Excel file:
 
 ```{r eval=FALSE}
 library(writexl)
-write_xlsx(iris,path =  "iris.xlsx"))
+write_xlsx(iris,path =  "iris.xlsx")
 ```
 
 
