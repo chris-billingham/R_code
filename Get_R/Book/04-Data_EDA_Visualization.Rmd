@@ -100,35 +100,51 @@ variable in the dataset to make the graphic.In ggplot land aesthetic means 'some
 
 3. geom
 Geometric objects are the actual marks we put on a plot. Examples include:lines,points,boxplots ect.
-  
+
 4. coordinate
+
 5. Facet
+
 6. Scales
+
 7. Stats
+
 8. Labels
 title,x label,y label
 
 9. Legends
+
 10. Themes
 
 
 Graphic example:
 
+data and aesthetic:
 ```{r message= FALSE, warning=FALSE}
 library(ggplot2)
 a=ggplot(mpg, aes(hwy))
 ```
 
-
-#### Histogram chart:
-
+geom
 ```{r message=FALSE,warning=FALSE}
 a+geom_histogram()
 ```
 
-Add color by manufacturer
+
+#### Scatter:
+scatter plot between cty and hwy color by manufacturer
+```{r message= FALSE, warning=FALSE}
+library(ggplot2)
+f =ggplot(mpg, aes(cty, hwy,color = manufacturer))+geom_point()
+f
+```
+
+#### Histogram chart:
+histogram display hwy and add color by manufacturer
 ```{r message=FALSE,warning=FALSE}
-a+geom_histogram(aes(fill = manufacturer))
+library(ggplot2)
+a=ggplot(mpg, aes(hwy,fill = manufacturer))+geom_histogram()
+a
 ```
 
 
@@ -144,7 +160,6 @@ a+geom_dotplot(aes(fill = manufacturer))
 ```
 
 #### Bar chart:
-
 ```{r message=FALSE,warning=FALSE}
 b=ggplot(mpg,aes(x=trans))
 b+geom_bar()
