@@ -9,13 +9,14 @@ Data come in differenct shapes and sizes.
 Data cleaning seems to be a dirty job at first ,but its truely the art of data analysis.
 
 
+
 ## Working with date and time
 
 ISO 8601 standard :YYYY-MM-DD
 
+## working with missing data
 
-
-
+## working with string
 
 
 ## Fifty shape of data

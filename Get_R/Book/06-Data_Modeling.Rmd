@@ -1,6 +1,6 @@
 # Data Modeling 
 
-## statistical inference
+## statistic
 ```{r echo=FALSE, out.width='50%'}
 knitr::include_graphics('./Pic/inference001.png')
 ```
@@ -8,9 +8,9 @@ knitr::include_graphics('./Pic/inference001.png')
 
 ### inference
 
-## statistic distribution 
+### statistic distribution 
 
-## statistic Test
+### statistic Test
 
 ## Modeling
 
@@ -104,13 +104,10 @@ augment(mod)%>%select(wt,mpg,.fitted,.cooksd)%>%arrange(desc(.cooksd))%>%head()
 
 
 
-
-
 ##### Multi linear regression
 One of the regression model,using Multi vairables to predict a continual target
 
 caret package
-
 
 
 
@@ -129,14 +126,111 @@ classification model
 #### Neural Network
 
 
+#### Forecasting and ARIMA Modeling 
+
+
+
+
+
 ### unsupervised learning
-Unsupervised machine learning is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not included in the observations).
+Unsupervised machine learning is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not included in the observations).for example,finding  subgroups within larget group or finding patterns in the features of the data.
 
-#### K mean clusting
+#### Grouping 
+Data on differenct scales can cause undesirable result in clustering.
+we should normalized the input data before clustering.
 
-#### hierarchical clustering
+Normalization:
+```{r eval=FALSE}
+# View column means
+colMeans(x)
+# View column standard deviations
+apply(x, 2, sd)
+# normalized data
+scaled_data=scale(x)
+
+```
+
+##### K mean clusting
+1.pre defined number of groups;2.random assign each observation to the groups;3.find center of each group;4.re-assign each observation to the close center;5.restart next iteration and stop when no point change.
+
+kmeans:
+```{r eval=FALSE}
+# data,2 group and 20 time start center and max iteration 50 run
+km.out=kmeans(x,centers = 2,nstart = 20,iter.max = 50)
+summary(km.out)
+```
+
+
+Find the Elbow on scree plot to determind the numbers of group:
+```{r}
+# Initialize total within sum of squares error: wss
+wss <- 0
+# For 1 to 15 cluster centers
+for (i in 1:15) {
+  km.out <- kmeans(iris[-5], centers = i, nstart = 20,iter.max = 50)
+  # Save total within sum of squares to wss variable
+  wss[i] <- km.out$tot.withinss
+}
+# Plot total within sum of squares vs. number of clusters
+plot(1:15, wss, type = "b", 
+     xlab = "Number of Clusters", 
+     ylab = "Within groups sum of squares")
+```
+
+##### hierarchical clustering
+group the close point to a group and group close group to a bigger group until its become a group and measure the distance between group 
+```{r}
+# Create hierarchical clustering model: hclust.out
+hclust.out <- hclust(dist(iris[-5]))
+# Inspect the result
+summary(hclust.out)
+# to determind the numbers of group:
+#Dendrogram
+plot(hclust.out)
+```
+
+
+```{r eval=FALSE}
+# Cut by height
+cutree(hclust.out, h = 7)
+# Cut by number of clusters
+cutree(hclust.out, k = 3)
+```
+Hierarchical clustering with complete,average,single method:
+```{r eval=FALSE}
+# Cluster using complete linkage: hclust.complete
+hclust.complete <- hclust(dist(x), method = "complete")
+# Cluster using average linkage: hclust.average
+hclust.average <- hclust(dist(x), method = "average")
+# Cluster using single linkage: hclust.single
+hclust.single <- hclust(dist(x), method = "single")
+# Plot dendrogram of hclust.complete
+plot(hclust.complete, main = "Complete")
+# Plot dendrogram of hclust.average
+plot(hclust.average, main = "Average")
+```
+
+
+#### Dimensionality Reduction 
+Find structure in features and Aid in visualization.
+
+
+##### Principal Component Analysis (PCA) 
+1.Find linear combniation of vaiables to create principa components.
+2.Maintain most vairance in the data
+3.Principal components are uncorrelated.
+```{r }
+# Perform scaled PCA: pr.out
+pr.out <- prcomp(iris[-5], scale = TRUE)
+# Inspect model output
+summary(pr.out)
+```
+
+
+##### Linear Discriminant Analysis (LDA)
 
 
 
+## Sentiment Analysis
 ## Parallel computing
 

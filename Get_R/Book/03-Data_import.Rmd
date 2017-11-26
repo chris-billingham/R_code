@@ -77,11 +77,13 @@ end_time - start_time
 ```
 
 ## data frame
+data frame is a data table with row as record and column as variable.
+
 ```{r }
 data(mtcars)
 class(mtcars)
 ```
-### txt 
+### input txt 
 Read txt file:
 ```{r eval=FALSE}
 txt_df <- read.table("txt_data.txt", 
@@ -89,7 +91,7 @@ txt_df <- read.table("txt_data.txt",
 ```
 
 
-### CSV
+### input CSV
 Read csv file:
 ```{r eval=FALSE}
 csv_df <- read.csv("zipcode.csv", header=TRUE)
@@ -101,7 +103,7 @@ write.csv(txt_df, file = "txt_df_out.csv",row.names = FALSE)
 ```
 
 
-### Excel
+### input Excel
 
 #### readxl and writexl Package(without Java)
 
@@ -140,7 +142,7 @@ write_xlsx(mtcars, path="df.xlsx")
 
 
 
-### Database 
+### input Database 
 
 RJDBC Package:
 
@@ -211,7 +213,7 @@ dbExistsRemove(conn,"P_xxxx_t","tera_data001")
 ```
 
 
-### SAS SPSS Stata Matlab
+### input SAS SPSS Stata Matlab
 ```{r eval=FALSE}
 install.packages("haven")
 library(haven)
@@ -232,7 +234,7 @@ install.packages("R.matlab")
 library(R.matlab)
 readMat('file.mat'))
 ```
-### Financial data
+### input Financial data
 
 Money Money Money~
 
@@ -334,8 +336,8 @@ class(mtcars_dt)
 # Print the second and third row 
 mtcars_dt[2:3,]
 
-# Print the second and third colmun 
-mtcars_dt[,2:3]
+# Print the (first and second row) and (second and third colmun) 
+mtcars_dt[1:2 ,2:3]
 
 ```
 
