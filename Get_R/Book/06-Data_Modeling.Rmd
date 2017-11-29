@@ -11,7 +11,7 @@ knitr::include_graphics('./Pic/inference001.png')
 ### statistic distribution 
 
 ### statistic Test
-
+chi-square, t-test, ANOVA, correlation
 ## Modeling
 
 
