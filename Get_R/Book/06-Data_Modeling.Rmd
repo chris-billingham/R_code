@@ -6,11 +6,10 @@ knitr::include_graphics('./Pic/inference001.png')
 ```
 ### sampling
 
-### inference
 
 ### statistic distribution 
 
-### statistic Test
+### statistic Test and inference
 chi-square, t-test, ANOVA, correlation
 ## Modeling
 
@@ -250,7 +249,9 @@ Practical issue with PCA:
 
 ##### Linear Discriminant Analysis (LDA)
 TBD
+## A/B testing
 
+## Causation Analysis
 
 ## Sentiment Analysis
 TBD
