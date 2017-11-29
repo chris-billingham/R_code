@@ -221,16 +221,38 @@ Find structure in features and Aid in visualization.
 3.Principal components are uncorrelated.
 ```{r }
 # Perform scaled PCA: pr.out
-pr.out <- prcomp(iris[-5], scale = TRUE)
+pr.out <- prcomp(iris[-5], scale = TRUE,center = TRUE)#scale = TRUE : scale all variable
 # Inspect model output
 summary(pr.out)
 ```
 
 
-##### Linear Discriminant Analysis (LDA)
+Scree plot and Biplot
+```{r }
+# Variability of each principal component: pr.var
+pr.var <- pr.out$sdev^2
+# Variance explained by each principal component: pve
+pve <- pr.var / sum(pr.var)
+#Scree plot
+# Plot variance explained for each principal component
+plot(pve, xlab = "Principal Component",
+     ylab = "Proportion of Variance Explained",
+     ylim = c(0, 1), type = "b")
+#Biplot
+biplot(pr.out)
+```
 
+Practical issue with PCA:
+
+1. Scaling the data
+2. Missing values:Drop observiation or estimate missing values
+3. Categoriacal data: do not use categoriacal data or encode categorical feature to number
+
+##### Linear Discriminant Analysis (LDA)
+TBD
 
 
 ## Sentiment Analysis
+TBD
 ## Parallel computing
-
+TBD

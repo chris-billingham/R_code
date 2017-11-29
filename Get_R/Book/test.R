@@ -17,3 +17,20 @@ v3
 debug(logger, 'A Debugging Message') # Won't print anything
 
 
+
+pr.out <- prcomp(iris[-5], scale = TRUE)
+# Inspect model output
+summary(pr.out)
+
+# Variability of each principal component: pr.var
+pr.var <- pr.out$sdev^2
+
+# Variance explained by each principal component: pve
+pve <- pr.var / sum(pr.var)
+# Plot variance explained for each principal component
+plot(pve, xlab = "Principal Component",
+     ylab = "Proportion of Variance Explained",
+     ylim = c(0, 1), type = "b")
+
+
+biplot(pr.out)
