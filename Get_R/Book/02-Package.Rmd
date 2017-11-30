@@ -1,5 +1,7 @@
-# Package
+# Package and function
 
+
+## Package
 Part of the reason R has become so popular is the vast array of packages available at the **CRAN**.In the last few years, the number of packages has grown exponentially!
 
 Untill Aug 2017, the CRAN package repository features 11288 available packages.
@@ -49,4 +51,13 @@ uninstall.packages(c("reshape",'plyr'))
 **tibble**:tibble is a modern re-imaginging of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly.
 
 **readxl**:The readxl package makes it easy to get data out of Excel and into R.
+
+
+Create Package
+
+## Function
+
+Create Function
+
+
 

@@ -1,0 +1,56 @@
+# Caset study
+
+
+## Credit Scorecard
+
+
+## Marketing segmentation
+
+## product recommendation
+
+## network analysis
+
+
+## Stock
+
+## Bond
+1. Debt instrument
+2. Repay borrowed amount+interest
+3. Isser:Corporations,Governments,Municipalities
+
+**Principal**:The amount borrowed,it lso called par value or face value
+
+**Coupon Rate**: The amount of interest issuer
+agrees to pay
+-Annually, semi-annually, or quarterly 
+-Fixed or floating rate 
+
+**Maturity Date**: Date when principal amount
+is returned to investor (Some bonds do not mature)
+
+
+**Embedded Options**:Could affect bond’s cash flow profile.For example, callable bond:Issuer can buyback bond earlier than
+maturity at a pre-agreed price 
+
+**Price**: Amount paid to acquire asset 
+
+**Value**: How much the asset is worth 
+
+Time Value of Money (TVM):
+Future Value:fv2 <- pv * (1 + r) * (1 + r)
+Present Value:pv <- fv2 / ((1 + r) * (1 + r))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

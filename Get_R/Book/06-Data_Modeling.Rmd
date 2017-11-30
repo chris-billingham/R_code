@@ -7,10 +7,40 @@ knitr::include_graphics('./Pic/inference001.png')
 ### sampling
 
 
-### statistic distribution 
+### Probability distribution 
+
+#### Discrete probability distribution
+
+#### Continuous probability distribution
+
+
+Binomial Distribution 
+Chi-Square Distribution 
+F-Distribution :used in analysis of variance (ANOVA)
+Normal Distribution 
+Student’s t Distribution 
+Poisson distribution
+
+#### Bayesian statistics
+
+
 
 ### statistic Test and inference
 chi-square, t-test, ANOVA, correlation
+
+1. make a assumtpion 
+Null hypothesis(H0):The claim that is not interesting
+Alternative hypothesis(HA):The claim correspongding to the research hyposhesis 
+The "goal" is to disprove the null hypothesis and claim the Alternative hyposhesis is true
+
+
+take a sample 
+make the measurement and conclusion
+
+
+
+
+
 ## Modeling
 
 
@@ -33,7 +63,7 @@ linear regression is a linear approach for modeling the relationship between a s
 
 
 
-##### Simple linear regression
+Simple linear regression
 
 One of the regression model,using one vairable to predict a continual target
 ```{r}
@@ -103,7 +133,7 @@ augment(mod)%>%select(wt,mpg,.fitted,.cooksd)%>%arrange(desc(.cooksd))%>%head()
 
 
 
-##### Multi linear regression
+Multi linear regression
 One of the regression model,using Multi vairables to predict a continual target
 
 caret package
@@ -118,6 +148,11 @@ classification model
 
 #### Random forest
 classification model
+
+####  k-Nearest Neighbors (kNN)
+
+#### Naive Bayes
+
 #### Support Vector Machine
 
 #### Association rule learning
@@ -250,10 +285,10 @@ Practical issue with PCA:
 ##### Linear Discriminant Analysis (LDA)
 TBD
 ## A/B testing
-
+TBD
 ## Causation Analysis
-
-## Sentiment Analysis
+TBD
+## Sentiment Analysis and Text Mining
 TBD
 ## Parallel computing
 TBD
