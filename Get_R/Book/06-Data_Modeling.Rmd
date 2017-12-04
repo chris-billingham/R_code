@@ -61,10 +61,6 @@ by economist Seth Stephens-Davidowitz
 linear regression is a linear approach for modeling the relationship between a scalar dependent variable y and one or more explanatory variables (or independent variables) denoted X
 
 
-
-
-Simple linear regression
-
 One of the regression model,using one vairable to predict a continual target
 ```{r}
 library(ggplot2)
@@ -76,7 +72,7 @@ ggplot(data = mtcars, aes(x = mpg, y = wt)) +
 
 
 Find the Equation : 
-$$Y=\beta_0+\beta_1*X$$
+$$Y=\beta_0+\beta_1*X1+\beta_2*X2$$
 
 Residuals:
 $$e=Y-\hat{x}$$
@@ -86,13 +82,15 @@ $$\sum_{i=1}^n e_i^2$$
 
 Fit a model:
 ```{r}
-mod=lm(wt ~ mpg, data = mtcars)# mpg to predict wt
-mod
-#coef(mod)
-class(mod)
-summary(mod)
-
-head(fitted.values(mod))
+lm_model=lm(wt ~ mpg, data = mtcars)# mpg to predict wt
+lm_model
+summary(lm_model)
+# Predict on full data
+p <- predict(lm_model, data = mtcars)
+# Compute errors: error
+error =   p - mtcars[["wt"]]
+# Calculate RMSE
+sqrt(mean(error^2))
 ```
 
 Using broom package to get the predict value and residue :
@@ -114,7 +112,6 @@ head(augment(mod)%>%select(wt,mpg,.fitted,.se.fit))
 
 
 Outlier impact:leverage:the distance of that observation from the mean of the explanatory variable
-
 ```{r eval=FALSE}
 #install.packages('broom')
 library(broom)
@@ -132,16 +129,51 @@ augment(mod)%>%select(wt,mpg,.fitted,.cooksd)%>%arrange(desc(.cooksd))%>%head()
 ```
 
 
+Cross vaildation with 3 fold and run 2 times.
+```{r eval=FALSE}
+# Fit lm model using 3-fold CV: model
+library(caret)
+model <- train(
+  price ~ ., diamonds,
+  method = "lm",
+  trControl = trainControl(
+    method = "cv", number = 3,repeats = 2,
+    verboseIter = TRUE
+  )
+)
 
-Multi linear regression
-One of the regression model,using Multi vairables to predict a continual target
-
-caret package
-
+# Print model to console
+model
+```
 
 
 #### Logistic regression
 classification model
+```{r eval=FALSE}
+library(dplyr)
+library(caret)
+
+diamonds002=diamonds%>%mutate(cut_flag=ifelse(cut=='Very Good',1,0))
+
+# Use caret to create a 70%/30% stratified split. Set the random
+# seed for reproducibility.
+set.seed(123)
+indexes <- createDataPartition(diamonds002$cut_flag, times = 1,
+                               p = 0.8, list = FALSE)
+
+train <- diamonds002[indexes,]
+test <- diamonds002[-indexes,]
+
+
+# Fit glm model: model
+model <- glm(cut_flag ~ ., family = "binomial", data=train)
+
+# Predict on test: p
+p <- predict(model, test, type = "response")
+```
+
+model result : Confusion matrix
+
 
 
 

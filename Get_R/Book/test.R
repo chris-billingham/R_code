@@ -34,3 +34,31 @@ plot(pve, xlab = "Principal Component",
 
 
 biplot(pr.out)
+library(dplyr)
+library(caret)
+
+
+diamonds002=diamonds%>%mutate(cut_flag=ifelse(cut=='Very Good',1,0))
+
+# Use caret to create a 80%/20% stratified split. Set the random
+# seed for reproducibility.
+set.seed(123)
+indexes <- createDataPartition(diamonds002$cut_flag, times = 1,
+                               p = 0.8, list = FALSE)
+
+train <- diamonds002[indexes,]
+test <- diamonds002[-indexes,]
+
+# Verify proportions.
+prop.table(table(train$cut_flag))
+prop.table(table(test$cut_flag))
+
+
+# Fit glm model: model
+model <- glm(cut_flag ~.,family=binomial(link='logit'),data=train)
+
+# Predict on test: p
+p <- predict(model, test, type = "response")
+
+
+
