@@ -60,26 +60,22 @@ knitr::write_bib(c(
 
 8. Data output and Presentation(Comming Soon)
 
-9. Shiny and Web crawler
+9. Shiny and Web crawler(Comming Soon)
 
 10. Appendix
 
 
 **Reference**
+
+Web:
 www.r-bloggers.com
-
 www.rstudio.com
-
 www.r-project.org
 
-www.wikipedia.org
-
+Books:
 The Lady Tasting Tea by David Salsburg
-
 The Art of R Programming by Norman Matloff 
-
 R for Data Science by Hadley Wickham and Garrett Grolemund
-
 Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
 
 ** Resource **
