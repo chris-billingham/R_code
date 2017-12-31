@@ -80,7 +80,7 @@ https://www.youtube.com/user/marinstatlectures/videos
 
 4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
 
-5.https://github.com/rstudio/Intro/tree/master/slides
+5.ggplot2 - Elegant Graphics for Data Analysis
 
 
 Learn R, in R.  http://swirlstats.com/
