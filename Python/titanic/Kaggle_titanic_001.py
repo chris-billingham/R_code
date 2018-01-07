@@ -1,15 +1,15 @@
 #https://www.kaggle.com
 #jcwinning@163.com
-#https://www.kaggle.com/c/house-prices-advanced-regression-techniques
-#https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+#https://www.kaggle.com/c/titanic
+#https://www.kaggle.com/c/titanic/data
 #https://www.kaggle.com/headsortails/pytanic
-#   %reset   clen all var
+#%reset   #clen all var
 
 
 import os 
 print(os.getcwd())
 
-os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Python\\House_Prices")
+os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Python\\titanic")
 
 ########################## package ##############################
 
@@ -24,9 +24,11 @@ from bokeh.plotting import figure, output_file, show
 
 
 ###########  import  data ####################################
-test001=pd.read_csv('test.csv')
-train001=pd.read_csv('train.csv')
-sample_submission=pd.read_csv('sample_submission.csv')
+test000=pd.read_csv('test.csv')
+train000=pd.read_csv('train.csv')
+gender_submission=pd.read_csv('gender_submission.csv')
+test001=test000
+train001=train000
 ################################################################
 
 
@@ -37,15 +39,17 @@ train001.info()
 
 train001.head()
 train001.sample(5)
-#train001.isnull('Age')
+
 
 #numeric
 train001.describe()
 
 #category
 train001.describe(include=['O'])
-#train001['Survived'].value_counts(dropna=0)
-
+train001['Survived'].value_counts(dropna=0)
+train001['Cabin'].value_counts(dropna=0)
+train001['Ticket'].value_counts(dropna=0)
+train001['Embarked'].value_counts(dropna=0)
 
 # PLot 1  with seaborn
 
@@ -186,11 +190,12 @@ X_all = train002.drop(['Survived'], axis=1)
 y_all = train002['Survived']
 
 num_test = 0.20
-X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, test_size=num_test, random_state=23)
+X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, test_size=num_test, random_state=23,stratify=y_all)
 
 # Logistic Regression
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import roc_auc_score
 cols = (X_all.columns.values)
 cols
 clf_log = LogisticRegression()
@@ -199,6 +204,28 @@ score_log = cross_val_score(clf_log, X_train,y_train, cv=5).mean()
 score_log2 = cross_val_score(clf_log, X_test, y_test, cv=5).mean()
 print(score_log)
 print(score_log2)
+
+
+# ROC
+# Import necessary modules
+from sklearn.metrics import roc_curve
+
+# Compute predicted probabilities: y_pred_prob
+y_pred_prob = clf_log.predict_proba(X_train)[:,1]
+
+# Generate ROC curve values: fpr, tpr, thresholds
+fpr, tpr, thresholds = roc_curve(y_train, y_pred_prob)
+
+# Plot ROC curve
+plt.plot([0, 1], [0, 1], 'k--')
+plt.plot(fpr, tpr)
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.show()
+
+print("AUC: {}".format(roc_auc_score(y_train, y_pred_prob)))
+
 
 #K Nearest Neighbours:
 
@@ -212,6 +239,29 @@ score_knn = cross_val_score(clf_knn, X_train, y_train, cv=5).mean()
 score_knn2 = cross_val_score(clf_knn, X_test, y_test, cv=5).mean()
 print(score_knn)
 print(score_knn2)
+
+####
+# Setup arrays to store train and test accuracies
+neighbors = np.arange(1, 15)
+train_accuracy = np.empty(len(neighbors))
+test_accuracy = np.empty(len(neighbors))
+
+# Loop over different values of k
+for i, k in enumerate(neighbors):
+    # Setup a k-NN Classifier with k neighbors: knn
+    knn = KNeighborsClassifier(n_neighbors=k)
+    # Fit the classifier to the training data
+    knn.fit(X_train, y_train)    
+    #Compute accuracy on the training set
+    train_accuracy[i] = knn.score(X_train, y_train)
+    #Compute accuracy on the testing set
+    test_accuracy[i] = knn.score(X_test, y_test)
+
+# Generate plot
+sns.tsplot(data=train_accuracy)
+sns.tsplot(data=test_accuracy)
+
+
 
 #Support Vector Machine:
 from sklearn import svm
@@ -293,7 +343,7 @@ clf_gb = GradientBoostingClassifier(
             max_depth=3,
             subsample=0.5,
             random_state=0).fit(X_train, y_train)
-clf_gb.fit(X,y)
+clf_gb.fit(X_train,y_train)
 score_gb = cross_val_score(clf_gb, X_train, y_train, cv=5).mean()
 score_gb2 = cross_val_score(clf_gb, X_test, y_test, cv=5).mean()
 print(score_gb)
@@ -326,13 +376,124 @@ print(score_xgb)
 print(score_xgb2)
 
 
+
+##############  final model with all tran data ######################
+###########  import  data ####################################
+test000=pd.read_csv('test.csv')
+train000=pd.read_csv('train.csv')
+gender_submission=pd.read_csv('gender_submission.csv')
+
+train001=train000
+test001=test000
+################################################################
+full_data = [train001, test001]
+
+# clear and new features 
+
+# Name_length
+for data in full_data:
+    data['Name_length'] = data['Name'].apply(len)
+   
+#Has_Cabin
+    data['Has_Cabin'] = data["Cabin"].apply(lambda x: 0 if type(x) == float else 1)
+
+# Embarked
+    data["Embarked"] = data["Embarked"].fillna("S")
+    print(data['Embarked'].value_counts(dropna=0))
+    data['Embarked'] = data['Embarked'].map( {'S': 0, 'C': 1, 'Q': 2} ).astype(int)
+# Create new feature FamilySize as a combination of SibSp and Parch
+    data['FamilySize'] = data['SibSp'] + data['Parch'] + 1
+
+# Create new feature IsAlone from FamilySize
+    data['IsAlone'] = 0
+    data.loc[data['FamilySize'] == 1, 'IsAlone'] = 1
+
+# Fare:Remove all NULLS in the Fare column and create a new feature CategoricalFare
+
+    data['Fare'] = data['Fare'].fillna(data['Fare'].median())
+    data['CategoricalFare'] = pd.qcut(data['Fare'], 4)
+
+    data.loc[ data['Fare'] <= 7.91, 'Fare']  = 0
+    data.loc[(data['Fare'] > 7.91) & (data['Fare'] <= 14.454), 'Fare'] = 1
+    data.loc[(data['Fare'] > 14.454) & (data['Fare'] <= 31), 'Fare']   = 2
+    data.loc[ data['Fare'] > 31, 'Fare'] 	 = 3
+    data['Fare'] = data['Fare'].astype(int)
+    
+# Age:Create a New feature CategoricalAge and clear missing age random from age_avg - age_std, age_avg + age_std
+
+    age_avg = data['Age'].mean()
+    age_std = data['Age'].std()
+    age_null_count = data['Age'].isnull().sum()
+    age_null_random_list = np.random.randint(age_avg - age_std, age_avg + age_std, size=age_null_count)
+    data['Age'][np.isnan(data['Age'])] = age_null_random_list
+    data['Age'] = data['Age'].astype(int)
+    data['CategoricalAge'] = pd.cut(data['Age'], 5)
+
+    data.loc[ data['Age'] <= 16, 'Age'] = 0
+    data.loc[(data['Age'] > 16) & (data['Age'] <= 32), 'Age'] = 1
+    data.loc[(data['Age'] > 32) & (data['Age'] <= 48), 'Age'] = 2
+    data.loc[(data['Age'] > 48) & (data['Age'] <= 64), 'Age'] = 3
+    data.loc[ data['Age'] > 64, 'Age'] = 4 
+
+
+# Sex
+    data['Sex'] = data['Sex'].map( {'female': 0, 'male': 1} ).astype(int)
+
+
+
+#title
+    data['Title'] = data.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
+
+    data['Title'] = data['Title'].replace(['Lady', 'Countess','Capt', 'Col','Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], 'Rare')
+
+    data['Title'] = data['Title'].replace('Mlle', 'Miss')
+    data['Title'] = data['Title'].replace('Ms', 'Miss')
+    data['Title'] = data['Title'].replace('Mme', 'Mrs')
+
+    title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
+    data['Title'] = data['Title'].map(title_mapping)
+    data['Title'] = data['Title'].fillna(0)
+
+
+# drop var
+
+drop_elements = ['PassengerId', 'Name', 'Ticket', 'Cabin', 'SibSp','CategoricalAge', 'CategoricalFare']
+
+train001 = train001.drop(drop_elements, axis = 1)
+test001 = test001.drop(drop_elements, axis = 1)
+
+#QC
+train001.info()
+test001.info()
+
+X_train_all=train001.drop(['Survived'], axis=1)
+y_train_all=train001['Survived']
+
+
+#Ada Boost:
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import roc_curve
+clf_ada = AdaBoostClassifier(n_estimators=400, learning_rate=0.1)
+clf_ada.fit(X_train_all,y_train_all)
+y_pred = clf_ada.predict(X_train_all)
+score_ada = cross_val_score(clf_ada, X_train_all, y_train_all, cv=5).mean()
+print(score_ada) #0.823819636022
+print("Mean score = %.3f, Std deviation = %.3f"%(np.mean(score_ada),np.std(score_ada)))
+
+#confusion matrix
+# Generate the confusion matrix and classification report
+print(confusion_matrix(y_train_all, y_pred))
+print(classification_report(y_train_all, y_pred))
+1-y_train_all.sum()/y_train_all.count()
+
+
 #Predict the Actual Test Data
 
+submit = pd.DataFrame({'PassengerId' : test000.loc[:,'PassengerId'],'Survived': y_pred.T})
 
-
-
-
-
+submit.to_csv("submit.csv", index=False)
 
 
 
