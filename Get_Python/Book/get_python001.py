@@ -12,7 +12,15 @@ print (sys.version)
 #update anaconda :conda update anaconda
 
 import os
-os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Get_Python\\Book")
+os.chdir("C:\\Users\\User\\Desktop\\Mission\\R\\R_code\\Get_Python\\Book")
 
 import os 
 print(os.getcwd())
+
+
+import pandas as pd
+df_csv = pd.read_csv('zipcode.csv')
+print(df_csv.head())
+
+
+
