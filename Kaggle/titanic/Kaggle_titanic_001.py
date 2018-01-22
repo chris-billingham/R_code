@@ -1,4 +1,4 @@
-cou#https://www.kaggle.com
+#https://www.kaggle.com
 #jcwinning@163.com
 #https://www.kaggle.com/c/titanic
 #https://www.kaggle.com/c/titanic/data
