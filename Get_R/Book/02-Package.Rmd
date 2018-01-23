@@ -53,11 +53,7 @@ uninstall.packages(c("reshape",'plyr'))
 **readxl**:The readxl package makes it easy to get data out of Excel and into R.
 
 
-Create Package
 
-## Function
-
-Create Function
 
 
 

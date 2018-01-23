@@ -90,7 +90,11 @@ hist(mtcars$wt)
 
 ### ggplot
 
-Grammar of graphic;
+Package ggplot is Grammar of graphic;
+```{r message= FALSE, warning=FALSE}
+library(ggplot2)
+```
+
 
 1. data
 The dataset used to make the graphic.Better to use one dataset instead of multiple dataset  
@@ -119,23 +123,21 @@ title,x label,y label
 
 Graphic example:
 
-data and aesthetic:
-```{r message= FALSE, warning=FALSE}
-library(ggplot2)
-a=ggplot(mpg, aes(hwy))
-```
-
-geom
-```{r message=FALSE,warning=FALSE}
-a+geom_histogram()
-```
-
 
 #### Scatter:
 scatter plot between cty and hwy color by manufacturer
 ```{r message= FALSE, warning=FALSE}
 library(ggplot2)
 f =ggplot(mpg, aes(cty, hwy,color = manufacturer))+geom_point()
+f
+```
+
+
+#### Scatter with smooth line:
+scatter plot between cty and hwy color by manufacturer
+```{r message= FALSE, warning=FALSE}
+library(ggplot2)
+f =ggplot(mpg, aes(cty, hwy）)+geom_point()+geom_smooth(method = "lm")
 f
 ```
 
@@ -149,15 +151,12 @@ a
 
 
 
-#### Dot plot:
+#### Dot plot color by  manufacturer:
 ```{r message=FALSE,warning=FALSE}
-a+geom_dotplot()
+a=ggplot(mpg, aes(hwy,fill = manufacturer))+geom_dotplot(aes(fill = manufacturer))
+a
 ```
 
-Add color by  manufacturer
-```{r message=FALSE,warning=FALSE}
-a+geom_dotplot(aes(fill = manufacturer))
-```
 
 #### Bar chart:
 ```{r message=FALSE,warning=FALSE}
