@@ -2,13 +2,14 @@
 
 #package
 #install.packages("randomForest")
-
+#install.packages("RtutoR")
 library(tidyverse)
 library(randomForest)
 library(caret)
-
+library(RtutoR)
 #################    import data    ###################
 getwd()
+setwd('C:/Users/User/Desktop/Mission/R/R_code/Kaggle/titanic')
 
 train=read.csv('train.csv')
 test=read.csv('test.csv')
@@ -23,6 +24,13 @@ comb$Survived <- factor(comb$Survived)
 
 
 ############  EDA #################
+
+res = generate_exploratory_analysis_ppt(train,target_var = "Survived",
+                                        output_file_name = "titanic_exp_report.pptx")
+
+
+gen_exploratory_report_app(train)
+
 ############  clearing ############
 
 
