@@ -16,9 +16,6 @@ tidy data and data wrangler
 
 
 
-### dplyr
-
-
 
 #### Filter row and select column
 ```{r eval=FALSE}
