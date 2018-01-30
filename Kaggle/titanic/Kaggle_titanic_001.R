@@ -1,5 +1,7 @@
 #https://www.kaggle.com/c/titanic
 
+#https://www.r-bloggers.com/automating-basic-eda/  :packages("RtutoR")
+
 #package
 #install.packages("randomForest")
 #install.packages("RtutoR")
