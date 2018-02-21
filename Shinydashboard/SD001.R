@@ -22,7 +22,8 @@ library(shinydashboard)
 #########      ui      ##########################
 
 header <-dashboardHeader(title = "BM001 dashboard",
-                         ######################################   messages menus
+                         ############### top right corner    ##################
+                         ###############   messages menus       ##############
                          dropdownMenu(type = "messages",
                                       messageItem(
                                         from = "Sales Dept",
@@ -43,7 +44,7 @@ header <-dashboardHeader(title = "BM001 dashboard",
                          ),
                          
                          
-                         ######################################   Notification menus
+                         ###########  Notification menus  ###################
                          dropdownMenu(type = "notifications",
                                       notificationItem(
                                         text = "5 new users today",
@@ -61,7 +62,7 @@ header <-dashboardHeader(title = "BM001 dashboard",
                                       )
                          ),           
                                             
-                         ######################################   task menus     
+                         ############  task menus     #############################
                          dropdownMenu(type = "tasks", badgeStatus = "success",
                                       taskItem(value = 90, color = "green",
                                                "Documentation"
@@ -78,8 +79,9 @@ header <-dashboardHeader(title = "BM001 dashboard",
                          )
                          ####################################################
                          )
-  
+##########   side bar ######################################  
 sidebar <- dashboardSidebar(
+    collapsed = TRUE,
     sidebarMenu(
       #############  side tab 1 
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
@@ -93,6 +95,7 @@ sidebar <- dashboardSidebar(
       
     )
   )
+###############  body #################################################
 body <-dashboardBody(
     tabItems(
       # First tab content

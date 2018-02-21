@@ -7,7 +7,6 @@
 #Building Dashboards with Shiny – Tutorial
 #https://www.rstudio.com/resources/videos/building-dashboards-with-shiny-tutorial/
 
-
 #Dynamic Dashboards with Shiny
 #https://www.rstudio.com/resources/webinars/dynamic-dashboards-with-shiny/
 
