@@ -10,7 +10,16 @@ ui <- function(request) {
       # Boxes need to be put in a row (or column)
       fluidRow(
         
-        box(plotOutput("plot1", height = 250)),
+        box(plotOutput("plot1", height = 250)
+            ,tableOutput("contents")
+            ,fileInput("file1", "Choose CSV File",
+                      accept = c(
+                        "text/csv",
+                        "text/comma-separated-values,text/plain",
+                        ".csv")
+       
+          
+            )),
         
         box(
           title = "Controls",
@@ -30,6 +39,17 @@ server <- function(input, output,session) {
     data <- histdata[seq_len(input$slider)]
     hist(data)
   })
+  
+  output$contents <- renderTable({  
+    inFile <- input$file1
+    if (is.null(inFile))
+      return(NULL)
+    
+    read.csv(inFile$datapath)
+    
+    
+    }) 
+  
 }
 
 enableBookmarking(store = "url")
