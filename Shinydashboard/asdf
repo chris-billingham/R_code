@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];shiny[1.0.3];font-awesome[4.7.0];htmlwidgets[0.9];plotly-binding[4.7.1];ionrangeslider[2.1.6];strftime[0.9.2];bootstrap[3.3.7];AdminLTE[2.0.6];shinydashboard[0.6.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<link href="shared/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<script src="htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="plotly-binding-4.7.1/plotly.js"></script>
+<link href="shared/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+<link href="shared/ionrangeslider/css/ion.rangeSlider.skinShiny.css" rel="stylesheet" />
+<script src="shared/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="shared/strftime/strftime-min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>
+<link href="AdminLTE-2.0.6/AdminLTE.min.css" rel="stylesheet" />
+<link href="AdminLTE-2.0.6/_all-skins.min.css" rel="stylesheet" />
+<script src="AdminLTE-2.0.6/app.min.js"></script>
+<link href="shinydashboard-0.6.1/shinydashboard.css" rel="stylesheet" />
+<script src="shinydashboard-0.6.1/shinydashboard.min.js"></script>  <title>BM001 dashboard</title>
+
+</head>
+
+<body class="skin-blue sidebar-collapse" style="min-height: 611px;">
+  <div class="wrapper">
+    <header class="main-header">
+      <span class="logo">BM001 dashboard</span>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <span style="display:none;">
+          <i class="fa fa-bars"></i>
+        </span>
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav"></ul>
+        </div>
+      </nav>
+    </header>
+    <aside class="main-sidebar" data-collapsed="true">
+      <section class="sidebar">
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#shiny-tab-dashboard" data-toggle="tab" data-value="dashboard">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-widgets" data-toggle="tab" data-value="widgets">
+              <i class="fa fa-th"></i>
+              <span>Widgets</span>
+              <small class="badge pull-right bg-green">new</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/rstudio/shinydashboard/" target="_blank">
+              <i class="fa fa-file-code-o"></i>
+              <span>Source code</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-dashboard">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="box">
+                  <div class="box-body">
+                    <div id="plot1" class="shiny-plot-output" style="width: 100% ; height: 250px"></div>
+                    <div id="plot2" style="width:100%; height:250px; " class="plotly html-widget html-widget-output"></div>
+                    <button id="._bookmark_" type="button" class="btn btn-default action-button" title="Bookmark this application&#39;s state and get a URL for sharing.">
+                      <i class="glyphicon glyphicon-link"></i>
+                      Bookmark...
+                    </button>
+                    <div class="form-group shiny-input-container">
+                      <label>Choose CSV File</label>
+                      <div class="input-group">
+                        <label class="input-group-btn">
+                          <span class="btn btn-default btn-file">
+                            Browse...
+                            <input id="file1" name="file1" type="file" style="display: none;" multiple="multiple" accept="text/csv,text/comma-separated-values,text/plain,.xlsx,.csv"/>
+                          </span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="No file selected" readonly="readonly"/>
+                      </div>
+                      <div id="file1_progress" class="progress progress-striped active shiny-file-input-progress">
+                        <div class="progress-bar"></div>
+                      </div>
+                    </div>
+                    <div id="table001" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Controls</h3>
+                  </div>
+                  <div class="box-body">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" for="slider">Number of observations:</label>
+                      <input class="js-range-slider" id="slider" data-min="1" data-max="100" data-from="50" data-step="1" data-grid="true" data-grid-num="9.9" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-keyboard-step="1.01010101010101" data-data-type="number"/>
+                    </div>
+                    <a id="downloadData" class="btn btn-default shiny-download-link " href="" target="_blank" download>
+                      <i class="fa fa-download"></i>
+                      Download
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-widgets">
+            <h2>Widgets tab content</h2>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>
