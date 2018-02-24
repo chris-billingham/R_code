@@ -79,7 +79,7 @@ generate_exploratory_analysis_ppt <- function(df, target_var, output_file_name,
   univar_num_features_summary <- lapply(numeric_features, function(var_name) {
     val <- data.frame(t(Summarize(df[[var_name]])))
     val[] = lapply(val, function(x) round(x,2))
-    colnames(val) <- c("min","25th","50th","75th","max")
+    
     return(val)
     
   })
@@ -334,7 +334,7 @@ boxplot_numeric_target = function (data, target_var, var_name, plot_theme, group
       xlab(var_name)
   }
   
-  g <- g + ggtitle(paste(g$labels$x," vs ", g$labels$y))
+  g <- g + ggtitle(paste(g$labels$y," vs ", g$labels$x))
   eval(parse(text = paste("g + ",plot_theme)))
 }
 
@@ -356,7 +356,7 @@ scatterplot_func = function (data, target_var, var_name, plot_theme, group_name)
   
   g <- ggplot(data = data, aes_string(x = target_var, y = var_name,color = group_name)) + geom_point() + geom_smooth() +
     xlab(target_var)
-  g <- g + ggtitle(paste(g$labels$x," vs ", g$labels$y))
+  g <- g + ggtitle(paste(g$labels$y," vs ", g$labels$x))
   eval(parse(text = paste("g + ",plot_theme)))
 }
 

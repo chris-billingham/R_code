@@ -18,6 +18,6 @@ Imports: dplyr (>= 0.7.4), ggplot2 (>= 2.2.1), shiny, shinydashboard,
 LazyData: TRUE
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2018-01-03 11:12:35 UTC; anup.a.nair
+Packaged: 2018-02-24 19:23:53 UTC; User
 Repository: CRAN
 Date/Publication: 2018-01-03 12:39:26 UTC

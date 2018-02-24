@@ -15,14 +15,24 @@
 ##########  package ################
 
 #install.packages("shinydashboard")
+#install.packages("FSA")
+
+
+#remove.packages("RtutoR")
 
 library(shiny)
 library(shinydashboard)
 library(ggplot2)
 library(plotly)
+library(dplyr)
 library(readxl)
 library(writexl)
 library(RtutoR)
+library(FSA)
+#source('generate_ppt.R')
+
+getwd()
+setwd("C:/Users/User/Desktop/Mission/R/R_code/Shinydashboard")
 #########      ui      ##########################
 ui <-function(request){dashboardPage(
   
