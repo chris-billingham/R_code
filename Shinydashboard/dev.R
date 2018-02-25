@@ -98,7 +98,46 @@ install.packages("RtutoR_1.1.tar.gz", repos = NULL, type="source")
 
 
 
-install.packages("installr")
+install.packages("gdtools")
 library(RtutoR)
 updateR()
 version
+
+library(RtutoR)
+library(readxl)
+library(dplyr)
+tt=read_xlsx("ACCT_INFO.xlsx")
+glimpse(tt)
+
+tt=tt%>%select(input_slr_id,am_email,BUH,WinIT,AMH.y)
+
+target_var_type <- data_type[which(names(tt) == target_var)]
+data_type <- sapply(tt,class)
+data_type
+
+numeric_features <- names(data_type)[sapply(data_type,function(x) any(x %in% c("numeric","integer","double")))]
+numeric_features
+categorical_features <- names(data_type)[sapply(data_type,function(x) any(x %in% c("factor","character","logical")))]
+categorical_features
+
+res = generate_exploratory_analysis_ppt(tt,target_var = 'WinIT',
+                                        output_file_name = "titanic_exp_report.pptx")
+
+
+length(unique(tt$input_slr_id))
+
+x <- c(3:5, 11:8, 8 + 0:5)
+x
+unique(x)
+
+x[duplicated(x)]
+
+head(tt[duplicated(tt$mpg),])
+
+a=tt[duplicated(tt$mpg),]
+a
+tt%>%filter(mpg %in% a$mpg)%>%arrange(mpg)
+nrow(a)
+
+names(a)
+           

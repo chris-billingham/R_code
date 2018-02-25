@@ -2,10 +2,10 @@
 library(shiny)
 library(shinydashboard)
 
-ui <- function(request) { 
+function(request) { 
   dashboardPage(
     dashboardHeader(title = "Basic dashboard"),
-    dashboardSidebar(),
+    dashboardSidebar(collapsed = TRUE),
     dashboardBody(
       # Boxes need to be put in a row (or column)
       fluidRow(
@@ -31,7 +31,7 @@ ui <- function(request) {
   )
 }
 
-server <- function(input, output,session) {
+function(input, output,session) {
   set.seed(122)
   histdata <- rnorm(500)
   
@@ -52,5 +52,5 @@ server <- function(input, output,session) {
   
 }
 
-enableBookmarking(store = "url")
-shinyApp(ui, server)
+#enableBookmarking(store = "url")
+#shinyApp(ui, server)
