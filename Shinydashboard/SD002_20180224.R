@@ -32,7 +32,7 @@ library(FSA)
 #source('generate_ppt.R')
 
 getwd()
-setwd("C:/Users/User/Desktop/Mission/R/R_code/Shinydashboard")
+#setwd("C:/Users/User/Desktop/Mission/R/R_code/Shinydashboard")
 #########      ui      ##########################
 ui <-function(request){dashboardPage(
   
@@ -79,7 +79,7 @@ dashboardHeader(title = "BM001 dashboard" )
                   title = "Controls"
                   ,sliderInput("slider", "Number of observations:", 1, 100, 50)
                   ,downloadButton('downloadData', 'Download')
-                  ,downloadButton('PPT', 'Download_ppt')
+                  ,downloadButton('downloadData2', label = 'Downloading ppt')
                   ,uiOutput("varselect")
                   ,textOutput("value")
                 )
@@ -152,26 +152,42 @@ server <- function(input, output) {
   
   
   output$downloadOverall <- downloadHandler(
-    filename = function(file) {
-      paste("samplefile.xlsx")
-    },
-    content = function(con) {
-      write_xlsx(data002(), con)
-    }
-    ,contentType ='xlsx'
-  ) 
+    filename = function() { "ACCT_INFO.xlsx" },
+    content = function(file) {
+      
+      tempFile <- tempfile(fileext = ".xlsx")
+      write_xlsx(data002(), tempFile)
+      file.rename(tempFile, file)
+      
+    } ) 
   
-  output$PPT <- downloadHandler(
-    filename = function(file) {
-      paste("aaa", "pptx", sep=".")
+  
+  output$downloadData2 <- downloadHandler(
+   
+    #content <- function(file) {
+    #tempFile <- tempfile(fileext = ".pptx")
+    #file.copy("aaa.pptx", file)
+    #file.copy("aaa.pptx", file)
+    #file.rename("PPT","ACCT_INFO.pptx" ) 
+    #},filename = function(file)  { "ACCT_INFO.pptx"}
+    
+    filename <- function() {
+      paste("output", "zip", sep=".")
     },
+    
     content <- function(file) {
-    file.copy("aaa.pptx", file)
+      file.copy("df.zip", file)
+      file.rename("output.zip" ) 
     },
-    contentType = "pptx"
+    contentType = "application/zip"
+    
+    
+    
+    
+  )
     
    
-  ) 
+
   
   
   ##########################################

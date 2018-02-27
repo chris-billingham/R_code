@@ -66,6 +66,8 @@ generate_exploratory_analysis_ppt <- function(df, target_var, output_file_name,
   data_type = data_type[-which(names(data_type) == target_var)]
   
   numeric_features <- names(data_type)[sapply(data_type,function(x) any(x %in% c("numeric","integer","double")))]
+  
+  
   categorical_features <- names(data_type)[sapply(data_type,function(x) any(x %in% c("factor","character","logical")))]
   
   
