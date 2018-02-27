@@ -40,8 +40,10 @@ server <- function(input, output, session) {
   
   #dfSummary data
   observeEvent(input$dfsummarybutton, {
+    
+    bb <- view(dfSummary(iris),file='cc.html')  
   output$profileSummary <- renderUI({
-    includeHTML("C:/Users/User/AppData/Local/Temp/RtmpMPnyHV/file4b838e35a5.html")
+    includeHTML("aa.html")
   })
   })
 }
@@ -51,4 +53,4 @@ shinyApp(ui, server)
 
 #############
 
-SumProfile <- view(dfSummary(iris))
+
