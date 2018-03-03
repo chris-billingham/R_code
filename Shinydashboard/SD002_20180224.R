@@ -16,8 +16,8 @@
 
 #install.packages("shinydashboard")
 #install.packages("FSA")
-
-
+install.packages("summarytools")
+library(summarytools)
 #remove.packages("RtutoR")
 
 library(shiny)

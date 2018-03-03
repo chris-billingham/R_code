@@ -1,3 +1,15 @@
+
+library(summarytools)
+library(readxl)
+
+data001=read_excel('C:/Users/tduan/Desktop/Poor tracking.xlsx')
+
+a=view(dfSummary(data001), file = "EDA.html")
+
+c=view(dfSummary(data001),file = "~/EDA123.html")
+
+
+
 library(shiny)
 library(plotly)
 library(shinydashboard)
