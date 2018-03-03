@@ -33,6 +33,10 @@ server <- function(input, output, session) {
     actionButton("dfsummarybutton", "Create dfSummary")
   })
   
+  actionButton(inputId='ab1', label="Learn More", 
+               icon = icon("th"), 
+               onclick ="window.open('http://google.com', '_blank')")
+  
   #Apply dfSummary Buttom
   #observeEvent(input$dfsummarybutton, {
   #  recVal$dfdata <- dfdata

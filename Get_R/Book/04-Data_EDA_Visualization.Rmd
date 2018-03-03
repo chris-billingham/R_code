@@ -91,6 +91,9 @@ hist(mtcars$wt)
 ### ggplot
 
 Package ggplot is Grammar of graphic;
+
+Top 50 ggplot2 Visualizations - The Master List:
+http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
 ```{r message= FALSE, warning=FALSE}
 library(ggplot2)
 ```
