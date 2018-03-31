@@ -1,0 +1,7 @@
+
+plotly:
+https://blog.plot.ly/
+
+
+IBM Design:
+https://www.ibm.com/design/language/experience/data-visualization
