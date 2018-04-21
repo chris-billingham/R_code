@@ -1,0 +1,8 @@
+"Group	",package, Pros,Cons
+"EDA	",DataExplorer,,
+"EDA	",RtutoR,1 relationship with target variable.2 can use shiny to make the report,1 have to give a target variable. 2 did not share missing value
+"EDA	",xda,1 good numric Summary,1 not in CRAN 2 limit function
+"EDA	",summarytools,,
+,,,
+Plot,ggplot2,,
+Plot,plotly,,
