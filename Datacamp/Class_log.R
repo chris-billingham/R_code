@@ -1,14 +1,7 @@
 # GCVM
 # Get;Clean;visualize;model
 
-
-
-
 # Get
-
-
-
-
 
 # Clean
 # Writing Functions in R
@@ -24,17 +17,11 @@
 # String Manipulation in R with stringr
 #https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr
 
-
-
 # visualization
 #Building Dashboards with shinydashboard
 #https://www.datacamp.com/courses/building-dashboards-with-shinydashboard
 # Building Web Applications in R with Shiny: Case Studies
 #https://www.datacamp.com/courses/building-web-applications-in-r-with-shiny-case-studies
-
-
-
-
 
 # model
 # Forecasting Product Demand in R
@@ -63,5 +50,7 @@
 #https://www.datacamp.com/courses/valuation-of-life-insurance-products-in-r
 # Data Privacy and Anonymization in R
 #https://www.datacamp.com/courses/data-privacy-and-anonymization-in-r
+
+
 
 
