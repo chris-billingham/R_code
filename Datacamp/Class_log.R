@@ -65,28 +65,3 @@
 #https://www.datacamp.com/courses/data-privacy-and-anonymization-in-r
 
 
-
-
-
-
-
-
-library(dplyr)
-library(sqldf)
-data001=read.table('1.txt')
-head(data001)
-glimpse(data001)
-data002=cbind(data001,ind=1:nrow(data001))
-
-data002=data001%>%mutate(new_v56_a=paste(V5,V6),new_v56_b=paste(V6,V5)
-                         
-data003=sqldf('select a.* from data002 a left join data002 b on a.new_v56_a=b.new_v56_a')                         
-                         
-                         
-)%>%mutate(V56_flag=ifelse(new_v56_a %in% new_v56_b,1,0)
-)%>%filter(V56_flag==1)
-
-%>%select(-new_v56_a,-new_v56_b,-V56_flag)
-
-data002  
-glimpse(data002)
