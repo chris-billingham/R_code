@@ -231,6 +231,13 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 ## 4.1 relaction
 
+
+### 4.1.1 two group one variable
+
+### 4.1.2 one group one variable in differect setting
+
+
+
 ## 4.2 classification
 
 
