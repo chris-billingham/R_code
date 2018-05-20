@@ -1,5 +1,5 @@
-# GCVM in R
-
+# GCVM in R 
+Get  Clean Visualize Model
 # 0 Basic
 
 ## 0.1 install
@@ -9,8 +9,24 @@
 # 1 Get
 
 ## 1.1 Get from csv/txt
+library(readr)
+
+
 
 ## 1.2 Get from xlsx
+read excel
+readxl Package(without Java)
+library(readxl)
+
+xlsx Package(use Java)
+library(xlsx)
+
+
+tidyxl Package(imports non-tabular data from Excel)
+library(tidyxl)
+
+
+create excel
 
 ## 1.3 Get from sas/stat/matlab ect
 
@@ -19,6 +35,8 @@
 ## 1.5 Get from Web crawler
 
 ## 1.6 Get from API
+
+## 1.7 Get from Other  eg sound,picture,movie
 
 # 2 Clean 
 
@@ -249,12 +267,32 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 ## 4.5 clustering
 
+## 4.6 Time series
 
 
-Book list:
+#5 resource 
+## 5.1 Book list:
+1.The Lady Tasting Tea by David Salsburg
+2.The Art of R Programming by Norman Matloff 
+3.R for Data Science by Hadley Wickham and Garrett Grolemund
+4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
+5.ggplot2 - Elegant Graphics for Data Analysis  
+## 5.2 link:
+Introduction to Big O Notation and Time Complexity
+https://www.youtube.com/watch?v=D6xkbGLQesk  
+
+Data Structures & Algorithms
+https://www.youtube.com/watch?v=bum_19loj9A
   
-  
-Case study:  
+
+## 5.3 The Giants
+"If I have seen further, it is by standing on the shoulders of giants" by Isaac Newton.
+
+Hadley Wickham
+Joe Cheng
+Yihui Xie 
+
+## 5.4 Case study:  
 
 
 
