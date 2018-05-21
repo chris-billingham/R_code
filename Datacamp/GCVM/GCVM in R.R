@@ -30,13 +30,16 @@ create excel
 
 ## 1.3 Get from sas/stat/matlab ect
 
-## 1.4 Get from database
+## 1.4 Get from database(Mysql;sqlite;teradata;postgresql)
 
 ## 1.5 Get from Web crawler
 
 ## 1.6 Get from API
 
-## 1.7 Get from Other  eg sound,picture,movie
+## 1.8 Get from Big data(Hadoop;Spark)
+
+
+## 1.8 Get from Other  eg sound,picture,movie
 
 # 2 Clean 
 
@@ -244,6 +247,10 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 ## 3.2 plotly
 
 ## 3.3 Map
+
+
+## 3.4 Shiny
+
 
 # 4 Model
 
