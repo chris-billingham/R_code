@@ -5,7 +5,7 @@ coursera
 codeachdamy
 udacity
 udemy
-
+Brilliant.org
 
 
 
@@ -19,4 +19,5 @@ udemy
 
 # content
 
-
+# talk
+https://www.youtube.com/watch?v=Kb7_E12FFLw
