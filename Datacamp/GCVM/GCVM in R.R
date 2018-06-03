@@ -96,7 +96,8 @@ transpose:
 t(mtcars)                     # transpose
 ```
 
-
+gather():long/short
+library(tidyr)
 
 ## 2.3 Missing/Outlier
 
@@ -259,6 +260,16 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 ### 4.1.1 two group one variable
 
+T test
+use when the variable to compare is countinuous
+if P-value <0.05 then two group are different
+
+Chi squared test
+use when the variable to compare is categoriacal
+if P-value <0.05 then two group are different
+
+
+
 ### 4.1.2 one group one variable in differect setting
 
 
@@ -276,6 +287,19 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 ## 4.6 Time series
 
+## 4.7 Model API
+
+## 4.8 Kaggle
+
+
+## 4.9 Sample
+
+## 4.10 A/B testing
+
+
+
+
+
 
 #5 resource 
 ## 5.1 Book list:
@@ -283,10 +307,15 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 2.The Art of R Programming by Norman Matloff 
 3.R for Data Science by Hadley Wickham and Garrett Grolemund
 4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
-5.ggplot2 - Elegant Graphics for Data Analysis  
-## 5.2 link:
+5.ggplot2 - Elegant Graphics for Data Analysis  by Hadley Wickham
+6.Deep Learning with R by François Chollet with J. J. Allaire
+## 5.2 talk:
 Introduction to Big O Notation and Time Complexity
 https://www.youtube.com/watch?v=D6xkbGLQesk  
+
+
+The State of Artificial Intelligence by Andrew Ng
+https://www.youtube.com/watch?v=NKpuX_yzdYs
 
 Data Structures & Algorithms
 https://www.youtube.com/watch?v=bum_19loj9A

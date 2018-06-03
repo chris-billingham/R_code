@@ -6,7 +6,7 @@
 # Clean
 # Writing Functions in R
 #https://www.datacamp.com/courses/writing-functions-in-r
-# Introduction to the Tidyverse
+# Introduction to the Tidyverse[DONE]
 #https://www.datacamp.com/courses/introduction-to-the-tidyverse
 # Communicating with Data in the Tidyverse
 #https://www.datacamp.com/courses/communicating-with-data-in-the-tidyverse
