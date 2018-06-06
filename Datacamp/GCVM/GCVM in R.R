@@ -8,12 +8,19 @@ Get  Clean Visualize Model
 
 # 1 Get
 
-## 1.1 Get from csv/txt
+## 1.1 connect with csv/txt
 library(readr)
 
+csv_df <- read_csv("zipcode.csv", header=TRUE)
 
+input txt 
+Read txt file:
+```{r eval=FALSE}
+txt_df <- read.table("txt_data.txt", 
+                     header = TRUE)
+```
 
-## 1.2 Get from xlsx
+## 1.2 connect with xlsx
 read excel
 readxl Package(without Java)
 library(readxl)
@@ -28,9 +35,9 @@ library(tidyxl)
 
 create excel
 
-## 1.3 Get from sas/stat/matlab ect
+## 1.3 connect with sas/stat/matlab ect
 
-## 1.4 Get from database(Mysql;sqlite;teradata;postgresql)
+## 1.4 connect with database(Mysql;sqlite;teradata;postgresql)
 
 ## 1.5 Get from Web crawler
 
@@ -98,6 +105,9 @@ t(mtcars)                     # transpose
 
 gather():long/short
 library(tidyr)
+
+[sqldf] package
+
 
 ## 2.3 Missing/Outlier
 

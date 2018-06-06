@@ -1,4 +1,4 @@
-# GCVM in R 
+# GCVM in Python
 Get  Clean Visualize Model
 # 0 Basic
 
@@ -6,11 +6,24 @@ Get  Clean Visualize Model
 
 ## 0.2 enviourment
 
+
+## 0.3 package
+
+check package version:
+import pkg_resources
+pkg_resources.get_distribution("pandas").version
+
+update package on Shell:
+pip install [package_name] --upgrade
 # 1 Get
 
 ## 1.1 Get from csv/txt
-library(readr)
+import pandas as pd
+import numpy as np
 
+url = 'https://raw.github.com/pandas-dev/pandas/master/pandas/tests/data/tips.csv'
+tips = pd.read_csv(url)
+tips.head()
 
 
 ## 1.2 Get from xlsx
@@ -42,15 +55,73 @@ create excel
 ## 1.8 Get from Other  eg sound,picture,movie
 
 # 2 Clean 
+import pandas as pd
+import matplotlib.pyplot as plt
 
+import seaborn.apionly as sns
+iris = sns.load_dataset('iris')
 
 ## 2.1 EDA
-
+print(iris.head())
 
 
 ## 2.2 Data wrangling
-[dplyr] package
 
+select column:
+tips[['total_bill', 'tip', 'smoker', 'time']].head(5)
+
+filter:
+tips[tips['time'] == 'Dinner'].head(5)    
+tips[(tips['time'] == 'Dinner') & (tips['tip'] > 5.00)]    
+tips[(tips['size'] >= 5) | (tips['total_bill'] > 45)]
+
+frame = pd.DataFrame({'col1': ['A', 'B', np.NaN, 'C', 'D'],'col2': ['F', np.NaN, 'G', 'H', 'I']})
+frame
+frame[frame['col2'].isna()]
+frame[frame['col1'].notna()]
+
+group by and Summary:
+tips.groupby('sex').size()
+    
+tips.groupby('day').agg({'tip': np.mean, 'day': np.size})    
+    
+arrange:
+    
+tips.sort_values(by=['tip']) 
+
+arrange  by multiple columns
+
+tips.sort_values(by=['tip','total_bill']) 
+
+Sort Descending
+tips.sort_values(by='tip', ascending=False)
+
+Putting NAs first   
+tips.sort_values(by='tip', ascending=False, na_position='first')
+
+
+join:
+df1 = pd.DataFrame({'key': ['A', 'B', 'C', 'D'],
+   ....:                     'value': np.random.randn(4)})
+    
+df2 = pd.DataFrame({'key': ['B', 'D', 'D', 'E'],
+   ....:                     'value': np.random.randn(4)})
+    
+inner join:
+    
+pd.merge(df1, df2, on='key')    
+    
+left join:    
+pd.merge(df1, df2, on='key', how='left')  
+
+full join:
+pd.merge(df1, df2, on='key', how='outer')    
+
+union(set and remove duplicate rows):
+pd.concat([df1, df2]).drop_duplicates()    
+uinon all(set without remove duplicate rows):    
+pd.concat([df1, df2])    
+  
 filter row:
 ```{r eval=FALSE}
 library(dplyr)
