@@ -305,14 +305,14 @@ plot_ly(data=mtcars, x = ~wt , y =~mpg,z=~hp,type="scatter3d",mode='markers',col
 
 
 
-line chart-time servies
+line chart:
 
 line:
 ```{r message=FALSE,warning=FALSE}
 plot_ly(x=~time(airmiles),y=~airmiles,mode='lines')
 ```
 
-Multi Line Graph:
+Multi line chart:
 ```{r message=FALSE,warning=FALSE}
 library(plotly)
 library(tidyr)

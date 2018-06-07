@@ -6,6 +6,33 @@ Get  Clean Visualize Model
 
 ## 0.2 enviourment
 
+library(Rtsne)
+library(doParallel)
+library(benchmarkme)
+
+
+getwd()
+setwd('C:/Users/User/Desktop/Mission/R/R_code/Datacamp')
+
+## Return the machine CPU
+cat("Machine:     "); print(get_cpu()$model_name)
+
+## Return number of true cores
+cat("Num cores:   "); print(detectCores(logical = FALSE))
+
+## Return number of threads
+cat("Num threads: "); print(detectCores(logical = TRUE))
+
+## Return the machine RAM
+cat("RAM:         "); print (get_ram()); cat("\n")
+
+## Return train.csv size
+cat("file size:         "); print (file.size('train.csv')/1000000000); cat("GB")
+
+
+
+
+
 # 1 Get
 
 ## 1.1 connect with csv/txt
@@ -256,6 +283,67 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 
 ## 3.2 plotly
+simple: 
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers')
+```
+
+group by numeric:
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~cyl)
+```
+
+group by factor:
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~as.factor(cyl))
+```
+
+group by factor + hp as dot size: 
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,mode='markers',color = ~as.factor(cyl),size=~hp)
+```
+
+3D scatter:
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(data=mtcars, x = ~wt , y =~mpg,z=~hp,type="scatter3d",mode='markers',color = ~as.factor(cyl))
+```
+
+
+line chart:
+  
+  line:
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(x=~time(airmiles),y=~airmiles,mode='lines')
+```
+
+Multi line chart:
+  ```{r message=FALSE,warning=FALSE}
+library(plotly)
+library(tidyr)
+library(dplyr)
+data("EuStockMarkets")
+stocks <- as.data.frame(EuStockMarkets) %>%
+  gather(index, price) %>%
+  mutate(time = rep(time(EuStockMarkets), 4))
+plot_ly(stocks, x = ~time, y = ~price, color = ~index)
+```
+
+
+histogram:
+  ```{r message=FALSE,warning=FALSE}
+library(plotly)
+plot_ly(x = ~precip, type = "histogram")
+```
+
+bar chart
+pie chart(not important)
+
+boxplot:
+  ```{r message=FALSE,warning=FALSE}
+plot_ly(iris, y = ~Petal.Length, color = ~Species, type = "box")
+```
+
+
 
 ## 3.3 Map
 
