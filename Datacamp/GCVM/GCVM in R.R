@@ -356,19 +356,19 @@ plot_ly(iris, y = ~Petal.Length, color = ~Species, type = "box")
 ## 4.1 relaction
 
 
-### 4.1.1 two group one variable
+### 4.1.1 two group one numeric variable on one numeric variable
 
 T test
 use when the variable to compare is countinuous
 if P-value <0.05 then two group are different
 
+
+### 4.1.2 two group one categorical variale on one categorical variable
 Chi squared test
 use when the variable to compare is categoriacal
 if P-value <0.05 then two group are different
 
-
-
-### 4.1.2 one group one variable in differect setting
+### 4.1.3 one group one numeric variable on one numeric variable
 
 
 
