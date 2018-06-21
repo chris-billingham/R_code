@@ -6,9 +6,38 @@ Get  Clean Visualize Model
 
 ## 0.2 enviourment
 
+get current working loaction:
+```{python}
+import os 
+print(os.getcwd())
+```
+
+Set current working loaction:
+```{python eval=FALSE}
+import os
+os.chdir("C:\\Users\\tduan\\Desktop\\Mission\\R\\R_code\\Get_Python\\Book")
+```
+
+Get computer info:
+```{python}
+import platform
+print(platform.machine())
+print(platform.platform())
+print(platform.system())
+print(platform.processor())
+print(platform.python_version())
+```
+Show location files:
+```{python}
+import os
+print(os.listdir())
+```
+
 
 ## 0.3 package
+Check all installed package:
 
+!conda list
 check package version:
 import pkg_resources
 pkg_resources.get_distribution("pandas").version
@@ -24,27 +53,39 @@ import numpy as np
 url = 'https://raw.github.com/pandas-dev/pandas/master/pandas/tests/data/tips.csv'
 tips = pd.read_csv(url)
 tips.head()
+tips.info()
+tips.describe()
+tips.to_csv('output_csv.csv')
 
 
 ## 1.2 Get from xlsx
-read excel
-readxl Package(without Java)
-library(readxl)
 
-xlsx Package(use Java)
-library(xlsx)
+xl = pd.ExcelFile("output_xlsx.xlsx")
+xl.sheet_names
 
+xlsx_data = xl.parse("Sheet1")
 
-tidyxl Package(imports non-tabular data from Excel)
-library(tidyxl)
-
-
-create excel
+writer = pd.ExcelWriter('output_xlsx.xlsx')
+xlsx_data.to_excel(writer,'Sheet1',index=False)
+writer.save()
 
 ## 1.3 Get from sas/stat/matlab ect
 
 ## 1.4 Get from database(Mysql;sqlite;teradata;postgresql)
 
+Teradata:
+    
+import pyodbc # pip install pyodbc
+import pandas as pd
+
+usr = 'xxxxx'
+pwd = 'xxxxx'
+conn = pyodbc.connect('DRIVER=Teradata;DBCNAME=mozart.vip.ebay.com;UID=%s;PWD=%s;QUIETMODE=YES' % (usr, pwd), autocommit=True,unicode_results=True)
+    
+df = pd.read_sql('select top 10 * from dw_countries', conn)
+df.head()
+    
+    
 ## 1.5 Get from Web crawler
 
 ## 1.6 Get from API
@@ -53,6 +94,32 @@ create excel
 
 
 ## 1.8 Get from Other  eg sound,picture,movie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 2 Clean 
 import pandas as pd
@@ -175,9 +242,20 @@ library(tidyr)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # 3 Visualization
 
-## 3.1 ggplot2:scatter plot;line plot;histogram;bar chart
+## 3.1 matplotlib
 data;axis;plot
 
 
@@ -321,7 +399,7 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 ## 3.3 Map
 
 
-## 3.4 Shiny
+## 3.4 Bokeh vs Dash
 
 
 # 4 Model
