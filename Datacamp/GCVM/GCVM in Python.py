@@ -259,155 +259,138 @@ library(tidyr)
 
 
 #https://www.youtube.com/watch?v=q7Bo_J8x_dw&list=PLQVvvaa0QuDfefDfXb9Yf0la1fPDKluPF
-
+#https://pythonprogramming.net/matplotlib-intro-tutorial/
+#https://pandas.pydata.org/pandas-docs/stable/visualization.html
+! pip install matplotlib
 import matplotlib.pyplot as plt
-
 plt.plot([1,2,3],[5,7,4])
+plt.show()
 
+
+#Legends, Titles, and Labels with Matplotlib
+import matplotlib.pyplot as plt
+x = [1,2,3]
+y = [5,7,4]
+x2 = [1,2,3]
+y2 = [10,14,12]
+plt.plot(x, y, label='First Line')
+plt.plot(x2, y2, label='Second Line')
+plt.xlabel('Plot Number')
+plt.ylabel('Important var')
+plt.title('Interesting Graph\nCheck it out')
+plt.legend()
+plt.show()
+
+# Bar Charts
+import matplotlib.pyplot as plt
+plt.bar([1,3,5,7,9],[5,2,7,8,2], label="Example one")
+plt.bar([2,4,6,8,10],[8,6,2,5,6], label="Example two", color='g')
+plt.legend()
+plt.xlabel('bar number')
+plt.ylabel('bar height')
+plt.title('Epic Graph\nAnother Line! Whoa')
+plt.show()
+
+#Histograms
+import matplotlib.pyplot as plt
+population_ages = [22,55,62,45,21,22,34,42,42,4,99,102,110,120,121,122,130,111,115,112,80,75,65,54,44,43,42,48]
+bins = [0,10,20,30,40,50,60,70,80,90,100,110,120,130]
+plt.hist(population_ages, bins, histtype='bar', rwidth=0.8)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interesting Graph\nCheck it out')
+plt.legend()
 plt.show()
 
 
 
 
 
-
-
-
 ### 3.1.1 scatter plot
-```{r eval=FALSE}
-library(gapminder)
-library(dplyr)
-library(ggplot2)
-# Create a scatter plot with pop on the x-axis and lifeExp on the y-axis
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
-  geom_point()
+import matplotlib.pyplot as plt
+x = [1,2,3,4,5,6,7,8]
+y = [5,2,4,2,1,4,5,2]
+plt.scatter(x,y, label='skitscat', color='k', s=25, marker="o")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interesting Graph\nCheck it out')
+plt.legend()
+plt.show()
 
-```
+#Stack Plots
+import matplotlib.pyplot as plt
+days = [1,2,3,4,5]
+sleeping = [7,8,6,11,7]
+eating =   [2,3,4,3,2]
+working =  [7,8,7,2,2]
+playing =  [8,5,7,8,13]
+plt.plot([],[],color='m', label='Sleeping', linewidth=5)
+plt.plot([],[],color='c', label='Eating', linewidth=5)
+plt.plot([],[],color='r', label='Working', linewidth=5)
+plt.plot([],[],color='k', label='Playing', linewidth=5)
+plt.stackplot(days, sleeping,eating,working,playing, colors=['m','c','r','k'])
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interesting Graph\nCheck it out')
+plt.legend()
+plt.show()
 
+# lines
 
-log scale
-```{r eval=FALSE}
-library(gapminder)
-library(dplyr)
-library(ggplot2)
-# Create a scatter plot with pop on the x-axis(as log) and lifeExp on the y-axis
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
-  geom_point()+scale_x_log10()
+import matplotlib.pyplot as plt
+ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
+ts = ts.cumsum()
+ts.plot()
 
-```
-
-
-color
-```{r eval=FALSE}
-library(gapminder)
-library(dplyr)
-library(ggplot2)
-# Scatter plot comparing pop and lifeExp, with color representing continent
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp, color = continent)) +
-  geom_point() +
-  scale_x_log10()
-
-```
-
-size
-```{r eval=FALSE}
-# Add the size aesthetic to represent a country's gdpPercap
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp, color = continent, size = gdpPercap)) +
-  geom_point() +
-  scale_x_log10()
-```
-
-Faceting
-```{r eval=FALSE}
-# Scatter plot comparing pop and lifeExp, faceted by continent
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
-  geom_point() +
-  scale_x_log10() +
-  facet_wrap(~ continent)
-
-```
-
-Faceting with free Y scales
-```{r eval=FALSE}
-# Scatter plot comparing pop and lifeExp, faceted by continent wiyh free y scales
-ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
-  geom_point() +
-  scale_x_log10() +
-  facet_wrap(~ continent,scales="free_y")
-```
+df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index, columns=list('ABCD'))
+df = df.cumsum()
+plt.figure()
+df.plot()
 
 
-### 3.1.2 line plot
-```{r eval=FALSE}
-# Summarize the median gdpPercap by year, then save it as by_year
-by_year <- gapminder %>%
-  group_by(year) %>%
-  summarize(medianGdpPercap = median(gdpPercap))
 
-# Create a line plot showing the change in medianGdpPercap over time
-ggplot(by_year, aes(x = year, y = medianGdpPercap)) +
-  geom_line() +
-  expand_limits(y = 0)
-```
 
-### 3.1.3 Bar plot
-```{r eval=FALSE}
-by_continent <- gapminder %>%
-  filter(year == 1952) %>%
-  group_by(continent) %>%
-  summarize(medianGdpPercap = median(gdpPercap))
 
-# Create a bar plot showing medianGdp by continent
-ggplot(by_continent, aes(x = continent, y = medianGdpPercap)) +
-  geom_col()
-```
 
-### 3.1.4 histograms
-```{r eval=FALSE}
-gapminder_1952 <- gapminder %>%
-  filter(year == 1952)
 
-# Create a histogram of population (pop)
-ggplot(gapminder_1952, aes(x = pop)) +
-  geom_histogram()
 
-```
-
-histograms With 10 bins
-```{r eval=FALSE}
-# Create a histogram of population (pop) with 10 bins
-ggplot(gapminder_1952, aes(x = pop)) +
-  geom_histogram(bins=10)
-
-```
-
-histograms With width 5 for each bins
-```{r eval=FALSE}
-# Create a histogram of population (pop) with 10 bins
-ggplot(gapminder_1952, aes(x = pop)) +
-  geom_histogram(binwidth =5)
-
-```
-
-### 3.1.5 Boxplot
-```{r eval=FALSE}
-gapminder_1952 <- gapminder %>%
-  filter(year == 1952)
-
-# Create a boxplot comparing gdpPercap among continents
-ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
-  geom_boxplot() +
-  scale_y_log10()
-
-```
 ### 3.1.6 Other plot 
 
 
 ### 3.1.7 setting 
 
 
+## 3.2 Seaborn
+http://seaborn.pydata.org/introduction.html#introduction
 
-## 3.2 plotly
+
+## 3.3 plotly
+https://plot.ly/python/
+!pip install plotly --upgrade
+
+import plotly
+plotly.__version__
+
+import plotly.plotly as py
+import plotly.graph_objs as go
+# Create random data with numpy
+import numpy as np
+N = 1000
+random_x = np.random.randn(N)
+random_y = np.random.randn(N)
+
+# Create a trace
+trace = go.Scatter(
+    x = random_x,
+    y = random_y,
+    mode = 'markers'
+)
+
+data = [trace]
+
+# Plot and embed in ipython notebook!
+plotly.offline.plot(data, filename='basic-scatter')
+
 
 ## 3.3 Map
 
