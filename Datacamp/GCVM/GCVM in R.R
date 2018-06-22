@@ -373,6 +373,10 @@ if P-value <0.05 then two group are different
 
 
 ## 4.2 classification
+
+https://www.datacamp.com/tracks/machine-learning
+
+
 randomForest
 CARET
 https://topepo.github.io/caret/index.html
