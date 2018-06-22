@@ -375,6 +375,8 @@ if P-value <0.05 then two group are different
 ## 4.2 classification
 
 https://www.datacamp.com/tracks/machine-learning
+https://lgatto.github.io/IntroMachineLearningWithR/index.html
+
 
 
 randomForest
