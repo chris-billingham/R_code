@@ -373,7 +373,27 @@ if P-value <0.05 then two group are different
 
 
 ## 4.2 classification
+randomForest
+CARET
+https://topepo.github.io/caret/index.html
 
+nnet
+e1071
+install.packages('caret')
+install.packages('broom')
+install.packages('AppliedPredictiveModeling')
+library(caret)
+str(iris)
+
+library(AppliedPredictiveModeling)
+
+transparentTheme(trans = .4)
+
+featurePlot(x = iris[, 1:4], 
+            y = iris$Species, 
+            plot = "pairs",
+            ## Add a key at the top
+            auto.key = list(columns = 3))
 
 ## 4.3 scoring
 
