@@ -1,5 +1,18 @@
+
+For Rtudio to run python:
+install.packages("reticulate") 
+library(reticulate)
+repl_python()
+exit 
+
+
+
 # GCVM in Python
 Get  Clean Visualize Model
+print("hello world!")
+
+
+
 # 0 Basic
 
 ## 0.1 install
