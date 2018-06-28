@@ -454,6 +454,22 @@ Yihui Xie
 
 ## 5.4 Case study:  
 
+### Marketing 
+life time value
+Churn Prevention
+campaign
+Survival Analysis
+Principal Component Analysis
+### credit score
+
+### fraud
+
+### HR
+
+
+### finance
+investment
+
 
 
 
