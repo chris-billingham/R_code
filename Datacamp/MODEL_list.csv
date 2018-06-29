@@ -1,0 +1,7 @@
+Model,TYPE,Normalization,Binning,encode,package
+KNN,,,,,
+naive bayes,,,,,
+decision tree,,,,,
+random forest,,,,,
+logistic regression,,,,,
+linear regression,,,,,

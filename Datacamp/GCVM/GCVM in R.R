@@ -433,6 +433,9 @@ featurePlot(x = iris[, 1:4],
 4.Introduction to Statistical Learning(ISLR) by Gareth James,Daniela Witten and Trevor Hastie Robert Tibshirani
 5.ggplot2 - Elegant Graphics for Data Analysis  by Hadley Wickham
 6.Deep Learning with R by François Chollet with J. J. Allaire
+7.Practical Data Science with R by Nina Zumel and John Mount
+
+
 ## 5.2 talk:
 Introduction to Big O Notation and Time Complexity
 https://www.youtube.com/watch?v=D6xkbGLQesk  
